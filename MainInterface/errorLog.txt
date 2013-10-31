@@ -1,4 +1,4 @@
-2010-5-17 12:12:54
+﻿2010-5-17 12:12:54
 系统错误
 发生无法预知的错误！
 
@@ -15,4 +15,6 @@
 错误消息：未将对象引用设置到对象的实例。
 项目任务信息：   at MainInterface.frmProjectTerminate.InitComboBox() in D:\担保业务系统\GmisClientSrc2003(update)\MainInterface\xiaojun\frmProjectTerminate.vb:line 599
    at MainInterface.frmProjectTerminate.frmProjectTerminate_Load(Object sender, EventArgs e) in D:\担保业务系统\GmisClientSrc2003(update)\MainInterface\xiaojun\frmProjectTerminate.vb:line 585
+
+test
 ----------------------
