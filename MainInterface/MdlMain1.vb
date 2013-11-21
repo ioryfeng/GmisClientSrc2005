@@ -1,6 +1,6 @@
 Module MdlMain
     'Private moSplash As SWDialogBox.SplashBox
-    Private _system As String = "v3.0.8"
+    Private _system As String = "v3.1.0"
 
     Friend Sub LoginedProcess(ByVal sender As Object, ByVal e As SWDialogBox.LoginedEventArgs)
         'If Not moSplash Is Nothing Then
