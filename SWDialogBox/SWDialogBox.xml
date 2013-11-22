@@ -4,140 +4,6 @@
         <name>SWDialogBox</name>
     </assembly>
     <members>
-        <member name="T:SWDialogBox.MessageBoxButton">
-            <summary>
-            指定若干常数，用以定义 MessageBox 上将显示哪些按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.OK">
-            <summary>
-            消息框包含“确定(OK)”按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.OKCancel">
-            <summary>
-            消息框包含“确定(OK)”和“取消(Cancel)”按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.RetryCancel">
-            <summary>
-            消息框包含“重试(Retry)”和“取消(Cancel)”按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.YesNo">
-            <summary>
-            消息框包含“是(Yes)”和“否(No)”按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.YesNoCancel">
-            <summary>
-            消息框包含“是(Yes)”、“否(No)”和“取消(Cancel)”按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.Detail">
-            <summary>
-            消息框包含“详细(Detail)”按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.DefaultButton1">
-            <summary>
-            消息框上的第一个按钮是默认按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.DefaultButton2">
-            <summary>
-            消息框上的第二个按钮是默认按钮。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxButton.DefaultButton3">
-            <summary>
-            消息框上的第三个按钮是默认按钮。
-            </summary>
-        </member>
-        <member name="T:SWDialogBox.MessageBoxIcon">
-            <summary>
-            指定若干常数，用以定义 MessageBox 上将显示的图标类型。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxIcon.None">
-            <summary>
-            消息框未包含图标。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxIcon.Error">
-            <summary>
-            该消息框包含一个图标，该图标是由一个红色背景的圆圈及其中的白色 X 组成的。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxIcon.Warning">
-            <summary>
-            该消息框包含一个图标，该图标是由一个黄色背景的三角形及其中的一个感叹号组成的。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxIcon.Critical">
-            <summary>
-            该消息框包含一个图标，该图标是由一个红色背景的圆圈及其中的白色 X 组成的。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxIcon.Question">
-            <summary>
-            该消息框包含一个图标，该图标是由一个圆圈和其中的一个问号组成的。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxIcon.Exclamation">
-            <summary>
-            该消息框包含一个图标，该图标是由一个黄色背景的三角形及其中的一个感叹号组成的。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.MessageBoxIcon.Information">
-            <summary>
-            该消息框包含一个图标，该图标是由一个圆圈及其中的小写字母 i 组成的。
-            </summary>
-        </member>
-        <member name="T:SWDialogBox.MessageBox">
-            <summary>
-            显示可包含文本、按钮和符号（通知并指示用户）的消息框。
-            </summary>
-        </member>
-        <member name="M:SWDialogBox.MessageBox.#ctor">
-            <summary>
-            该构造函数为私有类型，将阻止该类实例化。
-            </summary>
-        </member>
-        <member name="M:SWDialogBox.MessageBox.Show(System.String)">
-            <summary>
-            显示指定消息编号对应信息的消息框。
-            </summary>
-            <param name="messageID">消息编号。</param>
-            <returns>System.Window.Forms.DialogResult 值之一。</returns>
-        </member>
-        <member name="M:SWDialogBox.MessageBox.Show(System.String,System.Object[])">
-            <summary>
-            显示指定消息编号对应信息的消息框。
-            </summary>
-            <param name="messageID">消息编号。</param>
-            <param name="args">要使用 format 写入的对象的数组。</param>
-            <returns>System.Window.Forms.DialogResult 值之一。</returns>
-        </member>
-        <member name="M:SWDialogBox.MessageBox.Show(System.String,System.String,System.String,SWDialogBox.MessageBoxButton,SWDialogBox.MessageBoxIcon)">
-            <summary>
-            显示具有指定文本、标题、详细注视、按钮、图标和默认按钮的消息框。
-            </summary>
-            <param name="message">消息框中显示的文本。</param>
-            <param name="caption">消息框的标题栏中显示的文本。</param>
-            <param name="description">消息框的详细注视栏中显示的文本。</param>
-            <param name="button">SWDialogBox.MessageBoxButton 值之一，它指定在消息框中显示哪些按钮及默认按钮。</param>
-            <param name="icon">SWDialogBox.MessageBoxIcon 值之一，它指定在消息框中显示哪个图标。</param>
-            <returns>System.Window.Forms.DialogResult 值之一。</returns>
-        </member>
-        <member name="P:SWDialogBox.MessageBox.Icon">
-            <summary>
-            获取或设置消息框窗体左上角的系统图标。
-            </summary>
-            <remarks>
-            该值为空值（在Visual Basic中为Nothing）默认为系统提供的图标。
-            </remarks>
-        </member>
         <member name="T:SWDialogBox.LoginResult">
             <summary>
             指示登录是否成功的返回状态。
@@ -341,27 +207,6 @@
             获取或设置登录框窗体的标题栏的显示图像。
             </summary>
         </member>
-        <member name="T:SWDialogBox.FLoginBox">
-            <summary>
-            Form1 的摘要说明。
-            </summary>
-        </member>
-        <member name="F:SWDialogBox.FLoginBox.components">
-            <summary>
-            必需的设计器变量。
-            </summary>
-        </member>
-        <member name="M:SWDialogBox.FLoginBox.Dispose(System.Boolean)">
-            <summary>
-            清理所有正在使用的资源。
-            </summary>
-        </member>
-        <member name="M:SWDialogBox.FLoginBox.InitializeComponent">
-            <summary>
-            设计器支持所需的方法 - 不要使用代码编辑器修改
-            此方法的内容。
-            </summary>
-        </member>
         <member name="T:SWDialogBox.SplashBox">
             <summary>
             显示包含授权用户、组织和产品序列号的封面窗口。
@@ -528,6 +373,27 @@
             获取或设置当前鼠标指针位于“封面”窗体上时显示的光标。
             </summary>
         </member>
+        <member name="T:SWDialogBox.FLoginBox">
+            <summary>
+            Form1 的摘要说明。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.FLoginBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SWDialogBox.FLoginBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+        </member>
+        <member name="M:SWDialogBox.FLoginBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
         <member name="T:SWDialogBox.FSplashBox">
             <summary>
             FSplash 的摘要说明。
@@ -581,6 +447,140 @@
             设计器支持所需的方法 - 不要使用代码编辑器修改
             此方法的内容。
             </summary>
+        </member>
+        <member name="T:SWDialogBox.MessageBoxButton">
+            <summary>
+            指定若干常数，用以定义 MessageBox 上将显示哪些按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.OK">
+            <summary>
+            消息框包含“确定(OK)”按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.OKCancel">
+            <summary>
+            消息框包含“确定(OK)”和“取消(Cancel)”按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.RetryCancel">
+            <summary>
+            消息框包含“重试(Retry)”和“取消(Cancel)”按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.YesNo">
+            <summary>
+            消息框包含“是(Yes)”和“否(No)”按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.YesNoCancel">
+            <summary>
+            消息框包含“是(Yes)”、“否(No)”和“取消(Cancel)”按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.Detail">
+            <summary>
+            消息框包含“详细(Detail)”按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.DefaultButton1">
+            <summary>
+            消息框上的第一个按钮是默认按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.DefaultButton2">
+            <summary>
+            消息框上的第二个按钮是默认按钮。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxButton.DefaultButton3">
+            <summary>
+            消息框上的第三个按钮是默认按钮。
+            </summary>
+        </member>
+        <member name="T:SWDialogBox.MessageBoxIcon">
+            <summary>
+            指定若干常数，用以定义 MessageBox 上将显示的图标类型。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxIcon.None">
+            <summary>
+            消息框未包含图标。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxIcon.Error">
+            <summary>
+            该消息框包含一个图标，该图标是由一个红色背景的圆圈及其中的白色 X 组成的。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxIcon.Warning">
+            <summary>
+            该消息框包含一个图标，该图标是由一个黄色背景的三角形及其中的一个感叹号组成的。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxIcon.Critical">
+            <summary>
+            该消息框包含一个图标，该图标是由一个红色背景的圆圈及其中的白色 X 组成的。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxIcon.Question">
+            <summary>
+            该消息框包含一个图标，该图标是由一个圆圈和其中的一个问号组成的。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxIcon.Exclamation">
+            <summary>
+            该消息框包含一个图标，该图标是由一个黄色背景的三角形及其中的一个感叹号组成的。
+            </summary>
+        </member>
+        <member name="F:SWDialogBox.MessageBoxIcon.Information">
+            <summary>
+            该消息框包含一个图标，该图标是由一个圆圈及其中的小写字母 i 组成的。
+            </summary>
+        </member>
+        <member name="T:SWDialogBox.MessageBox">
+            <summary>
+            显示可包含文本、按钮和符号（通知并指示用户）的消息框。
+            </summary>
+        </member>
+        <member name="M:SWDialogBox.MessageBox.#ctor">
+            <summary>
+            该构造函数为私有类型，将阻止该类实例化。
+            </summary>
+        </member>
+        <member name="M:SWDialogBox.MessageBox.Show(System.String)">
+            <summary>
+            显示指定消息编号对应信息的消息框。
+            </summary>
+            <param name="messageID">消息编号。</param>
+            <returns>System.Window.Forms.DialogResult 值之一。</returns>
+        </member>
+        <member name="M:SWDialogBox.MessageBox.Show(System.String,System.Object[])">
+            <summary>
+            显示指定消息编号对应信息的消息框。
+            </summary>
+            <param name="messageID">消息编号。</param>
+            <param name="args">要使用 format 写入的对象的数组。</param>
+            <returns>System.Window.Forms.DialogResult 值之一。</returns>
+        </member>
+        <member name="M:SWDialogBox.MessageBox.Show(System.String,System.String,System.String,SWDialogBox.MessageBoxButton,SWDialogBox.MessageBoxIcon)">
+            <summary>
+            显示具有指定文本、标题、详细注视、按钮、图标和默认按钮的消息框。
+            </summary>
+            <param name="message">消息框中显示的文本。</param>
+            <param name="caption">消息框的标题栏中显示的文本。</param>
+            <param name="description">消息框的详细注视栏中显示的文本。</param>
+            <param name="button">SWDialogBox.MessageBoxButton 值之一，它指定在消息框中显示哪些按钮及默认按钮。</param>
+            <param name="icon">SWDialogBox.MessageBoxIcon 值之一，它指定在消息框中显示哪个图标。</param>
+            <returns>System.Window.Forms.DialogResult 值之一。</returns>
+        </member>
+        <member name="P:SWDialogBox.MessageBox.Icon">
+            <summary>
+            获取或设置消息框窗体左上角的系统图标。
+            </summary>
+            <remarks>
+            该值为空值（在Visual Basic中为Nothing）默认为系统提供的图标。
+            </remarks>
         </member>
     </members>
 </doc>
