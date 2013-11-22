@@ -253,9 +253,15 @@ Public Class frmMeetingRecord
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents txtCreditLevel As System.Windows.Forms.TextBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Label45 As System.Windows.Forms.Label
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents Label46 As System.Windows.Forms.Label
+    Friend WithEvents txtBankSecurityRate As System.Windows.Forms.TextBox
+    Friend WithEvents Label49 As System.Windows.Forms.Label
     Friend WithEvents dtpGuarantEndDate As System.Windows.Forms.DateTimePicker
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMeetingRecord))
+        Dim txtBankFeeRate As System.Windows.Forms.TextBox
         Me.btnCommit = New System.Windows.Forms.Button
         Me.TabControl = New System.Windows.Forms.TabControl
         Me.tpInfo = New System.Windows.Forms.TabPage
@@ -391,6 +397,12 @@ Public Class frmMeetingRecord
         Me.btnJoinReport = New System.Windows.Forms.Button
         Me.btnSplitProject = New System.Windows.Forms.Button
         Me.btnSupplyOppGua = New System.Windows.Forms.Button
+        Me.Label44 = New System.Windows.Forms.Label
+        Me.Label45 = New System.Windows.Forms.Label
+        Me.Label46 = New System.Windows.Forms.Label
+        Me.txtBankSecurityRate = New System.Windows.Forms.TextBox
+        Me.Label49 = New System.Windows.Forms.Label
+        txtBankFeeRate = New System.Windows.Forms.TextBox
         Me.TabControl.SuspendLayout()
         Me.tpInfo.SuspendLayout()
         Me.gpbxInfo.SuspendLayout()
@@ -429,6 +441,32 @@ Public Class frmMeetingRecord
         'ImageListBasic
         '
         Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
+        Me.ImageListBasic.Images.SetKeyName(25, "")
         '
         'btnCommit
         '
@@ -711,6 +749,12 @@ Public Class frmMeetingRecord
         '
         'gpbxConclusion
         '
+        Me.gpbxConclusion.Controls.Add(Me.Label46)
+        Me.gpbxConclusion.Controls.Add(Me.txtBankSecurityRate)
+        Me.gpbxConclusion.Controls.Add(Me.Label49)
+        Me.gpbxConclusion.Controls.Add(Me.Label45)
+        Me.gpbxConclusion.Controls.Add(txtBankFeeRate)
+        Me.gpbxConclusion.Controls.Add(Me.Label44)
         Me.gpbxConclusion.Controls.Add(Me.txtCreditLevel)
         Me.gpbxConclusion.Controls.Add(Me.Label25)
         Me.gpbxConclusion.Controls.Add(Me.Label22)
@@ -832,23 +876,25 @@ Public Class frmMeetingRecord
         '
         Me.cboPartner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPartner.Enabled = False
-        Me.cboPartner.Location = New System.Drawing.Point(120, 368)
+        Me.cboPartner.Location = New System.Drawing.Point(189, 337)
         Me.cboPartner.Name = "cboPartner"
-        Me.cboPartner.Size = New System.Drawing.Size(112, 20)
+        Me.cboPartner.Size = New System.Drawing.Size(67, 20)
         Me.cboPartner.TabIndex = 105
+        Me.cboPartner.Visible = False
         '
         'chkPartner
         '
-        Me.chkPartner.Location = New System.Drawing.Point(18, 368)
+        Me.chkPartner.Location = New System.Drawing.Point(189, 315)
         Me.chkPartner.Name = "chkPartner"
         Me.chkPartner.Size = New System.Drawing.Size(88, 20)
         Me.chkPartner.TabIndex = 104
         Me.chkPartner.Text = "推荐合作区"
+        Me.chkPartner.Visible = False
         '
         'dtpPartnerDate
         '
         Me.dtpPartnerDate.Enabled = False
-        Me.dtpPartnerDate.Location = New System.Drawing.Point(432, 338)
+        Me.dtpPartnerDate.Location = New System.Drawing.Point(208, 362)
         Me.dtpPartnerDate.Name = "dtpPartnerDate"
         Me.dtpPartnerDate.Size = New System.Drawing.Size(112, 21)
         Me.dtpPartnerDate.TabIndex = 107
@@ -857,7 +903,7 @@ Public Class frmMeetingRecord
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(376, 340)
+        Me.Label36.Location = New System.Drawing.Point(262, 337)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(53, 12)
         Me.Label36.TabIndex = 111
@@ -868,20 +914,22 @@ Public Class frmMeetingRecord
         'txtPartnerMoney
         '
         Me.txtPartnerMoney.Enabled = False
-        Me.txtPartnerMoney.Location = New System.Drawing.Point(432, 368)
+        Me.txtPartnerMoney.Location = New System.Drawing.Point(181, 255)
         Me.txtPartnerMoney.Name = "txtPartnerMoney"
-        Me.txtPartnerMoney.Size = New System.Drawing.Size(176, 21)
+        Me.txtPartnerMoney.Size = New System.Drawing.Size(104, 21)
         Me.txtPartnerMoney.TabIndex = 106
+        Me.txtPartnerMoney.Visible = False
         '
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(336, 370)
+        Me.Label19.Location = New System.Drawing.Point(179, 233)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(89, 12)
         Me.Label19.TabIndex = 110
         Me.Label19.Text = "推荐金额(万元)"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label19.Visible = False
         '
         'txtPartnerOpnion
         '
@@ -932,8 +980,6 @@ Public Class frmMeetingRecord
         'cboRunMode
         '
         Me.cboRunMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        'Me.cboRunMode.Enabled = False
-        'Me.cboRunMode.Items.AddRange(New Object() {"单笔保函", "额度项下保函"})
         Me.cboRunMode.Location = New System.Drawing.Point(120, 96)
         Me.cboRunMode.Name = "cboRunMode"
         Me.cboRunMode.Size = New System.Drawing.Size(136, 20)
@@ -1738,11 +1784,11 @@ Public Class frmMeetingRecord
         'txtRemark
         '
         Me.txtRemark.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtRemark.Location = New System.Drawing.Point(3, 3)
+        Me.txtRemark.Location = New System.Drawing.Point(0, 0)
         Me.txtRemark.MaxLength = 1000
         Me.txtRemark.Multiline = True
         Me.txtRemark.Name = "txtRemark"
-        Me.txtRemark.Size = New System.Drawing.Size(626, 433)
+        Me.txtRemark.Size = New System.Drawing.Size(632, 439)
         Me.txtRemark.TabIndex = 48
         '
         'txtCorName
@@ -1856,6 +1902,60 @@ Public Class frmMeetingRecord
         Me.btnSupplyOppGua.TabIndex = 47
         Me.btnSupplyOppGua.Text = "补充反担保措施(&S)"
         Me.btnSupplyOppGua.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtBankFeeRate
+        '
+        txtBankFeeRate.Enabled = False
+        txtBankFeeRate.Location = New System.Drawing.Point(120, 366)
+        txtBankFeeRate.Name = "txtBankFeeRate"
+        txtBankFeeRate.Size = New System.Drawing.Size(40, 21)
+        txtBankFeeRate.TabIndex = 118
+        txtBankFeeRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(15, 369)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(77, 12)
+        Me.Label44.TabIndex = 117
+        Me.Label44.Text = "银行费用比例"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(162, 371)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(11, 12)
+        Me.Label45.TabIndex = 119
+        Me.Label45.Text = "%"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(474, 371)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(11, 12)
+        Me.Label46.TabIndex = 122
+        Me.Label46.Text = "%"
+        '
+        'txtBankSecurityRate
+        '
+        Me.txtBankSecurityRate.Enabled = False
+        Me.txtBankSecurityRate.Location = New System.Drawing.Point(432, 366)
+        Me.txtBankSecurityRate.Name = "txtBankSecurityRate"
+        Me.txtBankSecurityRate.Size = New System.Drawing.Size(40, 21)
+        Me.txtBankSecurityRate.TabIndex = 121
+        Me.txtBankSecurityRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(327, 369)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(89, 12)
+        Me.Label49.TabIndex = 120
+        Me.Label49.Text = "银行保证金比例"
         '
         'frmMeetingRecord
         '
@@ -4210,7 +4310,7 @@ Public Class frmMeetingRecord
                 htMeeting.Item("&#Deposit") = String.Empty
                 htMeeting.Item("&#SpecialLabel") = "评审顾问"
                 htMeeting.Item("&#balanceSum") = String.Empty
-                End If
+            End If
             '备注
             obj = infoRow("Remark")
             htMeeting.Item("&#Remark") = obj & ""
