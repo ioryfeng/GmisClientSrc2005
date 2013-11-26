@@ -72,10 +72,7 @@
     <DebugType>none</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IrisSkin">
-      <Name>irisskin</Name>
-      <HintPath>..\..\..\源码\c#+皮肤+irisskin\破解版\irisskin.dll</HintPath>
-    </Reference>
+    <Reference Include="irisskin, Version=2006.3.22.45, Culture=neutral" />
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
     </Reference>
@@ -2179,13 +2176,13 @@
     <EmbeddedResource Include="zf\FWorkType.resx">
       <DependentUpon>FWorkType.vb</DependentUpon>
     </EmbeddedResource>
+    <Content Include="dll\irisskin.dll" />
     <Content Include="dll\Money2String.dll" />
     <Content Include="dll\SWCalendar.dll" />
     <Content Include="dll\SWDialogBox.dll" />
     <Content Include="dll\SWSystem.Windows.Forms.dll" />
     <Content Include="dll\SWSystem.XML.dll" />
     <Content Include="Logo.ico" />
-    <Folder Include="Pawn" />
     <WebReferenceUrl Include="http://localhost/webservice_cgmis/permission.asmx">
       <RelPath>Web References\htfServerPermission\</RelPath>
       <UrlBehavior>Static</UrlBehavior>
@@ -2205,6 +2202,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{CF845C55-C321-4742-B673-E6212D061ED9}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pawn\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>

@@ -279,11 +279,36 @@ Public Class frmMainInterface
     Friend WithEvents mnuMessagesSender As SWSystem.Windows.Forms.MenuItem
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents grpTask As System.Windows.Forms.GroupBox
+    Friend WithEvents mnuSkin As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem12 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem21 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem37 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem38 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem39 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem40 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem41 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem43 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem45 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem48 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem65 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem66 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem68 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem70 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem72 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem73 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem74 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem75 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem76 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem77 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem78 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem79 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem80 As System.Windows.Forms.MenuItem
     Friend WithEvents task_name_tree As System.Windows.Forms.TreeView
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmMainInterface))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainInterface))
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("任务列表")
         Me.StatusBar1 = New System.Windows.Forms.StatusBar
         Me.StatusBarPanel2 = New System.Windows.Forms.StatusBarPanel
         Me.StatusBarPanel3 = New System.Windows.Forms.StatusBarPanel
@@ -330,7 +355,7 @@ Public Class frmMainInterface
         Me.ToolBarBttnApply = New System.Windows.Forms.ToolBarButton
         Me.ToolBarButton5 = New System.Windows.Forms.ToolBarButton
         Me.ToolBarButton8 = New System.Windows.Forms.ToolBarButton
-        Me.MainMn = New System.Windows.Forms.MainMenu
+        Me.MainMn = New System.Windows.Forms.MainMenu(Me.components)
         Me.mnuSystem = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemLogin = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemSeparator1 = New SWSystem.Windows.Forms.MenuItem
@@ -501,6 +526,30 @@ Public Class frmMainInterface
         Me.mnuMessagesSender = New SWSystem.Windows.Forms.MenuItem
         Me.MenuItem36 = New SWSystem.Windows.Forms.MenuItem
         Me.mnuToolsOptions = New SWSystem.Windows.Forms.MenuItem
+        Me.mnuSkin = New System.Windows.Forms.MenuItem
+        Me.MenuItem12 = New System.Windows.Forms.MenuItem
+        Me.MenuItem21 = New System.Windows.Forms.MenuItem
+        Me.MenuItem37 = New System.Windows.Forms.MenuItem
+        Me.MenuItem38 = New System.Windows.Forms.MenuItem
+        Me.MenuItem39 = New System.Windows.Forms.MenuItem
+        Me.MenuItem40 = New System.Windows.Forms.MenuItem
+        Me.MenuItem41 = New System.Windows.Forms.MenuItem
+        Me.MenuItem43 = New System.Windows.Forms.MenuItem
+        Me.MenuItem45 = New System.Windows.Forms.MenuItem
+        Me.MenuItem48 = New System.Windows.Forms.MenuItem
+        Me.MenuItem65 = New System.Windows.Forms.MenuItem
+        Me.MenuItem66 = New System.Windows.Forms.MenuItem
+        Me.MenuItem68 = New System.Windows.Forms.MenuItem
+        Me.MenuItem70 = New System.Windows.Forms.MenuItem
+        Me.MenuItem72 = New System.Windows.Forms.MenuItem
+        Me.MenuItem73 = New System.Windows.Forms.MenuItem
+        Me.MenuItem74 = New System.Windows.Forms.MenuItem
+        Me.MenuItem75 = New System.Windows.Forms.MenuItem
+        Me.MenuItem76 = New System.Windows.Forms.MenuItem
+        Me.MenuItem77 = New System.Windows.Forms.MenuItem
+        Me.MenuItem78 = New System.Windows.Forms.MenuItem
+        Me.MenuItem79 = New System.Windows.Forms.MenuItem
+        Me.MenuItem80 = New System.Windows.Forms.MenuItem
         Me.mnuView = New SWSystem.Windows.Forms.MenuItem
         Me.MnItemTool = New SWSystem.Windows.Forms.MenuItem
         Me.MnItemStatic = New SWSystem.Windows.Forms.MenuItem
@@ -534,17 +583,19 @@ Public Class frmMainInterface
         Me.Panel4.SuspendLayout()
         Me.grpTask.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 446)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 485)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarPanel2, Me.StatusBarPanel3, Me.StatusBarPanel5, Me.StatusBarPanel4})
         Me.StatusBar1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StatusBar1.ShowPanels = True
-        Me.StatusBar1.Size = New System.Drawing.Size(864, 27)
+        Me.StatusBar1.Size = New System.Drawing.Size(997, 27)
         Me.StatusBar1.TabIndex = 2
         Me.StatusBar1.Text = "StatusBar1"
         '
@@ -552,30 +603,46 @@ Public Class frmMainInterface
         '
         Me.StatusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring
         Me.StatusBarPanel2.Icon = CType(resources.GetObject("StatusBarPanel2.Icon"), System.Drawing.Icon)
+        Me.StatusBarPanel2.Name = "StatusBarPanel2"
         Me.StatusBarPanel2.Text = "消息"
-        Me.StatusBarPanel2.Width = 388
+        Me.StatusBarPanel2.Width = 520
         '
         'StatusBarPanel3
         '
         Me.StatusBarPanel3.Icon = CType(resources.GetObject("StatusBarPanel3.Icon"), System.Drawing.Icon)
+        Me.StatusBarPanel3.Name = "StatusBarPanel3"
         Me.StatusBarPanel3.Text = "操作员："
         Me.StatusBarPanel3.Width = 160
         '
         'StatusBarPanel5
         '
         Me.StatusBarPanel5.Icon = CType(resources.GetObject("StatusBarPanel5.Icon"), System.Drawing.Icon)
+        Me.StatusBarPanel5.Name = "StatusBarPanel5"
         Me.StatusBarPanel5.Width = 150
         '
         'StatusBarPanel4
         '
         Me.StatusBarPanel4.Icon = CType(resources.GetObject("StatusBarPanel4.Icon"), System.Drawing.Icon)
+        Me.StatusBarPanel4.Name = "StatusBarPanel4"
         Me.StatusBarPanel4.Width = 150
         '
         'ImageList1
         '
-        Me.ImageList1.ImageSize = New System.Drawing.Size(20, 20)
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "")
+        Me.ImageList1.Images.SetKeyName(1, "")
+        Me.ImageList1.Images.SetKeyName(2, "")
+        Me.ImageList1.Images.SetKeyName(3, "")
+        Me.ImageList1.Images.SetKeyName(4, "")
+        Me.ImageList1.Images.SetKeyName(5, "")
+        Me.ImageList1.Images.SetKeyName(6, "")
+        Me.ImageList1.Images.SetKeyName(7, "")
+        Me.ImageList1.Images.SetKeyName(8, "")
+        Me.ImageList1.Images.SetKeyName(9, "")
+        Me.ImageList1.Images.SetKeyName(10, "")
+        Me.ImageList1.Images.SetKeyName(11, "")
+        Me.ImageList1.Images.SetKeyName(12, "")
         '
         'mnQuery
         '
@@ -659,7 +726,7 @@ Public Class frmMainInterface
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 32)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(224, 414)
+        Me.Panel1.Size = New System.Drawing.Size(224, 453)
         Me.Panel1.TabIndex = 10
         Me.Panel1.Visible = False
         '
@@ -669,7 +736,7 @@ Public Class frmMainInterface
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(224, 414)
+        Me.Panel4.Size = New System.Drawing.Size(224, 453)
         Me.Panel4.TabIndex = 0
         '
         'grpTask
@@ -678,7 +745,7 @@ Public Class frmMainInterface
         Me.grpTask.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpTask.Location = New System.Drawing.Point(0, 0)
         Me.grpTask.Name = "grpTask"
-        Me.grpTask.Size = New System.Drawing.Size(224, 414)
+        Me.grpTask.Size = New System.Drawing.Size(224, 453)
         Me.grpTask.TabIndex = 0
         Me.grpTask.TabStop = False
         '
@@ -693,10 +760,12 @@ Public Class frmMainInterface
         Me.task_name_tree.ItemHeight = 20
         Me.task_name_tree.Location = New System.Drawing.Point(3, 17)
         Me.task_name_tree.Name = "task_name_tree"
-        Me.task_name_tree.Nodes.AddRange(New System.Windows.Forms.TreeNode() {New System.Windows.Forms.TreeNode("任务列表")})
+        TreeNode1.Name = ""
+        TreeNode1.Text = "任务列表"
+        Me.task_name_tree.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.task_name_tree.SelectedImageIndex = 5
         Me.task_name_tree.ShowRootLines = False
-        Me.task_name_tree.Size = New System.Drawing.Size(218, 394)
+        Me.task_name_tree.Size = New System.Drawing.Size(218, 433)
         Me.task_name_tree.TabIndex = 21
         '
         'CntxtMnMsg
@@ -734,7 +803,7 @@ Public Class frmMainInterface
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(224, 32)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(5, 414)
+        Me.Panel2.Size = New System.Drawing.Size(5, 453)
         Me.Panel2.TabIndex = 16
         '
         'PictureBox2
@@ -764,60 +833,70 @@ Public Class frmMainInterface
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(229, 32)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(635, 4)
+        Me.Panel3.Size = New System.Drawing.Size(768, 4)
         Me.Panel3.TabIndex = 18
         '
         'ToolBarButton10
         '
+        Me.ToolBarButton10.Name = "ToolBarButton10"
         Me.ToolBarButton10.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'ToolBarBttnConsult
         '
         Me.ToolBarBttnConsult.Enabled = False
         Me.ToolBarBttnConsult.ImageIndex = 9
+        Me.ToolBarBttnConsult.Name = "ToolBarBttnConsult"
         Me.ToolBarBttnConsult.Tag = "1"
         Me.ToolBarBttnConsult.ToolTipText = "咨询登记"
         '
         'ToolBarButton2
         '
+        Me.ToolBarButton2.Name = "ToolBarButton2"
         Me.ToolBarButton2.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'ToolBarButton3
         '
         Me.ToolBarButton3.DropDownMenu = Me.mnQuery
         Me.ToolBarButton3.ImageIndex = 12
+        Me.ToolBarButton3.Name = "ToolBarButton3"
         Me.ToolBarButton3.Tag = "5"
         Me.ToolBarButton3.ToolTipText = "重新登录"
         '
         'ToolBarBttn1
         '
+        Me.ToolBarBttn1.Name = "ToolBarBttn1"
         Me.ToolBarBttn1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'ToolBarBttnRefresh
         '
         Me.ToolBarBttnRefresh.ImageIndex = 3
+        Me.ToolBarBttnRefresh.Name = "ToolBarBttnRefresh"
         Me.ToolBarBttnRefresh.Tag = "3"
         Me.ToolBarBttnRefresh.ToolTipText = "任务刷新"
         '
         'ToolBarButton6
         '
+        Me.ToolBarButton6.Name = "ToolBarButton6"
         Me.ToolBarButton6.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'btnCredit
         '
         Me.btnCredit.ImageIndex = 1
+        Me.btnCredit.Name = "btnCredit"
         Me.btnCredit.Tag = "4"
         Me.btnCredit.ToolTipText = "资信评分"
         '
         'ToolBarButton9
         '
         Me.ToolBarButton9.DropDownMenu = Me.muHelp
+        Me.ToolBarButton9.Name = "ToolBarButton9"
         Me.ToolBarButton9.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         Me.ToolBarButton9.Tag = "6"
         '
         'TlBrBttnExit
         '
         Me.TlBrBttnExit.ImageIndex = 4
+        Me.TlBrBttnExit.Name = "TlBrBttnExit"
         Me.TlBrBttnExit.Tag = "0"
         Me.TlBrBttnExit.ToolTipText = "退出"
         '
@@ -829,32 +908,36 @@ Public Class frmMainInterface
         Me.TlBrMain.Location = New System.Drawing.Point(0, 0)
         Me.TlBrMain.Name = "TlBrMain"
         Me.TlBrMain.ShowToolTips = True
-        Me.TlBrMain.Size = New System.Drawing.Size(864, 32)
+        Me.TlBrMain.Size = New System.Drawing.Size(997, 32)
         Me.TlBrMain.TabIndex = 1
         '
         'ToolBarBttnApply
         '
         Me.ToolBarBttnApply.Enabled = False
         Me.ToolBarBttnApply.ImageIndex = 8
+        Me.ToolBarBttnApply.Name = "ToolBarBttnApply"
         Me.ToolBarBttnApply.Tag = "2"
         Me.ToolBarBttnApply.ToolTipText = "受理申请"
         '
         'ToolBarButton5
         '
+        Me.ToolBarButton5.Name = "ToolBarButton5"
         Me.ToolBarButton5.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'ToolBarButton8
         '
+        Me.ToolBarButton8.Name = "ToolBarButton8"
         Me.ToolBarButton8.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'MainMn
         '
-        Me.MainMn.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystem, Me.mnuTransaction, Me.mnuBase, Me.mnuDocument, Me.mnuWorkLog, Me.mnuQuery, Me.mnuTools, Me.mnuView, Me.mnuHelp})
+        'Me.MainMn.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystem, Me.mnuTransaction, Me.mnuBase, Me.mnuDocument, Me.mnuWorkLog, Me.mnuQuery, Me.mnuTools, Me.mnuSkin, Me.mnuView, Me.mnuHelp})
+        Me.MainMn.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystem, Me.mnuTransaction, Me.mnuBase, Me.mnuDocument, Me.mnuWorkLog, Me.mnuQuery})
         '
         'mnuSystem
         '
         Me.mnuSystem.Index = 0
-        Me.mnuSystem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystemLogin, Me.mnuSystemSeparator1, Me.mnuSystemPageSetup, Me.mnuSystemPreview, Me.mnuSystemPrint, Me.mnuSystemSeparator2, Me.mnuSystemExit})
+        Me.mnuSystem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystemLogin, Me.mnuSystemSeparator1, Me.mnuToolsPassword, Me.mnuMessages, Me.mnuMessagesSender, Me.mnuSystemPageSetup, Me.mnuSystemPreview, Me.mnuSystemPrint, Me.mnuSystemSeparator2, Me.mnuSystemExit})
         Me.mnuSystem.OwnerDraw = True
         Me.mnuSystem.Text = "系统(&S)"
         '
@@ -873,34 +956,34 @@ Public Class frmMainInterface
         'mnuSystemPageSetup
         '
         Me.mnuSystemPageSetup.Enabled = False
-        Me.mnuSystemPageSetup.Index = 2
+        Me.mnuSystemPageSetup.Index = 5
         Me.mnuSystemPageSetup.OwnerDraw = True
         Me.mnuSystemPageSetup.Text = "页面设置(&U)"
         '
         'mnuSystemPreview
         '
         Me.mnuSystemPreview.Enabled = False
-        Me.mnuSystemPreview.Index = 3
+        Me.mnuSystemPreview.Index = 6
         Me.mnuSystemPreview.OwnerDraw = True
         Me.mnuSystemPreview.Text = "预览(&V)"
         '
         'mnuSystemPrint
         '
         Me.mnuSystemPrint.Enabled = False
-        Me.mnuSystemPrint.Index = 4
+        Me.mnuSystemPrint.Index = 7
         Me.mnuSystemPrint.OwnerDraw = True
         Me.mnuSystemPrint.Shortcut = System.Windows.Forms.Shortcut.CtrlP
         Me.mnuSystemPrint.Text = "打印(&P)"
         '
         'mnuSystemSeparator2
         '
-        Me.mnuSystemSeparator2.Index = 5
+        Me.mnuSystemSeparator2.Index = 8
         Me.mnuSystemSeparator2.OwnerDraw = True
         Me.mnuSystemSeparator2.Text = "-"
         '
         'mnuSystemExit
         '
-        Me.mnuSystemExit.Index = 6
+        Me.mnuSystemExit.Index = 9
         Me.mnuSystemExit.OwnerDraw = True
         Me.mnuSystemExit.Text = "退出(&X)"
         '
@@ -1915,69 +1998,191 @@ Public Class frmMainInterface
         'mnuTools
         '
         Me.mnuTools.Index = 6
-        Me.mnuTools.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuToolsPassword, Me.MnItemRight, Me.MenuItem23, Me.mnuToolsNotepad, Me.mnuToolsCalculator, Me.mnuMessages, Me.mnuMessagesSender, Me.MenuItem36, Me.mnuToolsOptions})
+        Me.mnuTools.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MnItemRight, Me.MenuItem23, Me.mnuToolsNotepad, Me.mnuToolsCalculator, Me.MenuItem36, Me.mnuToolsOptions})
         Me.mnuTools.OwnerDraw = True
         Me.mnuTools.Text = "工具(&T)"
         '
         'mnuToolsPassword
         '
-        Me.mnuToolsPassword.Index = 0
+        Me.mnuToolsPassword.Index = 2
         Me.mnuToolsPassword.OwnerDraw = True
         Me.mnuToolsPassword.Text = "口令设置(&P)"
         '
         'MnItemRight
         '
         Me.MnItemRight.Enabled = False
-        Me.MnItemRight.Index = 1
+        Me.MnItemRight.Index = 0
         Me.MnItemRight.OwnerDraw = True
         Me.MnItemRight.Text = "用户管理(&U)"
         '
         'MenuItem23
         '
-        Me.MenuItem23.Index = 2
+        Me.MenuItem23.Index = 1
         Me.MenuItem23.OwnerDraw = True
         Me.MenuItem23.Text = "-"
         '
         'mnuToolsNotepad
         '
-        Me.mnuToolsNotepad.Index = 3
+        Me.mnuToolsNotepad.Index = 2
         Me.mnuToolsNotepad.OwnerDraw = True
         Me.mnuToolsNotepad.Text = "记事本(&N)"
         '
         'mnuToolsCalculator
         '
-        Me.mnuToolsCalculator.Index = 4
+        Me.mnuToolsCalculator.Index = 3
         Me.mnuToolsCalculator.OwnerDraw = True
         Me.mnuToolsCalculator.Text = "计算器(&C)"
         '
         'mnuMessages
         '
-        Me.mnuMessages.Index = 5
+        Me.mnuMessages.Index = 3
         Me.mnuMessages.OwnerDraw = True
         Me.mnuMessages.Text = "消息管理器(&M)"
         '
         'mnuMessagesSender
         '
-        Me.mnuMessagesSender.Index = 6
+        Me.mnuMessagesSender.Index = 4
+        Me.mnuMessagesSender.OwnerDraw = True
         Me.mnuMessagesSender.Text = "发送消息(&S)"
         '
         'MenuItem36
         '
-        Me.MenuItem36.Index = 7
+        Me.MenuItem36.Index = 4
         Me.MenuItem36.OwnerDraw = True
         Me.MenuItem36.Text = "-"
         Me.MenuItem36.Visible = False
         '
         'mnuToolsOptions
         '
-        Me.mnuToolsOptions.Index = 8
+        Me.mnuToolsOptions.Index = 5
         Me.mnuToolsOptions.OwnerDraw = True
         Me.mnuToolsOptions.Text = "选项(&O)..."
         Me.mnuToolsOptions.Visible = False
         '
+        'mnuSkin
+        '
+        Me.mnuSkin.Index = 7
+        Me.mnuSkin.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem12, Me.MenuItem21, Me.MenuItem37, Me.MenuItem38, Me.MenuItem39, Me.MenuItem40, Me.MenuItem41, Me.MenuItem43, Me.MenuItem45, Me.MenuItem48, Me.MenuItem65, Me.MenuItem66, Me.MenuItem68, Me.MenuItem70, Me.MenuItem72, Me.MenuItem73, Me.MenuItem74, Me.MenuItem75, Me.MenuItem76, Me.MenuItem77, Me.MenuItem78, Me.MenuItem79, Me.MenuItem80})
+        Me.mnuSkin.Text = "皮肤(&P)"
+        '
+        'MenuItem12
+        '
+        Me.MenuItem12.Index = 0
+        Me.MenuItem12.Text = "Carlmness"
+        '
+        'MenuItem21
+        '
+        Me.MenuItem21.Index = 1
+        Me.MenuItem21.Text = "Deep"
+        '
+        'MenuItem37
+        '
+        Me.MenuItem37.Index = 2
+        Me.MenuItem37.Text = "Diamond"
+        '
+        'MenuItem38
+        '
+        Me.MenuItem38.Index = 3
+        Me.MenuItem38.Text = "Eighteen"
+        '
+        'MenuItem39
+        '
+        Me.MenuItem39.Index = 4
+        Me.MenuItem39.Text = "Emerald"
+        '
+        'MenuItem40
+        '
+        Me.MenuItem40.Index = 5
+        Me.MenuItem40.Text = "Glass"
+        '
+        'MenuItem41
+        '
+        Me.MenuItem41.Index = 6
+        Me.MenuItem41.Text = "Longhorn"
+        '
+        'MenuItem43
+        '
+        Me.MenuItem43.Index = 7
+        Me.MenuItem43.Text = "MacOS"
+        '
+        'MenuItem45
+        '
+        Me.MenuItem45.Index = 8
+        Me.MenuItem45.Text = "Midsummer"
+        '
+        'MenuItem48
+        '
+        Me.MenuItem48.Index = 9
+        Me.MenuItem48.Text = "MP10"
+        '
+        'MenuItem65
+        '
+        Me.MenuItem65.Index = 10
+        Me.MenuItem65.Text = "MSN"
+        '
+        'MenuItem66
+        '
+        Me.MenuItem66.Index = 11
+        Me.MenuItem66.Text = "Office2007"
+        '
+        'MenuItem68
+        '
+        Me.MenuItem68.Index = 12
+        Me.MenuItem68.Text = "One"
+        '
+        'MenuItem70
+        '
+        Me.MenuItem70.Index = 13
+        Me.MenuItem70.Text = "Page"
+        '
+        'MenuItem72
+        '
+        Me.MenuItem72.Index = 14
+        Me.MenuItem72.Text = "RealOne"
+        '
+        'MenuItem73
+        '
+        Me.MenuItem73.Index = 15
+        Me.MenuItem73.Text = "Silver"
+        '
+        'MenuItem74
+        '
+        Me.MenuItem74.Index = 16
+        Me.MenuItem74.Text = "Sports"
+        '
+        'MenuItem75
+        '
+        Me.MenuItem75.Index = 17
+        Me.MenuItem75.Text = "Steel"
+        '
+        'MenuItem76
+        '
+        Me.MenuItem76.Index = 18
+        Me.MenuItem76.Text = "Vista1"
+        '
+        'MenuItem77
+        '
+        Me.MenuItem77.Index = 19
+        Me.MenuItem77.Text = "Vista2"
+        '
+        'MenuItem78
+        '
+        Me.MenuItem78.Index = 20
+        Me.MenuItem78.Text = "Warm"
+        '
+        'MenuItem79
+        '
+        Me.MenuItem79.Index = 21
+        Me.MenuItem79.Text = "Wave"
+        '
+        'MenuItem80
+        '
+        Me.MenuItem80.Index = 22
+        Me.MenuItem80.Text = "WinXP"
+        '
         'mnuView
         '
-        Me.mnuView.Index = 7
+        Me.mnuView.Index = 8
         Me.mnuView.MdiList = True
         Me.mnuView.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MnItemTool, Me.MnItemStatic, Me.MenuItem25, Me.mnuTaskList, Me.MenuItem71, Me.MenuItem26})
         Me.mnuView.OwnerDraw = True
@@ -2025,7 +2230,7 @@ Public Class frmMainInterface
         '
         'mnuHelp
         '
-        Me.mnuHelp.Index = 8
+        Me.mnuHelp.Index = 9
         Me.mnuHelp.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuHelpContext, Me.mnuHelpIndex, Me.mnuHelpSearch, Me.mnuHelpSeparator1, Me.mnuHelpSupport, Me.mnuHelpSeparator2, Me.mnuHelpAbout})
         Me.mnuHelp.OwnerDraw = True
         Me.mnuHelp.Text = "帮助(&H)"
@@ -2082,17 +2287,22 @@ Public Class frmMainInterface
         '
         'imgMenu
         '
-        Me.imgMenu.ImageSize = New System.Drawing.Size(16, 16)
         Me.imgMenu.ImageStream = CType(resources.GetObject("imgMenu.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.imgMenu.TransparentColor = System.Drawing.Color.Transparent
+        Me.imgMenu.Images.SetKeyName(0, "")
+        Me.imgMenu.Images.SetKeyName(1, "")
+        Me.imgMenu.Images.SetKeyName(2, "")
+        Me.imgMenu.Images.SetKeyName(3, "")
+        Me.imgMenu.Images.SetKeyName(4, "")
+        Me.imgMenu.Images.SetKeyName(5, "")
         '
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.LstVwMsg)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(229, 330)
+        Me.Panel5.Location = New System.Drawing.Point(229, 369)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(635, 116)
+        Me.Panel5.Size = New System.Drawing.Size(768, 116)
         Me.Panel5.TabIndex = 20
         Me.Panel5.Visible = False
         '
@@ -2106,8 +2316,9 @@ Public Class frmMainInterface
         Me.LstVwMsg.FullRowSelect = True
         Me.LstVwMsg.Location = New System.Drawing.Point(0, 0)
         Me.LstVwMsg.Name = "LstVwMsg"
-        Me.LstVwMsg.Size = New System.Drawing.Size(635, 116)
+        Me.LstVwMsg.Size = New System.Drawing.Size(768, 116)
         Me.LstVwMsg.TabIndex = 22
+        Me.LstVwMsg.UseCompatibleStateImageBehavior = False
         Me.LstVwMsg.View = System.Windows.Forms.View.Details
         Me.LstVwMsg.Visible = False
         '
@@ -2135,9 +2346,9 @@ Public Class frmMainInterface
         '
         Me.Splitter2.Cursor = System.Windows.Forms.Cursors.HSplit
         Me.Splitter2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Splitter2.Location = New System.Drawing.Point(229, 294)
+        Me.Splitter2.Location = New System.Drawing.Point(229, 333)
         Me.Splitter2.Name = "Splitter2"
-        Me.Splitter2.Size = New System.Drawing.Size(635, 36)
+        Me.Splitter2.Size = New System.Drawing.Size(768, 36)
         Me.Splitter2.TabIndex = 21
         Me.Splitter2.TabStop = False
         Me.Splitter2.Visible = False
@@ -2145,7 +2356,7 @@ Public Class frmMainInterface
         'frmMainInterface
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
-        Me.ClientSize = New System.Drawing.Size(864, 473)
+        Me.ClientSize = New System.Drawing.Size(997, 512)
         Me.Controls.Add(Me.Splitter2)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel3)
@@ -2157,8 +2368,6 @@ Public Class frmMainInterface
         Me.IsMdiContainer = True
         Me.Menu = Me.MainMn
         Me.Name = "frmMainInterface"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "担保业务管理软件"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.StatusBarPanel2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StatusBarPanel3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2168,8 +2377,11 @@ Public Class frmMainInterface
         Me.Panel4.ResumeLayout(False)
         Me.grpTask.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -2258,7 +2470,7 @@ Public Class frmMainInterface
     Private frmHoliday As frmHoliday
     Private frmTaskDefine As frmTaskDefine
     Private frmReMeeting As FReMeeting
-    Private fOrganization As fOrganization
+    Private fOrganization As FOrganization
     Private FUpdateMeetRecord As FUpdateMeetRecord
     Private oFUpdateIntentLetter As FUpdateIntentLetter
     Private FClaimTool As FClaimTool
@@ -2630,6 +2842,7 @@ Public Class frmMainInterface
     'Load()方法，初始化
     '
     Private Sub frmMainInterface_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         Try
 
             'PictureBox1_Click(sender, e)
@@ -5704,4 +5917,100 @@ Public Class frmMainInterface
             Me.Cursor = Cursors.Default
         End Try
     End Sub
+
+    'Private Sub SetSkin(ByVal Path As String)
+    '    SkinEngine1.Active = False
+    '    SkinEngine1.SkinFile = Path
+    '    If Not SkinEngine1.Active Then
+    '        SkinEngine1.Active = True
+    '    End If
+    'End Sub
+
+    'Private _strSkinPath As String
+
+    'Private Sub MenuItem12_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem12.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Carlmness\" + "Calmness.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem21_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem21.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Deep\" + "DeepCyan.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem37_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem37.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Diamond\" + "DiamondGreen.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+
+    'Private Sub MenuItem38_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem38.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Eighteen\" + "Eighteen.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem39_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem39.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Emerald\" + "Emerald.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem40_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem40.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Glass\" + "GlassBrown.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem41_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem41.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Longhorn\" + "Longhorn.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem43_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem43.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "MacOS\" + "MacOS.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem45_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem45.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Midsummer\" + "Midsummer.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem48_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem48.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "mp10\" + "mp10.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem65_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem65.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "MSN\" + "MSN.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem66_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem66.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Office2007\" + "Office2007.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem68_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem68.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "One\" + "One.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem70_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem70.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Page\" + "PageColor2.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem72_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem72.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "RealOne\" + "RealOne.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem73_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem73.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Silver\" + "Silver.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
+
+    'Private Sub MenuItem74_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem74.Click
+    '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Sports\" + "Sports.ssk"
+    '    SetSkin(_strSkinPath)
+    'End Sub
 End Class

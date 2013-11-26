@@ -1229,27 +1229,51 @@ Public Class frmTraceInfo
     '净利润---------------------------------02              b18                 19
 
     Private obj() As Double = New Double() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    '获得贷前财务数据 所依据的财务报表的month(申请年月的前一个月)
+    ''获得贷前财务数据 所依据的财务报表的month(申请年月的前一个月)
+    'Private Sub GetFinanceDataBeforeVouch()
+    '    Dim bYM As String = String.Format("{0:yyyyMM}", ApplyDate.AddMonths(-12))
+    '    Dim ds As DataSet = New DataSet
+    '    Dim i, k As Integer
+    '    '表示申请年月的前一月没记录
+    '    If dsCorCount.Tables("TCorporationAccount").Select("month LIKE '" & bYM & "'").Length = 0 Then
+    '        Dim drs() As DataRow = dsCorCount.Tables("TCorporationAccount").Select("phase= '评审'", "month DESC")
+    '        If drs.Length = 0 Then '评审阶段（即贷前）没有录入财务数据
+    '            For i = 0 To obj.Length - 1
+    '                htfAccount.Item("&#0:" & i) = String.Empty
+    '            Next
+    '            htfAccount.Item("&#0YM") = String.Empty
+    '            Return
+    '        End If
+    '        bYM = drs(0)("month").ToString
+    '    End If
+    '    htfAccount.Item("&#0YM") = bYM
+    '    ds.Merge(dsCorCount.Tables("TCorporationAccount").Select("month LIKE '" & bYM & "'"))
+    '    If ds.Tables.Count > 0 Then
+    '        GiveValueToArray(ds)
+    '        For i = 0 To obj.Length - 1
+    '            htfAccount.Item("&#0:" & i) = obj(i).ToString
+    '        Next
+    '    Else
+    '        For i = 0 To obj.Length - 1
+    '            htfAccount.Item("&#0:" & i) = String.Empty
+    '        Next
+    '    End If
+    '    ds.Dispose()
+    'End Sub
+
+    '2013-04-23 获得贷前财务数据 所依据的财务报表的month的去年同期的财务数据
     Private Sub GetFinanceDataBeforeVouch()
-        Dim bYM As String = String.Format("{0:yyyyMM}", ApplyDate.AddMonths(-1))
+        Dim bYM As String = (CInt(txtYearMonth.Text.Substring(0, 4)) - 1).ToString() + txtYearMonth.Text.Substring(4, 2)
         Dim ds As DataSet = New DataSet
         Dim i, k As Integer
-        '表示申请年月的前一月没记录
-        If dsCorCount.Tables("TCorporationAccount").Select("month LIKE '" & bYM & "'").Length = 0 Then
-            Dim drs() As DataRow = dsCorCount.Tables("TCorporationAccount").Select("phase= '评审'", "month DESC")
-            If drs.Length = 0 Then '评审阶段（即贷前）没有录入财务数据
-                For i = 0 To obj.Length - 1
-                    htfAccount.Item("&#0:" & i) = String.Empty
-                Next
-                htfAccount.Item("&#0YM") = String.Empty
-                Return
-            End If
-            bYM = drs(0)("month").ToString
-        End If
+        '获取去年同期财务数据
+
+        Dim dsLastYearYM As DataSet = gWs.FetchCorporationAccount("{corporation_code LIKE '" & CorCode & "' AND project_code LIKE '" & ProjectCode & "' and month LIKE '" & bYM & "'}")
+       
         htfAccount.Item("&#0YM") = bYM
-        ds.Merge(dsCorCount.Tables("TCorporationAccount").Select("month LIKE '" & bYM & "'"))
-        If ds.Tables.Count > 0 Then
-            GiveValueToArray(ds)
+
+        If dsLastYearYM.Tables.Count > 0 Then
+            GiveValueToArray(dsLastYearYM)
             For i = 0 To obj.Length - 1
                 htfAccount.Item("&#0:" & i) = obj(i).ToString
             Next
@@ -1258,9 +1282,47 @@ Public Class frmTraceInfo
                 htfAccount.Item("&#0:" & i) = String.Empty
             Next
         End If
-        ds.Dispose()
+        dsLastYearYM.Dispose()
     End Sub
-    '获得当前SerialNum及之前的财务数据
+    ''获得当前SerialNum及之前的财务数据
+    'Private Sub GetFinanceData()
+    '    Dim ds As DataSet
+    '    Dim dr As DataRow
+    '    Dim EachSN As Integer = 0 '第几次检查
+    '    Dim EachYM As String '每个制表年月
+    '    Dim EachPA As String '每次录入保后检查记录表的阶段
+    '    Dim i As Integer
+    '    For Each dr In dsRecord.Tables("guarantee_check_record").Rows
+    '        EachSN = CInt(dr("serial_num"))
+    '        EachYM = CStr(dr("finacial_report_month")).Trim
+    '        EachPA = dr("phase") & ""
+    '        htfAccount.Item("&#" & EachSN.ToString & "YM") = EachYM
+    '        ds = New DataSet
+    '        ds.Merge(dsCorCount.Tables("TCorporationAccount").Select("month='" & EachYM & "' AND (phase='" & EachPA & "' OR phase IS NULL)"))
+    '        If ds.Tables.Count > 0 Then
+    '            GiveValueToArray(ds)
+    '            For i = 0 To obj.Length - 1
+    '                htfAccount.Item("&#" & EachSN & ":" & i) = obj(i).ToString
+    '            Next
+    '        Else
+    '            For i = 0 To obj.Length - 1
+    '                htfAccount.Item("&#" & EachSN & ":" & i) = String.Empty
+    '            Next
+    '        End If
+    '        ds.Dispose()
+    '    Next
+    '    Dim k As Integer
+    '    'For i = EachSN + 1 To 6
+    '    '2009-09-15 yjf add 增加 第七次检查记录
+    '    For i = EachSN + 1 To 7
+    '        htfAccount.Item("&#" & i & "YM") = String.Empty
+    '        For k = 0 To obj.Length - 1
+    '            htfAccount.Item("&#" & i & ":" & k) = String.Empty
+    '        Next
+    '    Next
+    'End Sub
+
+    '2013-04-23 获得当前SerialNum(本次保后检查)的财务数据 
     Private Sub GetFinanceData()
         Dim ds As DataSet
         Dim dr As DataRow
@@ -1268,8 +1330,8 @@ Public Class frmTraceInfo
         Dim EachYM As String '每个制表年月
         Dim EachPA As String '每次录入保后检查记录表的阶段
         Dim i As Integer
-        For Each dr In dsRecord.Tables("guarantee_check_record").Rows
-            EachSN = CInt(dr("serial_num"))
+        For Each dr In dsRecord.Tables("guarantee_check_record").Select("serial_num=" & SerialNum)
+            EachSN = 1
             EachYM = CStr(dr("finacial_report_month")).Trim
             EachPA = dr("phase") & ""
             htfAccount.Item("&#" & EachSN.ToString & "YM") = EachYM
@@ -1287,16 +1349,9 @@ Public Class frmTraceInfo
             End If
             ds.Dispose()
         Next
-        Dim k As Integer
-        'For i = EachSN + 1 To 6
-        '2009-09-15 yjf add 增加 第七次检查记录
-        For i = EachSN + 1 To 7
-            htfAccount.Item("&#" & i & "YM") = String.Empty
-            For k = 0 To obj.Length - 1
-                htfAccount.Item("&#" & i & ":" & k) = String.Empty
-            Next
-        Next
+
     End Sub
+
     Private Sub GiveValueToArray(ByVal ds As DataSet)
         Dim odr As DataRow
         Dim drs() As DataRow
@@ -1437,12 +1492,37 @@ Public Class frmTraceInfo
         End If
     End Sub
 
+    'Private Sub CaculateBalance()
+    '    '&#M1:0
+    '    Dim i, k As Integer
+    '    Dim strForward, strBack As Object
+    '    '2009-09-15 yjf add 增加 第七次检查记录
+    '    For i = 1 To 7
+    '        For k = 0 To obj.Length - 1
+    '            strForward = htfAccount.Item("&#" & (i - 1).ToString & ":" & k)
+    '            If IsDBNull(strForward) OrElse strForward.ToString = String.Empty Then '分母为空
+    '                htfAccount.Item("&#" & i & "-" & (i - 1).ToString & ":" & k) = ""
+    '            Else
+    '                strBack = htfAccount.Item("&#" & i & ":" & k)
+    '                If IsDBNull(strBack) OrElse strBack.ToString = String.Empty Then '分子为空
+    '                    htfAccount.Item("&#" & i & "-" & (i - 1).ToString & ":" & k) = ""
+    '                ElseIf CDbl(strForward) = 0 Then '分母为零
+    '                    htfAccount.Item("&#" & i & "-" & (i - 1).ToString & ":" & k) = "/"
+    '                Else '分子分母皆不为空且分母并不为零
+    '                    htfAccount.Item("&#" & i & "-" & (i - 1).ToString & ":" & k) = ((CDbl(strBack) - CDbl(strForward)) * 100 / CDbl(strForward)).ToString & "%"
+    '                End If
+    '            End If
+    '        Next
+    '    Next
+    'End Sub
+
+    '2013-04-23 yjf add 只计算本期与去年同期对比
     Private Sub CaculateBalance()
         '&#M1:0
         Dim i, k As Integer
         Dim strForward, strBack As Object
         '2009-09-15 yjf add 增加 第七次检查记录
-        For i = 1 To 7
+        For i = 1 To 1
             For k = 0 To obj.Length - 1
                 strForward = htfAccount.Item("&#" & (i - 1).ToString & ":" & k)
                 If IsDBNull(strForward) OrElse strForward.ToString = String.Empty Then '分母为空
@@ -1460,6 +1540,7 @@ Public Class frmTraceInfo
             Next
         Next
     End Sub
+
     '导入历史财务数据
     '修改记录：FCopyGuaranteeCheckRecord增加一个构造参数，同项目，同阶段的财务数据不予显示
     Private Sub btnCopy_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mitemImport.Click
