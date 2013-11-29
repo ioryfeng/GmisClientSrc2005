@@ -497,6 +497,9 @@
     <Compile Include="Fee\Office.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Fee\frmLoanInterestFee.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FMessage.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -1500,6 +1503,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fee\FWorkPeriod.resx">
       <DependentUpon>FWorkPeriod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\frmLoanInterestFee.resx">
+      <DependentUpon>frmLoanInterestFee.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FMessage.resx">
       <DependentUpon>FMessage.vb</DependentUpon>

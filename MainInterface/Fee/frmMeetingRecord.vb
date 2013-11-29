@@ -259,6 +259,11 @@ Public Class frmMeetingRecord
     Friend WithEvents txtBankFeeRate As System.Windows.Forms.TextBox
     Friend WithEvents txtBankSecurityRate As System.Windows.Forms.TextBox
     Friend WithEvents Label49 As System.Windows.Forms.Label
+    Friend WithEvents Label50 As System.Windows.Forms.Label
+    Friend WithEvents txtFinancingConsultingFee As System.Windows.Forms.TextBox
+    Friend WithEvents Label51 As System.Windows.Forms.Label
+    Friend WithEvents txtFinancingConsultingRate As System.Windows.Forms.TextBox
+    Friend WithEvents Label52 As System.Windows.Forms.Label
     Friend WithEvents dtpGuarantEndDate As System.Windows.Forms.DateTimePicker
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMeetingRecord))
@@ -290,7 +295,13 @@ Public Class frmMeetingRecord
         Me.dgOpinion = New System.Windows.Forms.DataGrid
         Me.tpConclusion = New System.Windows.Forms.TabPage
         Me.gpbxConclusion = New System.Windows.Forms.GroupBox
+        Me.Label50 = New System.Windows.Forms.Label
+        Me.txtFinancingConsultingFee = New System.Windows.Forms.TextBox
+        Me.Label51 = New System.Windows.Forms.Label
+        Me.txtFinancingConsultingRate = New System.Windows.Forms.TextBox
+        Me.Label52 = New System.Windows.Forms.Label
         Me.Label46 = New System.Windows.Forms.Label
+        Me.txtBankFeeRate = New System.Windows.Forms.TextBox
         Me.txtBankSecurityRate = New System.Windows.Forms.TextBox
         Me.Label49 = New System.Windows.Forms.Label
         Me.Label45 = New System.Windows.Forms.Label
@@ -402,7 +413,6 @@ Public Class frmMeetingRecord
         Me.btnJoinReport = New System.Windows.Forms.Button
         Me.btnSplitProject = New System.Windows.Forms.Button
         Me.btnSupplyOppGua = New System.Windows.Forms.Button
-        Me.txtBankFeeRate = New System.Windows.Forms.TextBox
         Me.TabControl.SuspendLayout()
         Me.tpInfo.SuspendLayout()
         Me.gpbxInfo.SuspendLayout()
@@ -471,7 +481,7 @@ Public Class frmMeetingRecord
         'txtBankFeeRate
         '
         txtBankFeeRate.Enabled = False
-        txtBankFeeRate.Location = New System.Drawing.Point(120, 366)
+        txtBankFeeRate.Location = New System.Drawing.Point(120, 390)
         txtBankFeeRate.Name = "txtBankFeeRate"
         txtBankFeeRate.Size = New System.Drawing.Size(40, 21)
         txtBankFeeRate.TabIndex = 118
@@ -758,11 +768,16 @@ Public Class frmMeetingRecord
         '
         'gpbxConclusion
         '
+        Me.gpbxConclusion.Controls.Add(Me.Label50)
+        Me.gpbxConclusion.Controls.Add(Me.txtFinancingConsultingFee)
+        Me.gpbxConclusion.Controls.Add(Me.Label51)
+        Me.gpbxConclusion.Controls.Add(Me.txtFinancingConsultingRate)
+        Me.gpbxConclusion.Controls.Add(Me.Label52)
         Me.gpbxConclusion.Controls.Add(Me.Label46)
         Me.gpbxConclusion.Controls.Add(Me.txtBankSecurityRate)
         Me.gpbxConclusion.Controls.Add(Me.Label49)
         Me.gpbxConclusion.Controls.Add(Me.Label45)
-        Me.gpbxConclusion.Controls.Add(Me.txtBankFeeRate)
+        Me.gpbxConclusion.Controls.Add(txtBankFeeRate)
         Me.gpbxConclusion.Controls.Add(Me.Label44)
         Me.gpbxConclusion.Controls.Add(Me.txtCreditLevel)
         Me.gpbxConclusion.Controls.Add(Me.Label25)
@@ -835,10 +850,57 @@ Public Class frmMeetingRecord
         Me.gpbxConclusion.TabIndex = 33
         Me.gpbxConclusion.TabStop = False
         '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(162, 258)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(11, 12)
+        Me.Label50.TabIndex = 127
+        Me.Label50.Text = "%"
+        Me.Label50.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtFinancingConsultingFee
+        '
+        Me.txtFinancingConsultingFee.Location = New System.Drawing.Point(432, 253)
+        Me.txtFinancingConsultingFee.MaxLength = 13
+        Me.txtFinancingConsultingFee.Name = "txtFinancingConsultingFee"
+        Me.txtFinancingConsultingFee.Size = New System.Drawing.Size(176, 21)
+        Me.txtFinancingConsultingFee.TabIndex = 126
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(320, 258)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(95, 12)
+        Me.Label51.TabIndex = 125
+        Me.Label51.Text = "融资顾问费 (元)"
+        Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtFinancingConsultingRate
+        '
+        Me.txtFinancingConsultingRate.Enabled = False
+        Me.txtFinancingConsultingRate.Location = New System.Drawing.Point(120, 253)
+        Me.txtFinancingConsultingRate.Name = "txtFinancingConsultingRate"
+        Me.txtFinancingConsultingRate.Size = New System.Drawing.Size(40, 21)
+        Me.txtFinancingConsultingRate.TabIndex = 123
+        Me.txtFinancingConsultingRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(16, 258)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(77, 12)
+        Me.Label52.TabIndex = 124
+        Me.Label52.Text = "融资顾问费率"
+        Me.Label52.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(474, 371)
+        Me.Label46.Location = New System.Drawing.Point(474, 395)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(11, 12)
         Me.Label46.TabIndex = 122
@@ -847,7 +909,7 @@ Public Class frmMeetingRecord
         'txtBankSecurityRate
         '
         Me.txtBankSecurityRate.Enabled = False
-        Me.txtBankSecurityRate.Location = New System.Drawing.Point(432, 366)
+        Me.txtBankSecurityRate.Location = New System.Drawing.Point(432, 390)
         Me.txtBankSecurityRate.Name = "txtBankSecurityRate"
         Me.txtBankSecurityRate.Size = New System.Drawing.Size(40, 21)
         Me.txtBankSecurityRate.TabIndex = 121
@@ -856,7 +918,7 @@ Public Class frmMeetingRecord
         'Label49
         '
         Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(327, 369)
+        Me.Label49.Location = New System.Drawing.Point(327, 393)
         Me.Label49.Name = "Label49"
         Me.Label49.Size = New System.Drawing.Size(89, 12)
         Me.Label49.TabIndex = 120
@@ -865,7 +927,7 @@ Public Class frmMeetingRecord
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(162, 371)
+        Me.Label45.Location = New System.Drawing.Point(162, 395)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(11, 12)
         Me.Label45.TabIndex = 119
@@ -874,7 +936,7 @@ Public Class frmMeetingRecord
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(15, 369)
+        Me.Label44.Location = New System.Drawing.Point(15, 393)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(77, 12)
         Me.Label44.TabIndex = 117
@@ -902,7 +964,7 @@ Public Class frmMeetingRecord
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(162, 342)
+        Me.Label22.Location = New System.Drawing.Point(162, 366)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(11, 12)
         Me.Label22.TabIndex = 114
@@ -911,7 +973,7 @@ Public Class frmMeetingRecord
         'txtInterestRate
         '
         Me.txtInterestRate.Enabled = False
-        Me.txtInterestRate.Location = New System.Drawing.Point(120, 337)
+        Me.txtInterestRate.Location = New System.Drawing.Point(120, 361)
         Me.txtInterestRate.Name = "txtInterestRate"
         Me.txtInterestRate.Size = New System.Drawing.Size(40, 21)
         Me.txtInterestRate.TabIndex = 113
@@ -920,17 +982,17 @@ Public Class frmMeetingRecord
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(16, 340)
+        Me.Label13.Location = New System.Drawing.Point(16, 364)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(71, 12)
+        Me.Label13.Size = New System.Drawing.Size(95, 12)
         Me.Label13.TabIndex = 112
-        Me.Label13.Text = "委 贷 利 率"
+        Me.Label13.Text = "委 贷 利 率(年)"
         '
         'cboPartner
         '
         Me.cboPartner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPartner.Enabled = False
-        Me.cboPartner.Location = New System.Drawing.Point(189, 337)
+        Me.cboPartner.Location = New System.Drawing.Point(189, 361)
         Me.cboPartner.Name = "cboPartner"
         Me.cboPartner.Size = New System.Drawing.Size(67, 20)
         Me.cboPartner.TabIndex = 105
@@ -938,7 +1000,7 @@ Public Class frmMeetingRecord
         '
         'chkPartner
         '
-        Me.chkPartner.Location = New System.Drawing.Point(189, 315)
+        Me.chkPartner.Location = New System.Drawing.Point(189, 339)
         Me.chkPartner.Name = "chkPartner"
         Me.chkPartner.Size = New System.Drawing.Size(88, 20)
         Me.chkPartner.TabIndex = 104
@@ -948,7 +1010,7 @@ Public Class frmMeetingRecord
         'dtpPartnerDate
         '
         Me.dtpPartnerDate.Enabled = False
-        Me.dtpPartnerDate.Location = New System.Drawing.Point(208, 362)
+        Me.dtpPartnerDate.Location = New System.Drawing.Point(208, 386)
         Me.dtpPartnerDate.Name = "dtpPartnerDate"
         Me.dtpPartnerDate.Size = New System.Drawing.Size(112, 21)
         Me.dtpPartnerDate.TabIndex = 107
@@ -957,7 +1019,7 @@ Public Class frmMeetingRecord
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(262, 337)
+        Me.Label36.Location = New System.Drawing.Point(262, 361)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(53, 12)
         Me.Label36.TabIndex = 111
@@ -968,7 +1030,7 @@ Public Class frmMeetingRecord
         'txtPartnerMoney
         '
         Me.txtPartnerMoney.Enabled = False
-        Me.txtPartnerMoney.Location = New System.Drawing.Point(181, 255)
+        Me.txtPartnerMoney.Location = New System.Drawing.Point(181, 279)
         Me.txtPartnerMoney.Name = "txtPartnerMoney"
         Me.txtPartnerMoney.Size = New System.Drawing.Size(104, 21)
         Me.txtPartnerMoney.TabIndex = 106
@@ -988,17 +1050,17 @@ Public Class frmMeetingRecord
         'txtPartnerOpnion
         '
         Me.txtPartnerOpnion.Enabled = False
-        Me.txtPartnerOpnion.Location = New System.Drawing.Point(119, 396)
+        Me.txtPartnerOpnion.Location = New System.Drawing.Point(575, 393)
         Me.txtPartnerOpnion.MaxLength = 250
         Me.txtPartnerOpnion.Multiline = True
         Me.txtPartnerOpnion.Name = "txtPartnerOpnion"
-        Me.txtPartnerOpnion.Size = New System.Drawing.Size(489, 40)
+        Me.txtPartnerOpnion.Size = New System.Drawing.Size(45, 40)
         Me.txtPartnerOpnion.TabIndex = 108
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(15, 396)
+        Me.Label18.Location = New System.Drawing.Point(531, 362)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(89, 12)
         Me.Label18.TabIndex = 109
@@ -1087,7 +1149,7 @@ Public Class frmMeetingRecord
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(162, 315)
+        Me.Label37.Location = New System.Drawing.Point(162, 339)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(11, 12)
         Me.Label37.TabIndex = 94
@@ -1095,7 +1157,7 @@ Public Class frmMeetingRecord
         '
         'txtScaleMoney
         '
-        Me.txtScaleMoney.Location = New System.Drawing.Point(432, 309)
+        Me.txtScaleMoney.Location = New System.Drawing.Point(432, 333)
         Me.txtScaleMoney.Name = "txtScaleMoney"
         Me.txtScaleMoney.Size = New System.Drawing.Size(176, 21)
         Me.txtScaleMoney.TabIndex = 93
@@ -1103,7 +1165,7 @@ Public Class frmMeetingRecord
         'Label48
         '
         Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(320, 312)
+        Me.Label48.Location = New System.Drawing.Point(320, 336)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(95, 12)
         Me.Label48.TabIndex = 92
@@ -1112,7 +1174,7 @@ Public Class frmMeetingRecord
         'txtGuaranteeScale
         '
         Me.txtGuaranteeScale.Enabled = False
-        Me.txtGuaranteeScale.Location = New System.Drawing.Point(120, 309)
+        Me.txtGuaranteeScale.Location = New System.Drawing.Point(120, 333)
         Me.txtGuaranteeScale.Name = "txtGuaranteeScale"
         Me.txtGuaranteeScale.Size = New System.Drawing.Size(40, 21)
         Me.txtGuaranteeScale.TabIndex = 91
@@ -1121,7 +1183,7 @@ Public Class frmMeetingRecord
         'Label47
         '
         Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(16, 312)
+        Me.Label47.Location = New System.Drawing.Point(16, 336)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(95, 12)
         Me.Label47.TabIndex = 90
@@ -1167,7 +1229,7 @@ Public Class frmMeetingRecord
         '
         'txtRateRemark
         '
-        Me.txtRateRemark.Location = New System.Drawing.Point(120, 282)
+        Me.txtRateRemark.Location = New System.Drawing.Point(120, 306)
         Me.txtRateRemark.MaxLength = 30
         Me.txtRateRemark.Name = "txtRateRemark"
         Me.txtRateRemark.Size = New System.Drawing.Size(488, 21)
@@ -1176,7 +1238,7 @@ Public Class frmMeetingRecord
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(16, 285)
+        Me.Label12.Location = New System.Drawing.Point(16, 309)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(95, 12)
         Me.Label12.TabIndex = 81
@@ -1186,7 +1248,7 @@ Public Class frmMeetingRecord
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(162, 262)
+        Me.Label27.Location = New System.Drawing.Point(162, 286)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(11, 12)
         Me.Label27.TabIndex = 78
@@ -1205,7 +1267,7 @@ Public Class frmMeetingRecord
         '
         'txtGuarantyFee
         '
-        Me.txtGuarantyFee.Location = New System.Drawing.Point(432, 255)
+        Me.txtGuarantyFee.Location = New System.Drawing.Point(432, 279)
         Me.txtGuarantyFee.MaxLength = 13
         Me.txtGuarantyFee.Name = "txtGuarantyFee"
         Me.txtGuarantyFee.Size = New System.Drawing.Size(176, 21)
@@ -1214,7 +1276,7 @@ Public Class frmMeetingRecord
         'lblGuaFeeDescription
         '
         Me.lblGuaFeeDescription.AutoSize = True
-        Me.lblGuaFeeDescription.Location = New System.Drawing.Point(320, 258)
+        Me.lblGuaFeeDescription.Location = New System.Drawing.Point(320, 282)
         Me.lblGuaFeeDescription.Name = "lblGuaFeeDescription"
         Me.lblGuaFeeDescription.Size = New System.Drawing.Size(95, 12)
         Me.lblGuaFeeDescription.TabIndex = 75
@@ -1242,7 +1304,7 @@ Public Class frmMeetingRecord
         'txtGuarantyFeeStandard
         '
         Me.txtGuarantyFeeStandard.Enabled = False
-        Me.txtGuarantyFeeStandard.Location = New System.Drawing.Point(120, 255)
+        Me.txtGuarantyFeeStandard.Location = New System.Drawing.Point(120, 279)
         Me.txtGuarantyFeeStandard.Name = "txtGuarantyFeeStandard"
         Me.txtGuarantyFeeStandard.Size = New System.Drawing.Size(40, 21)
         Me.txtGuarantyFeeStandard.TabIndex = 10
@@ -1251,7 +1313,7 @@ Public Class frmMeetingRecord
         'lblGuaranteeFeeStandDesc
         '
         Me.lblGuaranteeFeeStandDesc.AutoSize = True
-        Me.lblGuaranteeFeeStandDesc.Location = New System.Drawing.Point(16, 258)
+        Me.lblGuaranteeFeeStandDesc.Location = New System.Drawing.Point(16, 282)
         Me.lblGuaranteeFeeStandDesc.Name = "lblGuaranteeFeeStandDesc"
         Me.lblGuaranteeFeeStandDesc.Size = New System.Drawing.Size(89, 12)
         Me.lblGuaranteeFeeStandDesc.TabIndex = 71
@@ -2321,11 +2383,18 @@ Public Class frmMeetingRecord
             AddHandler TabControl.SelectedIndexChanged, AddressOf TabControl_TabIndexChanged
             AddHandler Me.cmbxServiceType.SelectionChangeCommitted, AddressOf ServiceTypeChanged
             AddHandler txtReviewFeeStandard.KeyPress, AddressOf Money_KeyPress  '加上事件，只能输入数字
+
+            '2013-11-29 YJF ADD 
+            AddHandler txtFinancingConsultingRate.KeyPress, AddressOf Money_KeyPress  '加上事件，只能输入数字
+
             AddHandler txtGuarantyFeeStandard.KeyPress, AddressOf Money_KeyPress
             AddHandler txtGuaranteeScale.KeyPress, AddressOf Money_KeyPress
             '返回已经保存过的评审费率，担保费率（如果有）
             txtReviewFeeStandard.Text = String.Format("{0:N2}", CType(bmConclusion.Current, DataRowView)("trial_rate")) & ""
             txtGuarantyFeeStandard.Text = String.Format("{0:N2}", CType(bmConclusion.Current, DataRowView)("guarantee_rate")) & ""
+
+            '2013-11-29 YJF ADD
+            txtFinancingConsultingRate.Text = String.Format("{0:N2}", CType(bmConclusion.Current, DataRowView)("FinancingConsultingRate")) & ""
 
             '2009-10-29 yjf add 
             txtInterestRate.Text = String.Format("{0:N2}", CType(bmConclusion.Current, DataRowView)("interest_rate")) & ""
@@ -2370,6 +2439,14 @@ Public Class frmMeetingRecord
                 txtGuaranteeScale_Leave(Nothing, Nothing)
             End If
 
+            '  '2013-11-29 YJF ADD 计算融资顾问费是否保存过
+            dvAccount.RowFilter = "item_type='31' AND item_code='004' AND phase='评审'"
+            If dvAccount.Count > 0 Then
+                txtFinancingConsultingFee.Text = dvAccount(0)("payout") & ""
+            Else '根据融资顾问费比例计算的融资顾问费
+                txtFinancingConsultingRate_Leave(Nothing, Nothing)
+            End If
+
             '要判断每次还款额是否为空
             txtEachReturnFee.Text = CType(bmConclusion.Current, DataRowView)("refund_sum_average") & ""
             If txtEachReturnFee.Text = String.Empty Then
@@ -2396,6 +2473,10 @@ Public Class frmMeetingRecord
             cboLetterSubBank.SelectedValue = dsConferenceTrial.Tables("conference_trial").Rows(0)("bank_branch")
             AddHandler cboLetterBank.SelectionChangeCommitted, AddressOf cboLetterBank_Changed
             txtReviewFee.DataBindings.Add("Enabled", txtReviewFeeStandard, "Enabled") '同步“评审费率”和评审费的Enabled属性
+
+            '2013-11-29 YJF ADD
+            txtFinancingConsultingFee.DataBindings.Add("Enabled", txtFinancingConsultingRate, "Enabled") '同步“融资顾问费率”和融资顾问费的Enabled属性
+
             txtGuarantyFee.DataBindings.Add("Enabled", txtGuarantyFeeStandard, "Enabled") '同步“担保费率”和担保费的Enabled属性
             txtRateRemark.DataBindings.Add("Enabled", txtGuarantyFeeStandard, "Enabled") '同步“担保费率说明”和担保费率的Enabled属性
             txtScaleMoney.DataBindings.Add("Enabled", txtGuaranteeScale, "Enabled")
@@ -2502,6 +2583,10 @@ Public Class frmMeetingRecord
         If Not IsEnable Then '如果是暂缓
             cmbxRefundtype.Enabled = IsEnable : cmbxLoanForm.Enabled = IsEnable : txtEachReturnFee.Text = String.Empty
             txtReviewFeeStandard.Enabled = IsEnable : txtEachReturnFee.Enabled = IsEnable
+
+            '2013-11-29 YJF ADD
+            txtFinancingConsultingRate.Enabled = IsEnable
+
             txtReturnRemark.Enabled = IsEnable : txtLoanRemark.Enabled = IsEnable : txtGuaranteeScale.Text = ""
             'cboRunMode.Enabled = IsEnable : cboRebetType.Enabled = IsEnable : cboBaoHanType.Enabled = IsEnable
         End If
@@ -2567,10 +2652,10 @@ Public Class frmMeetingRecord
     End Sub
     '''''''''''''''''''''''会议评审结论''''''''''''''''''''''''''''''
 
-    Private Sub txtMoney_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtReviewFee.Enter, txtGuarantyFee.Enter, txtEachReturnFee.Enter, txtGuarantySum.Enter
+    Private Sub txtMoney_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtReviewFee.Enter, txtGuarantyFee.Enter, txtEachReturnFee.Enter, txtGuarantySum.Enter, txtFinancingConsultingFee.Enter
         Money.Money_Enter(sender, e)
     End Sub
-    Private Sub txtMoney_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtReviewFee.KeyPress, txtGuarantyFee.KeyPress, txtEachReturnFee.KeyPress, txtGuarantySum.KeyPress
+    Private Sub txtMoney_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtReviewFee.KeyPress, txtGuarantyFee.KeyPress, txtEachReturnFee.KeyPress, txtGuarantySum.KeyPress, txtFinancingConsultingFee.KeyPress
         Money.Money_KeyPress(sender, e)
     End Sub
     Private Sub txtMoney_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtEachReturnFee.Leave, txtGuarantySum.Leave
@@ -2773,7 +2858,7 @@ Public Class frmMeetingRecord
 
         If Not TextIsDigit(obj.Text) Then
             obj.Text = "" : txtEachReturnFee.Text = "" : txtReturnRemark.Text = "" : txtLoanRemark.Text = ""
-            txtReviewFee.Text = "" : txtGuarantyFee.Text = "" : txtRateRemark.Text = "" : txtScaleMoney.Text = ""
+            txtReviewFee.Text = "" : txtGuarantyFee.Text = "" : txtRateRemark.Text = "" : txtScaleMoney.Text = "" : txtFinancingConsultingFee.Text = ""
             'Return
         End If
 
@@ -2831,6 +2916,28 @@ Public Class frmMeetingRecord
             txtReviewFee.Text = "0"
         End Try
     End Sub
+
+    '2013-11-29 YJF ADD 融资顾问费率改变    
+    Private Sub txtFinancingConsultingRate_Leave(ByVal sender As Object, ByVal e As EventArgs) Handles txtFinancingConsultingRate.Leave
+        If Not txtFinancingConsultingRate.Enabled Then
+            txtFinancingConsultingFee.Text = ""
+            Return
+        End If
+        If txtGuarantySum.Text = String.Empty Then
+            txtFinancingConsultingFee.Text = "" : Return
+        End If
+        '06,08表示保函业务品种的编码
+        If "06,08".IndexOf(Me.GetServicetypeCode) >= 0 Then 'CStr(cmbxServiceType.SelectedValue & "").IndexOf("保函") > -1 Then
+            Return
+        End If
+        Try
+            txtFinancingConsultingFee.Text = (CDbl(txtGuarantySum.Text) * 100 * CDbl(IIf(txtFinancingConsultingRate.Text = String.Empty, 0, txtFinancingConsultingRate.Text))).ToString("n")
+        Catch
+            txtFinancingConsultingRate.Text = "0"
+            txtFinancingConsultingFee.Text = "0"
+        End Try
+    End Sub
+
     '计算非保函业务品种的最低评审费
     Private Function GetLowestReviewFee() As Double
         If Not cmbxServiceType.SelectedItem Is Nothing Then
@@ -3055,6 +3162,8 @@ Public Class frmMeetingRecord
                 .Item("bank_fee_rate") = IIf(txtBankFeeRate.Text <> String.Empty, txtBankFeeRate.Text, DBNull.Value)
                 .Item("bank_security_rate") = IIf(txtBankSecurityRate.Text <> String.Empty, txtBankSecurityRate.Text, DBNull.Value)
 
+                '2013-11-29 YJF ADD
+                .Item("FinancingConsultingRate") = IIf(txtFinancingConsultingRate.Text <> String.Empty, txtFinancingConsultingRate.Text, DBNull.Value)
 
                 .Item("security_rate") = IIf(txtGuaranteeScale.Text <> String.Empty, txtGuaranteeScale.Text, DBNull.Value)
                 .Item("workflow") = IIf(cboRunMode.Text <> String.Empty, cboRunMode.Text, DBNull.Value)
@@ -3115,10 +3224,13 @@ Public Class frmMeetingRecord
         '    Return True
         'End If
 
-        Dim ReviewFee, GuarantyFee, SecurityFee As Double
+        Dim ReviewFee, GuarantyFee, SecurityFee, FinancingConsultingFee As Double
         GuarantyFee = CDbl(IIf(txtGuarantyFee.Text <> "", txtGuarantyFee.Text, 0)) '担保费
         ReviewFee = CDbl(IIf(txtReviewFee.Text <> "", txtReviewFee.Text, 0)) '评审费
         SecurityFee = CDbl(IIf(txtScaleMoney.Text <> "", txtScaleMoney.Text, 0)) '保证金
+
+        '2013-11-29 YJF ADD
+        FinancingConsultingFee = CDbl(IIf(txtFinancingConsultingFee.Text <> "", txtFinancingConsultingFee.Text, 0)) '融资顾问费
 
         Dim strRowFilter, result, strSql As String
         Dim dsTemp As DataSet
@@ -3319,6 +3431,81 @@ Public Class frmMeetingRecord
                     End If
 
                 End If
+            End If
+
+        End If
+
+        '2013-11-29 YJF ADD 融资顾问费
+        If txtFinancingConsultingRate.Enabled Then
+            Dim dsOpinion As DataSet
+            Dim strOpinion As String
+            Dim needInsertReviewFee As Boolean = True
+            dsOpinion = gWs.GetProjectOpinionByProjectNo(ProjectCode)
+            If dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'").Length > 0 Then
+                Dim dr As DataRow = dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'")(0)
+                strOpinion = dr("conclusion") & ""
+                If strOpinion = "免收" Then
+                    needInsertReviewFee = False
+                    'Return True
+                End If
+            End If
+
+            If FinancingConsultingFee > 0 Then
+
+                '2007-9-5 yjf add  消除产生两条记录的可能，使用局部变量
+                strSql = "{project_code='" & Me.ProjectCode & "' and item_type='31' AND item_code='004' and payout is not null}"
+                dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+                If dsTemp.Tables(0).Rows.Count <> 0 Then
+                    Dim dr1 As DataRow
+                    For Each dr1 In dsTemp.Tables(0).Rows
+                        dr1.Delete()
+                    Next
+                    If dsTemp.HasChanges Then
+                        result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                        If result <> "1" Then
+                            SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                            Return False
+                        End If
+                    End If
+                End If
+
+                dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+                Dim dr As DataRow = dsTemp.Tables(0).NewRow
+                With dr
+                    .Item("project_code") = ProjectCode
+                    .Item("date") = SystemDate.Date
+                    .Item("item_type") = "31"
+                    .Item("item_code") = "004"
+                    .Item("phase") = "评审"
+                    '.Item("payout") = balance
+                    .Item("payout") = ReviewFee
+                    .Item("create_person") = UserName
+                    .Item("create_date") = SystemDate
+                End With
+                dsTemp.Tables(0).Rows.Add(dr)
+                If dsTemp.HasChanges Then
+                    result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                    If result <> "1" Then
+                        SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                        Return False
+                    End If
+                End If
+
+                dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+                If dsTemp.Tables(0).Rows.Count > 1 Then
+                    Dim i As Integer
+                    For i = 1 To dsTemp.Tables(0).Rows.Count
+                        dsTemp.Tables(0).Rows(i).Delete()
+                    Next
+                    If dsTemp.HasChanges Then
+                        result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                        If result <> "1" Then
+                            SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                            Return False
+                        End If
+                    End If
+                End If
+
             End If
 
         End If
@@ -4282,6 +4469,12 @@ Public Class frmMeetingRecord
             htMeeting.Item("&#TrialFee") = IIf(strTemp = "", 0, strTemp) & "%" & _
                                     IIf(txtReviewFee.Text = "", "", "(" & txtReviewFee.Text & "元)")
 
+            '2013-11-29 YJF ADD 融资顾问费
+            obj = infoRow("FinancingConsultingRate")
+            strTemp = obj & ""
+            htMeeting.Item("&#FinancingConsultingRate") = IIf(strTemp = "", 0, strTemp) & "%" & _
+                                    IIf(txtFinancingConsultingFee.Text = "", "", "(" & txtFinancingConsultingFee.Text & "元)")
+
             If isBaoHan Then '为保函
                 htMeeting.Item("&#1Item") = "保函种类"
                 htMeeting.Item("&#1ContentItem") = cboBaoHanType.Text
@@ -5008,6 +5201,10 @@ Public Class frmMeetingRecord
         cmbxRefundtype.Enabled = Not isBaoHan And isPass
         cmbxLoanForm.Enabled = Not isBaoHan And isPass
         txtReviewFeeStandard.Enabled = Not isBaoHan And isPass
+
+        '2013-11-29 YJF ADD
+        txtFinancingConsultingRate.Enabled = Not isBaoHan And isPass
+
         txtLoanRemark.Enabled = Not isBaoHan And isPass
         txtReturnRemark.Enabled = Not isBaoHan And isPass
         txtEachReturnFee.Enabled = Not isBaoHan And isPass
@@ -5061,6 +5258,9 @@ Public Class frmMeetingRecord
         dgIntegrate.Enabled = isShouXin And isPass
         If isBaoHan Then
             txtReviewFeeStandard.Text = String.Empty : Me.txtReviewFee.Text = String.Empty
+
+            '2013-11-29 YJF ADD
+            txtFinancingConsultingRate.Text = String.Empty : Me.txtFinancingConsultingFee.Text = String.Empty
         End If
         If isShouXin Then
             txtGuaranteeScale.Text = String.Empty : txtScaleMoney.Text = String.Empty
@@ -5183,6 +5383,9 @@ Public Class frmMeetingRecord
             txtReviewFeeStandard.Text = drv("review_fee_rate") & ""
             txtGuarantyFeeStandard.Text = drv("guarantee_fee_rate") & ""
 
+            '2013-11-29 YJF ADD
+            txtFinancingConsultingRate.Text = drv("FinancingConsultingRate") & ""
+
             ''2009-10-29 yjf add
             'txtInterestRate.Text = drv("interest_rate") & ""
 
@@ -5201,6 +5404,10 @@ Public Class frmMeetingRecord
             Dim drv As DataRowView = CType(cmbxServiceType.SelectedItem, DataRowView)
             txtReviewFeeStandard.Text = drv("review_fee_rate") & ""
             txtGuarantyFeeStandard.Text = drv("guarantee_fee_rate") & ""
+
+            '2013-11-29 YJF ADD
+            txtFinancingConsultingRate.Text = drv("FinancingConsultingRate") & ""
+
             ''2009-10-29 yjf add
             'txtInterestRate.Text = drv("interest_rate") & ""
             txtReviewFeeStandard_Leave(Nothing, Nothing)
