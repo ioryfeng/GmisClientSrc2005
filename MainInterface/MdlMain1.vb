@@ -255,6 +255,7 @@ Module MdlMain
         frmMain.MenuProjectExp.Enabled = False
         frmMain.MenuQueryProjectExpandDate.Enabled = False
         frmMain.MenuReviewGuarantee.Enabled = False
+        frmMain.mnuBackFee.Enabled = False
 
 
         Dim mitem As MenuItem '工作日志设置
@@ -476,6 +477,8 @@ Module MdlMain
                     frmMain.MenuQueryProjectExpandDate.Enabled = True
                 Case 152
                     frmMain.MenuReviewGuarantee.Enabled = True
+                Case 155
+                    frmMain.mnuBackFee.Enabled = True
             End Select
         Next
 

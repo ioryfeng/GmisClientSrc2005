@@ -45,7 +45,7 @@ Public Class FConsole
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(FConsole))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FConsole))
         Me.imlButton = New System.Windows.Forms.ImageList(Me.components)
         Me.btnLogin = New System.Windows.Forms.Label
         Me.btnMail = New System.Windows.Forms.Label
@@ -64,10 +64,14 @@ Public Class FConsole
         '
         'imlButton
         '
-        Me.imlButton.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
-        Me.imlButton.ImageSize = New System.Drawing.Size(114, 36)
         Me.imlButton.ImageStream = CType(resources.GetObject("imlButton.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.imlButton.TransparentColor = System.Drawing.Color.Transparent
+        Me.imlButton.Images.SetKeyName(0, "")
+        Me.imlButton.Images.SetKeyName(1, "")
+        Me.imlButton.Images.SetKeyName(2, "")
+        Me.imlButton.Images.SetKeyName(3, "")
+        Me.imlButton.Images.SetKeyName(4, "")
+        Me.imlButton.Images.SetKeyName(5, "")
         '
         'btnLogin
         '
@@ -98,10 +102,18 @@ Public Class FConsole
         '
         'ImlButton1
         '
-        Me.ImlButton1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
-        Me.ImlButton1.ImageSize = New System.Drawing.Size(123, 58)
         Me.ImlButton1.ImageStream = CType(resources.GetObject("ImlButton1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImlButton1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImlButton1.Images.SetKeyName(0, "")
+        Me.ImlButton1.Images.SetKeyName(1, "")
+        Me.ImlButton1.Images.SetKeyName(2, "")
+        Me.ImlButton1.Images.SetKeyName(3, "")
+        Me.ImlButton1.Images.SetKeyName(4, "")
+        Me.ImlButton1.Images.SetKeyName(5, "")
+        Me.ImlButton1.Images.SetKeyName(6, "")
+        Me.ImlButton1.Images.SetKeyName(7, "")
+        Me.ImlButton1.Images.SetKeyName(8, "")
+        Me.ImlButton1.Images.SetKeyName(9, "")
         '
         'btnQuery
         '
@@ -154,10 +166,10 @@ Public Class FConsole
         '
         'ImageList1
         '
-        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
-        Me.ImageList1.ImageSize = New System.Drawing.Size(66, 49)
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "")
+        Me.ImageList1.Images.SetKeyName(1, "")
         '
         'btnRefresh
         '

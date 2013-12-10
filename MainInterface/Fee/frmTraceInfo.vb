@@ -412,7 +412,7 @@ Public Class frmTraceInfo
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmTraceInfo))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTraceInfo))
         Me.gpxInputInfo = New System.Windows.Forms.GroupBox
         Me.Label2 = New System.Windows.Forms.Label
         Me.txtContent = New System.Windows.Forms.TextBox
@@ -476,12 +476,37 @@ Public Class frmTraceInfo
         Me.btnExit.ImageIndex = -1
         Me.btnExit.ImageList = Nothing
         Me.btnExit.Location = New System.Drawing.Point(610, 488)
-        Me.btnExit.Name = "btnExit"
         Me.btnExit.TabIndex = 11
         '
         'ImageListBasic
         '
         Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
+        Me.ImageListBasic.Images.SetKeyName(25, "")
         '
         'gpxInputInfo
         '
@@ -511,7 +536,7 @@ Public Class frmTraceInfo
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(8, 48)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(54, 17)
+        Me.Label2.Size = New System.Drawing.Size(53, 12)
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "情况说明"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -524,7 +549,6 @@ Public Class frmTraceInfo
         Me.txtContent.Name = "txtContent"
         Me.txtContent.Size = New System.Drawing.Size(664, 48)
         Me.txtContent.TabIndex = 4
-        Me.txtContent.Text = ""
         '
         'cmbxAlarmGrade
         '
@@ -539,7 +563,7 @@ Public Class frmTraceInfo
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(8, 99)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(54, 17)
+        Me.Label16.Size = New System.Drawing.Size(53, 12)
         Me.Label16.TabIndex = 11
         Me.Label16.Text = "预警等级"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -551,7 +575,6 @@ Public Class frmTraceInfo
         Me.txtYearMonth.Name = "txtYearMonth"
         Me.txtYearMonth.Size = New System.Drawing.Size(48, 21)
         Me.txtYearMonth.TabIndex = 1
-        Me.txtYearMonth.Text = ""
         Me.ttHelp.SetToolTip(Me.txtYearMonth, "格式为yyyyMM")
         '
         'Label1
@@ -559,7 +582,7 @@ Public Class frmTraceInfo
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(192, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(116, 17)
+        Me.Label1.Size = New System.Drawing.Size(113, 12)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "依据的财务报表年月"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -576,7 +599,7 @@ Public Class frmTraceInfo
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(8, 16)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(54, 17)
+        Me.Label14.Size = New System.Drawing.Size(53, 12)
         Me.Label14.TabIndex = 5
         Me.Label14.Text = "检查日期"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -598,7 +621,6 @@ Public Class frmTraceInfo
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(104, 21)
         Me.txtPhone.TabIndex = 3
-        Me.txtPhone.Text = ""
         '
         'txtContactMan
         '
@@ -607,14 +629,13 @@ Public Class frmTraceInfo
         Me.txtContactMan.Name = "txtContactMan"
         Me.txtContactMan.Size = New System.Drawing.Size(88, 21)
         Me.txtContactMan.TabIndex = 2
-        Me.txtContactMan.Text = ""
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(560, 16)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(66, 17)
+        Me.Label4.Size = New System.Drawing.Size(65, 12)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "联系人电话"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -624,7 +645,7 @@ Public Class frmTraceInfo
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(368, 16)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(91, 17)
+        Me.Label3.Size = New System.Drawing.Size(89, 12)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "贷款银行联系人"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -667,7 +688,6 @@ Public Class frmTraceInfo
         Me.txtBargainNum.ReadOnly = True
         Me.txtBargainNum.Size = New System.Drawing.Size(72, 21)
         Me.txtBargainNum.TabIndex = 40
-        Me.txtBargainNum.Text = ""
         '
         'txtBigBank
         '
@@ -677,14 +697,13 @@ Public Class frmTraceInfo
         Me.txtBigBank.ReadOnly = True
         Me.txtBigBank.Size = New System.Drawing.Size(184, 21)
         Me.txtBigBank.TabIndex = 39
-        Me.txtBigBank.Text = ""
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(472, 43)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(54, 17)
+        Me.Label17.Size = New System.Drawing.Size(53, 12)
         Me.Label17.TabIndex = 38
         Me.Label17.Text = "支    行"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -694,7 +713,7 @@ Public Class frmTraceInfo
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(8, 43)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(72, 17)
+        Me.Label15.Size = New System.Drawing.Size(71, 12)
         Me.Label15.TabIndex = 36
         Me.Label15.Text = "合  同  号 "
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -707,14 +726,13 @@ Public Class frmTraceInfo
         Me.txtMB.ReadOnly = True
         Me.txtMB.Size = New System.Drawing.Size(72, 21)
         Me.txtMB.TabIndex = 35
-        Me.txtMB.Text = ""
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(176, 72)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(72, 17)
+        Me.Label12.Size = New System.Drawing.Size(71, 12)
         Me.Label12.TabIndex = 34
         Me.Label12.Text = "项目经理B角"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -724,7 +742,7 @@ Public Class frmTraceInfo
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(8, 18)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(72, 17)
+        Me.Label6.Size = New System.Drawing.Size(71, 12)
         Me.Label6.TabIndex = 30
         Me.Label6.Text = "项 目 编 码"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -737,14 +755,13 @@ Public Class frmTraceInfo
         Me.txtProjectCode.ReadOnly = True
         Me.txtProjectCode.Size = New System.Drawing.Size(72, 21)
         Me.txtProjectCode.TabIndex = 32
-        Me.txtProjectCode.Text = ""
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(584, 72)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(29, 17)
+        Me.Label10.Size = New System.Drawing.Size(29, 12)
         Me.Label10.TabIndex = 11
         Me.Label10.Text = "万元"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -757,7 +774,6 @@ Public Class frmTraceInfo
         Me.txtMoney.ReadOnly = True
         Me.txtMoney.Size = New System.Drawing.Size(56, 21)
         Me.txtMoney.TabIndex = 29
-        Me.txtMoney.Text = ""
         Me.txtMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label9
@@ -765,7 +781,7 @@ Public Class frmTraceInfo
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(472, 72)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(54, 17)
+        Me.Label9.Size = New System.Drawing.Size(53, 12)
         Me.Label9.TabIndex = 9
         Me.Label9.Text = "贷款金额"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -778,14 +794,13 @@ Public Class frmTraceInfo
         Me.txtBank.ReadOnly = True
         Me.txtBank.Size = New System.Drawing.Size(200, 21)
         Me.txtBank.TabIndex = 26
-        Me.txtBank.Text = ""
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(176, 43)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(72, 17)
+        Me.Label11.Size = New System.Drawing.Size(71, 12)
         Me.Label11.TabIndex = 4
         Me.Label11.Text = "贷 款 银 行"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -798,14 +813,13 @@ Public Class frmTraceInfo
         Me.txtMA.ReadOnly = True
         Me.txtMA.Size = New System.Drawing.Size(72, 21)
         Me.txtMA.TabIndex = 25
-        Me.txtMA.Text = ""
         '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(8, 72)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(72, 17)
+        Me.Label13.Size = New System.Drawing.Size(71, 12)
         Me.Label13.TabIndex = 0
         Me.Label13.Text = "项目经理A角"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -815,7 +829,7 @@ Public Class frmTraceInfo
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(616, 72)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(29, 17)
+        Me.Label7.Size = New System.Drawing.Size(29, 12)
         Me.Label7.TabIndex = 5
         Me.Label7.Text = "期限"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -828,7 +842,6 @@ Public Class frmTraceInfo
         Me.txtTerm.ReadOnly = True
         Me.txtTerm.Size = New System.Drawing.Size(32, 21)
         Me.txtTerm.TabIndex = 28
-        Me.txtTerm.Text = ""
         Me.txtTerm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label8
@@ -836,7 +849,7 @@ Public Class frmTraceInfo
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(680, 72)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(17, 17)
+        Me.Label8.Size = New System.Drawing.Size(17, 12)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "月"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -846,7 +859,7 @@ Public Class frmTraceInfo
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(176, 17)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(72, 17)
+        Me.Label5.Size = New System.Drawing.Size(71, 12)
         Me.Label5.TabIndex = 31
         Me.Label5.Text = "企 业 名 称"
         '
@@ -858,7 +871,6 @@ Public Class frmTraceInfo
         Me.txtCorName.ReadOnly = True
         Me.txtCorName.Size = New System.Drawing.Size(184, 21)
         Me.txtCorName.TabIndex = 33
-        Me.txtCorName.Text = ""
         '
         'btnCommit
         '
@@ -868,6 +880,7 @@ Public Class frmTraceInfo
         Me.btnCommit.ImageList = Me.ImageListBasic
         Me.btnCommit.Location = New System.Drawing.Point(526, 488)
         Me.btnCommit.Name = "btnCommit"
+        Me.btnCommit.Size = New System.Drawing.Size(75, 23)
         Me.btnCommit.TabIndex = 10
         Me.btnCommit.Text = "提 交(&C)"
         Me.btnCommit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -958,7 +971,6 @@ Public Class frmTraceInfo
         Me.txtHistoryAlarm.ReadOnly = True
         Me.txtHistoryAlarm.Size = New System.Drawing.Size(738, 44)
         Me.txtHistoryAlarm.TabIndex = 0
-        Me.txtHistoryAlarm.Text = ""
         '
         'btnDetailInfo
         '
@@ -1013,10 +1025,13 @@ Public Class frmTraceInfo
         Me.Controls.SetChildIndex(Me.GroupBox3, 0)
         Me.Controls.SetChildIndex(Me.btnDetailInfo, 0)
         Me.gpxInputInfo.ResumeLayout(False)
+        Me.gpxInputInfo.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

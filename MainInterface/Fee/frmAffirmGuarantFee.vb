@@ -34,53 +34,65 @@ Public Class frmAffirmGuarantFee
     Friend WithEvents txtManager As System.Windows.Forms.TextBox
     Friend WithEvents lblManager As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.txtManager = New System.Windows.Forms.TextBox()
-        Me.lblManager = New System.Windows.Forms.Label()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAffirmGuarantFee))
+        Me.txtManager = New System.Windows.Forms.TextBox
+        Me.lblManager = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label8
         '
         Me.Label8.Text = "已收担保费(元)"
-        Me.Label8.Visible = True
-        '
-        'txtIncome
-        '
-        Me.txtIncome.Visible = True
-        '
-        'txtPayout
-        '
-        Me.txtPayout.Visible = True
         '
         'lblFeeType
         '
         Me.lblFeeType.Text = "应收担保费(元)"
-        Me.lblFeeType.Visible = True
-        '
-        'txtCorName
-        '
-        Me.txtCorName.Visible = True
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.AddRange(New System.Windows.Forms.Control() {Me.txtManager, Me.lblManager})
-        Me.GroupBox1.Visible = True
+        Me.GroupBox1.Controls.Add(Me.txtManager)
+        Me.GroupBox1.Controls.Add(Me.lblManager)
+        Me.GroupBox1.Controls.SetChildIndex(Me.lblManager, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.txtManager, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.Label6, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.Label5, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.txtProjectCode, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.txtCorName, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.lblFeeType, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.txtPayout, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.Label8, 0)
+        Me.GroupBox1.Controls.SetChildIndex(Me.txtIncome, 0)
         '
-        'txtProjectCode
+        'ImageListBasic
         '
-        Me.txtProjectCode.Visible = True
-        '
-        'Label6
-        '
-        Me.Label6.Visible = True
-        '
-        'Label5
-        '
-        Me.Label5.Visible = True
-        '
-        'btnExit
-        '
-        Me.btnExit.Visible = True
+        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
+        Me.ImageListBasic.Images.SetKeyName(25, "")
+        Me.ImageListBasic.Images.SetKeyName(26, "")
         '
         'txtManager
         '
@@ -90,7 +102,6 @@ Public Class frmAffirmGuarantFee
         Me.txtManager.Name = "txtManager"
         Me.txtManager.Size = New System.Drawing.Size(80, 21)
         Me.txtManager.TabIndex = 37
-        Me.txtManager.Text = ""
         '
         'lblManager
         '
@@ -105,10 +116,10 @@ Public Class frmAffirmGuarantFee
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(538, 335)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.btnExit, Me.GroupBox1})
         Me.Name = "frmAffirmGuarantFee"
         Me.Text = "确认担保费收取"
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

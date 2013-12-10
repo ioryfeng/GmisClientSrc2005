@@ -1,5 +1,5 @@
 '作者：罗庆锋；日期2003-04-11
-Public Class frmReviewFee
+Public Class frmFinancingConsultingFee
     Inherits frmChargeFeeBase
 
 #Region " Windows 窗体设计器生成的代码 "
@@ -44,7 +44,7 @@ Public Class frmReviewFee
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents txtServiceType As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReviewFee))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFinancingConsultingFee))
         Me.Label7 = New System.Windows.Forms.Label
         Me.txtReviewFee = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
@@ -224,7 +224,7 @@ Public Class frmReviewFee
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(89, 12)
         Me.Label7.TabIndex = 24
-        Me.Label7.Text = "应收评审费(元)"
+        Me.Label7.Text = "应收顾问费(元)"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtReviewFee
@@ -258,7 +258,7 @@ Public Class frmReviewFee
         'lblFirstMan
         '
         Me.lblFirstMan.AutoSize = True
-        Me.lblFirstMan.Location = New System.Drawing.Point(368, 35)
+        Me.lblFirstMan.Location = New System.Drawing.Point(366, 35)
         Me.lblFirstMan.Name = "lblFirstMan"
         Me.lblFirstMan.Size = New System.Drawing.Size(83, 12)
         Me.lblFirstMan.TabIndex = 28
@@ -268,7 +268,7 @@ Public Class frmReviewFee
         'txtFirstTrial
         '
         Me.txtFirstTrial.BackColor = System.Drawing.Color.Gainsboro
-        Me.txtFirstTrial.Location = New System.Drawing.Point(464, 32)
+        Me.txtFirstTrial.Location = New System.Drawing.Point(462, 32)
         Me.txtFirstTrial.Name = "txtFirstTrial"
         Me.txtFirstTrial.ReadOnly = True
         Me.txtFirstTrial.Size = New System.Drawing.Size(80, 21)
@@ -342,7 +342,7 @@ Public Class frmReviewFee
         Me.txtServiceType.Size = New System.Drawing.Size(160, 21)
         Me.txtServiceType.TabIndex = 34
         '
-        'frmReviewFee
+        'frmFinancingConsultingFee
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(592, 367)
@@ -353,16 +353,16 @@ Public Class frmReviewFee
         Me.Controls.Add(Me.btnReport)
         Me.Controls.Add(Me.txtBalance)
         Me.Controls.Add(Me.txtReviewFee)
-        Me.Controls.Add(Me.lblFirstMan)
         Me.Controls.Add(Me.txtFirstTrial)
+        Me.Controls.Add(Me.lblFirstMan)
         Me.Controls.Add(Me.txtManager)
         Me.Controls.Add(Me.lblManager)
-        Me.Name = "frmReviewFee"
+        Me.Name = "frmFinancingConsultingFee"
         Me.Text = "收取评审费"
         Me.Controls.SetChildIndex(Me.lblManager, 0)
         Me.Controls.SetChildIndex(Me.txtManager, 0)
-        Me.Controls.SetChildIndex(Me.txtFirstTrial, 0)
         Me.Controls.SetChildIndex(Me.lblFirstMan, 0)
+        Me.Controls.SetChildIndex(Me.txtFirstTrial, 0)
         Me.Controls.SetChildIndex(Me.txtReviewFee, 0)
         Me.Controls.SetChildIndex(Me.txtBalance, 0)
         Me.Controls.SetChildIndex(Me.btnReport, 0)
@@ -456,7 +456,7 @@ Public Class frmReviewFee
         If IsEnabled Then
             'cboMoneyType.Text = cboMoneyType.Items(0).ToString
             'cboMoneyType.SelectedIndex = 0
-            CType(bmaccount.Current, DataRowView)("type") = cboMoneyType.Text
+            CType(bmAccount.Current, DataRowView)("type") = cboMoneyType.Text
         End If
     End Sub
 
@@ -480,31 +480,33 @@ Public Class frmReviewFee
                 .Item("check_date") = SystemDate.Date
                 .Item("create_person") = UserName
                 .Item("create_date") = SystemDate
-                .Item("doc_name") = "预收评审费收据"
+                .Item("doc_name") = "顾问费收据"
             End With
             dsProDoc.Tables(0).Rows.Add(dr)
         Else
             dsProDoc.Tables(0).Rows(0)("phase") = MyBase.ReturnProjectPhase
-            dsProDoc.Tables(0).Rows(0)("doc_name") = "补收评审费收据"
+            dsProDoc.Tables(0).Rows(0)("doc_name") = "顾问费收据"
             dsProDoc.Tables(0).Rows(0)("check_person") = UserName
             dsProDoc.Tables(0).Rows(0)("check_date") = SystemDate.Date
         End If
         Dim result As String = gWs.UpdateProjectDocument(dsProDoc.GetChanges)
         If result <> "1" Then
-            SWDialogBox.MessageBox.Show("*999", "确认收取评审费失败", result, "")
+            SWDialogBox.MessageBox.Show("*999", "确认收取顾问费失败", result, "")
         End If
     End Sub
 
     Private Sub frmReviewFee_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         txtCorName.Text = CorporationName : txtProjectCode.Text = ProjectCode
-        IsReviewFee = True
-        item_type = "31" : item_code = "001"
+
+        '2013-12-02 yjf edit 修改为融资顾问费
+        IsFinancingConsultingFee = True
+        item_type = "31" : item_code = "004"
 
         Try
             Me.Cursor = Cursors.WaitCursor
 
             SystemDate = gWs.GetSysTime
-            dtpDate.Value = systemdate.Date
+            dtpDate.Value = SystemDate.Date
             Me.BindPayManner()
             initializeAccountHandle()
             lblFeeType.Visible = False : cmbxType.Visible = False
@@ -537,14 +539,14 @@ Public Class frmReviewFee
     '装载收费方式
     Private Sub BindPayManner()
         Dim i As Integer
-        Dim dsPayManner As DataSet = gWs.GetLoanChargeManner("%") 
+        Dim dsPayManner As DataSet = gWs.GetLoanChargeManner("%")
         If dsPayManner.Tables(0).Rows.Count > 0 Then
             For i = 0 To dsPayManner.Tables(0).Rows.Count - 1
                 With dsPayManner.Tables(0).Rows(i)
                     Me.cboMoneyType.Items.Add(.Item("loan_charge_manner"))
                 End With
             Next
-        End If 
+        End If
     End Sub
 
     Protected Overrides Function addTableStyle() As DataGridTableStyle
@@ -615,7 +617,7 @@ Public Class frmReviewFee
             ht.Item("&#ApplySum") = dr("ApplySum") & String.Empty & "万元"
             ht.Item("&#ReviewFee") = CDbl(drAccount("income")).ToString & "元"
             ht.Item("&#UserName") = UserName
-            ht.Item("&#RegisterDate") = systemdate.Date.ToString("yyyy年M月d日")
+            ht.Item("&#RegisterDate") = SystemDate.Date.ToString("yyyy年M月d日")
             ht.Item("&#ChargeDate") = DateTime.Parse(drAccount("date")).ToString("yyyy年M月d日") '缴费日期
             ht.Item("&#Remark") = drAccount("type") & ""
             ht.Item("&#ServiceType") = dr("ApplyServiceType") & String.Empty
@@ -634,7 +636,7 @@ Public Class frmReviewFee
             ht.Item("&#Rk2") = drAccount("type") & ""
 
             ht.Item("&#UN2") = UserName
-            ht.Item("&#RD2") = systemdate.Date.ToString("yyyy年M月d日")
+            ht.Item("&#RD2") = SystemDate.Date.ToString("yyyy年M月d日")
             ht.Item("&#ST2") = dr("ApplyServiceType") & String.Empty
             Dim k As Integer = 0
             ReDim key(ht.Count - 1)

@@ -500,6 +500,21 @@
     <Compile Include="Fee\frmLoanInterestFee.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Fee\frmFinancingConsultingFee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\frmAffirmFinancingConsultingRate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\frmRecordBankFee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\frmBackFee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\FChargeBackFee.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FMessage.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -720,6 +735,9 @@
     </Compile>
     <Compile Include="project\Workflow.vb">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="project\FChargeBackFeeTool.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="query\FQueryAcceptProject.vb">
       <SubType>Form</SubType>
@@ -1508,6 +1526,26 @@
       <DependentUpon>frmLoanInterestFee.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fee\frmFinancingConsultingFee.resx">
+      <DependentUpon>frmFinancingConsultingFee.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\frmAffirmFinancingConsultingRate.resx">
+      <DependentUpon>frmAffirmFinancingConsultingRate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\frmRecordBankFee.resx">
+      <DependentUpon>frmRecordBankFee.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\frmBackFee.resx">
+      <DependentUpon>frmBackFee.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\FChargeBackFee.resx">
+      <DependentUpon>FChargeBackFee.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FMessage.resx">
       <DependentUpon>FMessage.vb</DependentUpon>
     </EmbeddedResource>
@@ -1711,6 +1749,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="project\FUpdateProcess.resx">
       <DependentUpon>FUpdateProcess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="project\FChargeBackFeeTool.resx">
+      <DependentUpon>FChargeBackFeeTool.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="query\FQueryAcceptProject.resx">
       <DependentUpon>FQueryAcceptProject.vb</DependentUpon>
@@ -2194,10 +2236,10 @@
       <RelPath>Web References\htfServerPermission\</RelPath>
       <UrlBehavior>Static</UrlBehavior>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost/WebService_CGMIS/Service1.asmx">
+    <WebReferenceUrl Include="http://localhost:8000/WebService_CGMIS/Service1.asmx">
       <RelPath>Web References\htfServer\</RelPath>
       <UrlBehavior>Dynamic</UrlBehavior>
-      <UpdateFromURL>http://localhost/WebService_CGMIS/Service1.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:8000/WebService_CGMIS/Service1.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

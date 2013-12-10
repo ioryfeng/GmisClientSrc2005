@@ -17,9 +17,24 @@ Public Class frmChargeFeeBase
     Protected IsReviewFee As Boolean = False '收取评审费
     Protected IsGuarantyFee As Boolean = False '收取担保费
     Protected IsReturnFee As Boolean = False '收取还款
+
+    '2013-11-30 yjf add
+    Protected IsLoanInterestFee As Boolean = False '收取委贷利息
+
+    '2013-11-30 yjf add
+    Protected IsFinancingConsultingFee As Boolean = False '收取融资顾问费
+
     Protected IsSecurityFee As Boolean = False '收取保证金
     Protected IsReturnSecurityFee As Boolean = False '退还保证金
     Protected IsReturnGuaranteeFee As Boolean = False '退还担保费
+
+    Protected IsReturnFinancingConsultingFee As Boolean = False '退还融资顾问费
+    Protected IsReturnReviewFee As Boolean = False '退还评审费
+    Protected IsReturnEvaluateFee As Boolean = False '退还评估费
+
+    '2013-12-03 yjf add
+    Protected IsBankFee As Boolean = False '登记银行费用
+
     Protected IsOverDueFee As Boolean = False '登记逾期信息
     Protected IsRefundDebt As Boolean = False '登记代偿信息
     Protected IsRegisterDischargeInfo As Boolean = False '登记清偿信息
@@ -78,57 +93,80 @@ Public Class frmChargeFeeBase
     Public WithEvents Label5 As System.Windows.Forms.Label
     Public WithEvents Label6 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmChargeFeeBase))
-        Me.txtCorName = New System.Windows.Forms.TextBox()
-        Me.txtProjectCode = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.gpbxResult = New System.Windows.Forms.GroupBox()
-        Me.dgMoney = New System.Windows.Forms.DataGrid()
-        Me.gpbxDetail = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtIncome = New System.Windows.Forms.TextBox()
-        Me.dtpDate = New System.Windows.Forms.DateTimePicker()
-        Me.cmbxType = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblFeeType = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtSummary = New System.Windows.Forms.TextBox()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnModify = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnCommit = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmChargeFeeBase))
+        Me.txtCorName = New System.Windows.Forms.TextBox
+        Me.txtProjectCode = New System.Windows.Forms.TextBox
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.gpbxResult = New System.Windows.Forms.GroupBox
+        Me.dgMoney = New System.Windows.Forms.DataGrid
+        Me.gpbxDetail = New System.Windows.Forms.GroupBox
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.txtIncome = New System.Windows.Forms.TextBox
+        Me.dtpDate = New System.Windows.Forms.DateTimePicker
+        Me.cmbxType = New System.Windows.Forms.ComboBox
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.lblFeeType = New System.Windows.Forms.Label
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.txtSummary = New System.Windows.Forms.TextBox
+        Me.btnNew = New System.Windows.Forms.Button
+        Me.btnModify = New System.Windows.Forms.Button
+        Me.btnDelete = New System.Windows.Forms.Button
+        Me.btnSave = New System.Windows.Forms.Button
+        Me.btnCommit = New System.Windows.Forms.Button
         Me.gpbxResult.SuspendLayout()
         CType(Me.dgMoney, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpbxDetail.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ImageListBasic
-        '
-        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        '
         'btnExit
         '
         Me.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Bitmap)
+        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Image)
         Me.btnExit.ImageIndex = -1
         Me.btnExit.ImageList = Nothing
         Me.btnExit.Location = New System.Drawing.Point(504, 352)
         Me.btnExit.TabIndex = 10
-        Me.btnExit.Visible = True
+        '
+        'ImageListBasic
+        '
+        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
         '
         'txtCorName
         '
-        Me.txtCorName.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.txtCorName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCorName.BackColor = System.Drawing.Color.Gainsboro
         Me.txtCorName.Location = New System.Drawing.Point(248, 7)
         Me.txtCorName.Name = "txtCorName"
         Me.txtCorName.ReadOnly = True
         Me.txtCorName.Size = New System.Drawing.Size(288, 21)
         Me.txtCorName.TabIndex = 20
-        Me.txtCorName.Text = ""
         '
         'txtProjectCode
         '
@@ -138,14 +176,13 @@ Public Class frmChargeFeeBase
         Me.txtProjectCode.ReadOnly = True
         Me.txtProjectCode.Size = New System.Drawing.Size(96, 21)
         Me.txtProjectCode.TabIndex = 19
-        Me.txtProjectCode.Text = ""
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(184, 10)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(54, 14)
+        Me.Label5.Size = New System.Drawing.Size(53, 12)
         Me.Label5.TabIndex = 18
         Me.Label5.Text = "企业名称"
         '
@@ -154,16 +191,16 @@ Public Class frmChargeFeeBase
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(16, 10)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(54, 14)
+        Me.Label6.Size = New System.Drawing.Size(53, 12)
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "项目编码"
         '
         'gpbxResult
         '
-        Me.gpbxResult.Anchor = (((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.gpbxResult.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.gpbxResult.Controls.AddRange(New System.Windows.Forms.Control() {Me.dgMoney})
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gpbxResult.Controls.Add(Me.dgMoney)
         Me.gpbxResult.ForeColor = System.Drawing.Color.Red
         Me.gpbxResult.Location = New System.Drawing.Point(8, 32)
         Me.gpbxResult.Name = "gpbxResult"
@@ -187,9 +224,16 @@ Public Class frmChargeFeeBase
         '
         'gpbxDetail
         '
-        Me.gpbxDetail.Anchor = ((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.gpbxDetail.Controls.AddRange(New System.Windows.Forms.Control() {Me.Label1, Me.txtIncome, Me.dtpDate, Me.cmbxType, Me.Label2, Me.lblFeeType, Me.Label3, Me.txtSummary})
+        Me.gpbxDetail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gpbxDetail.Controls.Add(Me.Label1)
+        Me.gpbxDetail.Controls.Add(Me.txtIncome)
+        Me.gpbxDetail.Controls.Add(Me.dtpDate)
+        Me.gpbxDetail.Controls.Add(Me.cmbxType)
+        Me.gpbxDetail.Controls.Add(Me.Label2)
+        Me.gpbxDetail.Controls.Add(Me.lblFeeType)
+        Me.gpbxDetail.Controls.Add(Me.Label3)
+        Me.gpbxDetail.Controls.Add(Me.txtSummary)
         Me.gpbxDetail.Location = New System.Drawing.Point(8, 256)
         Me.gpbxDetail.Name = "gpbxDetail"
         Me.gpbxDetail.Size = New System.Drawing.Size(576, 88)
@@ -215,7 +259,6 @@ Public Class frmChargeFeeBase
         Me.txtIncome.Name = "txtIncome"
         Me.txtIncome.Size = New System.Drawing.Size(128, 21)
         Me.txtIncome.TabIndex = 3
-        Me.txtIncome.Text = ""
         '
         'dtpDate
         '
@@ -269,12 +312,10 @@ Public Class frmChargeFeeBase
         Me.txtSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtSummary.Size = New System.Drawing.Size(504, 40)
         Me.txtSummary.TabIndex = 4
-        Me.txtSummary.Text = ""
         '
         'btnNew
         '
         Me.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Bitmap)
         Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnNew.ImageIndex = 13
         Me.btnNew.ImageList = Me.ImageListBasic
@@ -289,7 +330,6 @@ Public Class frmChargeFeeBase
         '
         Me.btnModify.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnModify.Enabled = False
-        Me.btnModify.Image = CType(resources.GetObject("btnModify.Image"), System.Drawing.Bitmap)
         Me.btnModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnModify.ImageIndex = 14
         Me.btnModify.ImageList = Me.ImageListBasic
@@ -304,7 +344,6 @@ Public Class frmChargeFeeBase
         '
         Me.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnDelete.Enabled = False
-        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Bitmap)
         Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnDelete.ImageIndex = 12
         Me.btnDelete.ImageList = Me.ImageListBasic
@@ -319,7 +358,6 @@ Public Class frmChargeFeeBase
         '
         Me.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnSave.Enabled = False
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Bitmap)
         Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSave.ImageIndex = 10
         Me.btnSave.ImageList = Me.ImageListBasic
@@ -333,7 +371,6 @@ Public Class frmChargeFeeBase
         'btnCommit
         '
         Me.btnCommit.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnCommit.Image = CType(resources.GetObject("btnCommit.Image"), System.Drawing.Bitmap)
         Me.btnCommit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCommit.ImageIndex = 11
         Me.btnCommit.ImageList = Me.ImageListBasic
@@ -348,14 +385,38 @@ Public Class frmChargeFeeBase
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(594, 383)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.btnExit, Me.btnCommit, Me.btnNew, Me.btnModify, Me.btnDelete, Me.btnSave, Me.gpbxDetail, Me.txtCorName, Me.txtProjectCode, Me.Label5, Me.Label6, Me.gpbxResult})
+        Me.Controls.Add(Me.btnCommit)
+        Me.Controls.Add(Me.btnNew)
+        Me.Controls.Add(Me.btnModify)
+        Me.Controls.Add(Me.btnDelete)
+        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.gpbxDetail)
+        Me.Controls.Add(Me.txtCorName)
+        Me.Controls.Add(Me.txtProjectCode)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.gpbxResult)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmChargeFeeBase"
         Me.Text = "收取费用"
+        Me.Controls.SetChildIndex(Me.gpbxResult, 0)
+        Me.Controls.SetChildIndex(Me.Label6, 0)
+        Me.Controls.SetChildIndex(Me.Label5, 0)
+        Me.Controls.SetChildIndex(Me.txtProjectCode, 0)
+        Me.Controls.SetChildIndex(Me.txtCorName, 0)
+        Me.Controls.SetChildIndex(Me.gpbxDetail, 0)
+        Me.Controls.SetChildIndex(Me.btnSave, 0)
+        Me.Controls.SetChildIndex(Me.btnDelete, 0)
+        Me.Controls.SetChildIndex(Me.btnModify, 0)
+        Me.Controls.SetChildIndex(Me.btnNew, 0)
+        Me.Controls.SetChildIndex(Me.btnCommit, 0)
+        Me.Controls.SetChildIndex(Me.btnExit, 0)
         Me.gpbxResult.ResumeLayout(False)
         CType(Me.dgMoney, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gpbxDetail.ResumeLayout(False)
+        Me.gpbxDetail.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -491,6 +552,10 @@ Public Class frmChargeFeeBase
             description = "收取担保费"
         ElseIf IsReturnFee Then
             description = "收取还款"
+        ElseIf IsLoanInterestFee Then  '2013-11-30 yjf add
+            description = "收取委贷利息"
+        ElseIf IsFinancingConsultingFee Then  '2013-11-30 yjf add
+            description = "收取融资顾问费"
         ElseIf IsSecurityFee Then
             description = "收取保证金"
         ElseIf IsReturnSecurityFee Then
@@ -503,6 +568,14 @@ Public Class frmChargeFeeBase
             description = "登记清偿信息"
         ElseIf IsReturnGuaranteeFee Then
             description = "退还担保费"
+        ElseIf IsBankFee Then
+            description = "登记银行费用"
+        ElseIf IsReturnFinancingConsultingFee Then
+            description = "退融资顾问费"
+        ElseIf IsReturnReviewFee Then
+            description = "退评审费"
+        ElseIf IsReturnEvaluateFee Then
+            description = "退评估费"
         End If
         Return description
     End Function
@@ -521,6 +594,8 @@ Public Class frmChargeFeeBase
                 .Item("payout") = IIf(LessMoney <> 0, LessMoney, DBNull.Value)
             ElseIf IsReturnGuaranteeFee Then
                 .Item("income") = LessMoney * (-1) '如是退还担保费，则默认为0
+            ElseIf IsLoanInterestFee Then
+                .Item("income") = 0 '如是收取委贷利息，则默认为0
             Else
                 .Item("income") = IIf(LessMoney <> 0, LessMoney, DBNull.Value)
             End If
@@ -710,7 +785,8 @@ Public Class frmChargeFeeBase
                 SWDialogBox.MessageBox.Show("$X025")
                 Return
             End If
-        ElseIf LessMoney > 0 And Not IsReturnFee Then
+
+        ElseIf LessMoney > 0 And Not IsReturnFee And Not IsLoanInterestFee Then
             'If IsReturnFee Then
             '    MessageBox.Show("还款金额有遗漏")
             'Else
@@ -733,6 +809,8 @@ Public Class frmChargeFeeBase
                 Affirm("44", "002")
             ElseIf IsSecurityFee Then
                 Affirm("44", "012")
+            ElseIf IsFinancingConsultingFee Then '2013-11-30 yjf add
+                Affirm("44", "015")
             End If
             MyBase.raiseCommitSucceed()
             RemoveHandler MyBase.Closing, AddressOf frmChargeFeeBase_Closing

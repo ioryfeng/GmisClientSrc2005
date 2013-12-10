@@ -303,12 +303,13 @@ Public Class frmMainInterface
     Friend WithEvents MenuItem78 As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItem79 As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItem80 As System.Windows.Forms.MenuItem
+    Friend WithEvents mnuBackFee As SWSystem.Windows.Forms.MenuItem
     Friend WithEvents task_name_tree As System.Windows.Forms.TreeView
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainInterface))
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("任务列表")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("任务列表")
         Me.StatusBar1 = New System.Windows.Forms.StatusBar
         Me.StatusBarPanel2 = New System.Windows.Forms.StatusBarPanel
         Me.StatusBarPanel3 = New System.Windows.Forms.StatusBarPanel
@@ -359,6 +360,9 @@ Public Class frmMainInterface
         Me.mnuSystem = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemLogin = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemSeparator1 = New SWSystem.Windows.Forms.MenuItem
+        Me.mnuToolsPassword = New SWSystem.Windows.Forms.MenuItem
+        Me.mnuMessages = New SWSystem.Windows.Forms.MenuItem
+        Me.mnuMessagesSender = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemPageSetup = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemPreview = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemPrint = New SWSystem.Windows.Forms.MenuItem
@@ -517,13 +521,10 @@ Public Class frmMainInterface
         Me.mnuQueryStatisticsPMService = New SWSystem.Windows.Forms.MenuItem
         Me.MnItemStatisticsRecommendproject = New SWSystem.Windows.Forms.MenuItem
         Me.mnuTools = New SWSystem.Windows.Forms.MenuItem
-        Me.mnuToolsPassword = New SWSystem.Windows.Forms.MenuItem
         Me.MnItemRight = New SWSystem.Windows.Forms.MenuItem
         Me.MenuItem23 = New SWSystem.Windows.Forms.MenuItem
         Me.mnuToolsNotepad = New SWSystem.Windows.Forms.MenuItem
         Me.mnuToolsCalculator = New SWSystem.Windows.Forms.MenuItem
-        Me.mnuMessages = New SWSystem.Windows.Forms.MenuItem
-        Me.mnuMessagesSender = New SWSystem.Windows.Forms.MenuItem
         Me.MenuItem36 = New SWSystem.Windows.Forms.MenuItem
         Me.mnuToolsOptions = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSkin = New System.Windows.Forms.MenuItem
@@ -575,6 +576,7 @@ Public Class frmMainInterface
         Me.ColTime = New System.Windows.Forms.ColumnHeader
         Me.Splitter2 = New System.Windows.Forms.Splitter
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.mnuBackFee = New SWSystem.Windows.Forms.MenuItem
         CType(Me.StatusBarPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarPanel3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarPanel5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -760,9 +762,9 @@ Public Class frmMainInterface
         Me.task_name_tree.ItemHeight = 20
         Me.task_name_tree.Location = New System.Drawing.Point(3, 17)
         Me.task_name_tree.Name = "task_name_tree"
-        TreeNode1.Name = ""
-        TreeNode1.Text = "任务列表"
-        Me.task_name_tree.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
+        TreeNode2.Name = ""
+        TreeNode2.Text = "任务列表"
+        Me.task_name_tree.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.task_name_tree.SelectedImageIndex = 5
         Me.task_name_tree.ShowRootLines = False
         Me.task_name_tree.Size = New System.Drawing.Size(218, 433)
@@ -931,7 +933,6 @@ Public Class frmMainInterface
         '
         'MainMn
         '
-        'Me.MainMn.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystem, Me.mnuTransaction, Me.mnuBase, Me.mnuDocument, Me.mnuWorkLog, Me.mnuQuery, Me.mnuTools, Me.mnuSkin, Me.mnuView, Me.mnuHelp})
         Me.MainMn.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystem, Me.mnuTransaction, Me.mnuBase, Me.mnuDocument, Me.mnuWorkLog, Me.mnuQuery})
         '
         'mnuSystem
@@ -952,6 +953,24 @@ Public Class frmMainInterface
         Me.mnuSystemSeparator1.Index = 1
         Me.mnuSystemSeparator1.OwnerDraw = True
         Me.mnuSystemSeparator1.Text = "-"
+        '
+        'mnuToolsPassword
+        '
+        Me.mnuToolsPassword.Index = 2
+        Me.mnuToolsPassword.OwnerDraw = True
+        Me.mnuToolsPassword.Text = "口令设置(&P)"
+        '
+        'mnuMessages
+        '
+        Me.mnuMessages.Index = 3
+        Me.mnuMessages.OwnerDraw = True
+        Me.mnuMessages.Text = "消息管理器(&M)"
+        '
+        'mnuMessagesSender
+        '
+        Me.mnuMessagesSender.Index = 4
+        Me.mnuMessagesSender.OwnerDraw = True
+        Me.mnuMessagesSender.Text = "发送消息(&S)"
         '
         'mnuSystemPageSetup
         '
@@ -990,7 +1009,7 @@ Public Class frmMainInterface
         'mnuTransaction
         '
         Me.mnuTransaction.Index = 1
-        Me.mnuTransaction.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuChargeFee, Me.mnuTransactionSeparator1, Me.MnItemConsult, Me.MnItemAccept, Me.mnuTransactionSeparator2, Me.MenuCreditManager, Me.mnuCreditProject, Me.mnuFinancialAnalysis, Me.mnuTransactionSeparator3, Me.MnItemModifyGuaranty, Me.mnuTransactionSeparator4, Me.mnuMeeting, Me.mnuWorkFlow, Me.mneItemUpdateProcess})
+        Me.mnuTransaction.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuChargeFee, Me.mnuBackFee, Me.mnuTransactionSeparator1, Me.MnItemConsult, Me.MnItemAccept, Me.mnuTransactionSeparator2, Me.MenuCreditManager, Me.mnuCreditProject, Me.mnuFinancialAnalysis, Me.mnuTransactionSeparator3, Me.MnItemModifyGuaranty, Me.mnuTransactionSeparator4, Me.mnuMeeting, Me.mnuWorkFlow, Me.mneItemUpdateProcess})
         Me.mnuTransaction.OwnerDraw = True
         Me.mnuTransaction.Text = "事务处理(&T)"
         '
@@ -1002,33 +1021,33 @@ Public Class frmMainInterface
         '
         'mnuTransactionSeparator1
         '
-        Me.mnuTransactionSeparator1.Index = 1
+        Me.mnuTransactionSeparator1.Index = 2
         Me.mnuTransactionSeparator1.OwnerDraw = True
         Me.mnuTransactionSeparator1.Text = "-"
         '
         'MnItemConsult
         '
         Me.MnItemConsult.Enabled = False
-        Me.MnItemConsult.Index = 2
+        Me.MnItemConsult.Index = 3
         Me.MnItemConsult.OwnerDraw = True
         Me.MnItemConsult.Text = "咨询登记(&C)"
         '
         'MnItemAccept
         '
         Me.MnItemAccept.Enabled = False
-        Me.MnItemAccept.Index = 3
+        Me.MnItemAccept.Index = 4
         Me.MnItemAccept.OwnerDraw = True
         Me.MnItemAccept.Text = "受理申请(&A)"
         '
         'mnuTransactionSeparator2
         '
-        Me.mnuTransactionSeparator2.Index = 4
+        Me.mnuTransactionSeparator2.Index = 5
         Me.mnuTransactionSeparator2.OwnerDraw = True
         Me.mnuTransactionSeparator2.Text = "-"
         '
         'MenuCreditManager
         '
-        Me.MenuCreditManager.Index = 5
+        Me.MenuCreditManager.Index = 6
         Me.MenuCreditManager.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuDefectRecord, Me.MenuDefectRecordAdd, Me.MenuDefectRecordEdit})
         Me.MenuCreditManager.OwnerDraw = True
         Me.MenuCreditManager.Text = "信用管理"
@@ -1054,40 +1073,40 @@ Public Class frmMainInterface
         'mnuCreditProject
         '
         Me.mnuCreditProject.Enabled = False
-        Me.mnuCreditProject.Index = 6
+        Me.mnuCreditProject.Index = 7
         Me.mnuCreditProject.OwnerDraw = True
         Me.mnuCreditProject.Text = "资信评分(&E)"
         '
         'mnuFinancialAnalysis
         '
         Me.mnuFinancialAnalysis.Enabled = False
-        Me.mnuFinancialAnalysis.Index = 7
+        Me.mnuFinancialAnalysis.Index = 8
         Me.mnuFinancialAnalysis.OwnerDraw = True
         Me.mnuFinancialAnalysis.Text = "财务分析(&S)"
         '
         'mnuTransactionSeparator3
         '
-        Me.mnuTransactionSeparator3.Index = 8
+        Me.mnuTransactionSeparator3.Index = 9
         Me.mnuTransactionSeparator3.OwnerDraw = True
         Me.mnuTransactionSeparator3.Text = "-"
         Me.mnuTransactionSeparator3.Visible = False
         '
         'MnItemModifyGuaranty
         '
-        Me.MnItemModifyGuaranty.Index = 9
+        Me.MnItemModifyGuaranty.Index = 10
         Me.MnItemModifyGuaranty.OwnerDraw = True
         Me.MnItemModifyGuaranty.Text = "调整反担保措施"
         Me.MnItemModifyGuaranty.Visible = False
         '
         'mnuTransactionSeparator4
         '
-        Me.mnuTransactionSeparator4.Index = 10
+        Me.mnuTransactionSeparator4.Index = 11
         Me.mnuTransactionSeparator4.OwnerDraw = True
         Me.mnuTransactionSeparator4.Text = "-"
         '
         'mnuMeeting
         '
-        Me.mnuMeeting.Index = 11
+        Me.mnuMeeting.Index = 12
         Me.mnuMeeting.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MnItemMeetQuery, Me.MnItemMeetSet, Me.MnItemQrySignaturePlan})
         Me.mnuMeeting.OwnerDraw = True
         Me.mnuMeeting.Text = "会议管理(&M)"
@@ -1115,7 +1134,7 @@ Public Class frmMainInterface
         '
         'mnuWorkFlow
         '
-        Me.mnuWorkFlow.Index = 12
+        Me.mnuWorkFlow.Index = 13
         Me.mnuWorkFlow.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MnItemProPause, Me.mnuItemFirReviewCancel, Me.MnItemProCancel, Me.MnItemProConsign, Me.MnItemProCancelCon, Me.MnItemProManual, Me.MnItemProAssign, Me.mnuUpdateMeetRecord, Me.muiUpdateIntentLetter, Me.mnuItemClaim, Me.mnuProjectDelete, Me.MenuReviewGuarantee, Me.mnuItemUpdateGuarantee, Me.MenuProjectExp, Me.MenuItem17, Me.MnItemRemeet, Me.MenuItem31, Me.mnuWorkFlowHoliday, Me.mnuWorkFlowTask})
         Me.mnuWorkFlow.OwnerDraw = True
         Me.mnuWorkFlow.Text = "流程管理(&W)"
@@ -1248,7 +1267,7 @@ Public Class frmMainInterface
         '
         'mneItemUpdateProcess
         '
-        Me.mneItemUpdateProcess.Index = 13
+        Me.mneItemUpdateProcess.Index = 14
         Me.mneItemUpdateProcess.OwnerDraw = True
         Me.mneItemUpdateProcess.Text = "业务流程同步(&U)"
         '
@@ -1997,16 +2016,10 @@ Public Class frmMainInterface
         '
         'mnuTools
         '
-        Me.mnuTools.Index = 6
+        Me.mnuTools.Index = -1
         Me.mnuTools.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MnItemRight, Me.MenuItem23, Me.mnuToolsNotepad, Me.mnuToolsCalculator, Me.MenuItem36, Me.mnuToolsOptions})
         Me.mnuTools.OwnerDraw = True
         Me.mnuTools.Text = "工具(&T)"
-        '
-        'mnuToolsPassword
-        '
-        Me.mnuToolsPassword.Index = 2
-        Me.mnuToolsPassword.OwnerDraw = True
-        Me.mnuToolsPassword.Text = "口令设置(&P)"
         '
         'MnItemRight
         '
@@ -2033,18 +2046,6 @@ Public Class frmMainInterface
         Me.mnuToolsCalculator.OwnerDraw = True
         Me.mnuToolsCalculator.Text = "计算器(&C)"
         '
-        'mnuMessages
-        '
-        Me.mnuMessages.Index = 3
-        Me.mnuMessages.OwnerDraw = True
-        Me.mnuMessages.Text = "消息管理器(&M)"
-        '
-        'mnuMessagesSender
-        '
-        Me.mnuMessagesSender.Index = 4
-        Me.mnuMessagesSender.OwnerDraw = True
-        Me.mnuMessagesSender.Text = "发送消息(&S)"
-        '
         'MenuItem36
         '
         Me.MenuItem36.Index = 4
@@ -2061,7 +2062,7 @@ Public Class frmMainInterface
         '
         'mnuSkin
         '
-        Me.mnuSkin.Index = 7
+        Me.mnuSkin.Index = -1
         Me.mnuSkin.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem12, Me.MenuItem21, Me.MenuItem37, Me.MenuItem38, Me.MenuItem39, Me.MenuItem40, Me.MenuItem41, Me.MenuItem43, Me.MenuItem45, Me.MenuItem48, Me.MenuItem65, Me.MenuItem66, Me.MenuItem68, Me.MenuItem70, Me.MenuItem72, Me.MenuItem73, Me.MenuItem74, Me.MenuItem75, Me.MenuItem76, Me.MenuItem77, Me.MenuItem78, Me.MenuItem79, Me.MenuItem80})
         Me.mnuSkin.Text = "皮肤(&P)"
         '
@@ -2182,7 +2183,7 @@ Public Class frmMainInterface
         '
         'mnuView
         '
-        Me.mnuView.Index = 8
+        Me.mnuView.Index = -1
         Me.mnuView.MdiList = True
         Me.mnuView.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MnItemTool, Me.MnItemStatic, Me.MenuItem25, Me.mnuTaskList, Me.MenuItem71, Me.MenuItem26})
         Me.mnuView.OwnerDraw = True
@@ -2230,7 +2231,7 @@ Public Class frmMainInterface
         '
         'mnuHelp
         '
-        Me.mnuHelp.Index = 9
+        Me.mnuHelp.Index = -1
         Me.mnuHelp.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuHelpContext, Me.mnuHelpIndex, Me.mnuHelpSearch, Me.mnuHelpSeparator1, Me.mnuHelpSupport, Me.mnuHelpSeparator2, Me.mnuHelpAbout})
         Me.mnuHelp.OwnerDraw = True
         Me.mnuHelp.Text = "帮助(&H)"
@@ -2352,6 +2353,11 @@ Public Class frmMainInterface
         Me.Splitter2.TabIndex = 21
         Me.Splitter2.TabStop = False
         Me.Splitter2.Visible = False
+        '
+        'mnuBackFee
+        '
+        Me.mnuBackFee.Index = 1
+        Me.mnuBackFee.Text = "退费(&R)"
         '
         'frmMainInterface
         '
@@ -2547,6 +2553,7 @@ Public Class frmMainInterface
     '工具
     Private frmPassword As FPassword   '口令设置
     Private FChargeFeeTool As FChargeFeeTool
+    Private FChargeBackFeeTool As FChargeBackFeeTool
 
     Dim iProPermissionId As Integer = 0
 
@@ -6013,4 +6020,24 @@ Public Class frmMainInterface
     '    _strSkinPath = System.Environment.CurrentDirectory + "\Skins\" + "Sports\" + "Sports.ssk"
     '    SetSkin(_strSkinPath)
     'End Sub
+
+    Private Sub mnuReturnFee_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuBackFee.Click
+        Try
+            Me.Cursor = Cursors.AppStarting
+
+            If hasCreated(GetType(MainInterface.FChargeBackFeeTool)) = True Then
+                FChargeBackFeeTool.Activate()
+            Else
+                FChargeBackFeeTool = New FChargeBackFeeTool
+                AddHandler FChargeBackFeeTool.refreshTaskCommit, AddressOf Me.getTasklistAndMsg
+                FChargeBackFeeTool.MdiParent = Me
+                FChargeBackFeeTool.WindowState = FormWindowState.Maximized
+                FChargeBackFeeTool.Show()
+            End If
+        Catch ex As Exception
+            SWDialogBox.MessageBox.Show("*999", ex.Source, ex.Message, ex.StackTrace)
+        Finally
+            Me.Cursor = Cursors.Default
+        End Try
+    End Sub
 End Class

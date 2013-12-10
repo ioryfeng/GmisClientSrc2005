@@ -256,7 +256,6 @@ Public Class frmMeetingRecord
     Friend WithEvents Label45 As System.Windows.Forms.Label
     Friend WithEvents Label44 As System.Windows.Forms.Label
     Friend WithEvents Label46 As System.Windows.Forms.Label
-    Friend WithEvents txtBankFeeRate As System.Windows.Forms.TextBox
     Friend WithEvents txtBankSecurityRate As System.Windows.Forms.TextBox
     Friend WithEvents Label49 As System.Windows.Forms.Label
     Friend WithEvents Label50 As System.Windows.Forms.Label
@@ -265,8 +264,10 @@ Public Class frmMeetingRecord
     Friend WithEvents txtFinancingConsultingRate As System.Windows.Forms.TextBox
     Friend WithEvents Label52 As System.Windows.Forms.Label
     Friend WithEvents dtpGuarantEndDate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtBankFeeRate As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMeetingRecord))
+
         Me.btnCommit = New System.Windows.Forms.Button
         Me.TabControl = New System.Windows.Forms.TabControl
         Me.tpInfo = New System.Windows.Forms.TabPage
@@ -301,7 +302,6 @@ Public Class frmMeetingRecord
         Me.txtFinancingConsultingRate = New System.Windows.Forms.TextBox
         Me.Label52 = New System.Windows.Forms.Label
         Me.Label46 = New System.Windows.Forms.Label
-        Me.txtBankFeeRate = New System.Windows.Forms.TextBox
         Me.txtBankSecurityRate = New System.Windows.Forms.TextBox
         Me.Label49 = New System.Windows.Forms.Label
         Me.Label45 = New System.Windows.Forms.Label
@@ -413,6 +413,7 @@ Public Class frmMeetingRecord
         Me.btnJoinReport = New System.Windows.Forms.Button
         Me.btnSplitProject = New System.Windows.Forms.Button
         Me.btnSupplyOppGua = New System.Windows.Forms.Button
+        txtBankFeeRate = New System.Windows.Forms.TextBox
         Me.TabControl.SuspendLayout()
         Me.tpInfo.SuspendLayout()
         Me.gpbxInfo.SuspendLayout()
@@ -477,15 +478,6 @@ Public Class frmMeetingRecord
         Me.ImageListBasic.Images.SetKeyName(23, "")
         Me.ImageListBasic.Images.SetKeyName(24, "")
         Me.ImageListBasic.Images.SetKeyName(25, "")
-        '
-        'txtBankFeeRate
-        '
-        txtBankFeeRate.Enabled = False
-        txtBankFeeRate.Location = New System.Drawing.Point(120, 390)
-        txtBankFeeRate.Name = "txtBankFeeRate"
-        txtBankFeeRate.Size = New System.Drawing.Size(40, 21)
-        txtBankFeeRate.TabIndex = 118
-        txtBankFeeRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btnCommit
         '
@@ -933,6 +925,15 @@ Public Class frmMeetingRecord
         Me.Label45.TabIndex = 119
         Me.Label45.Text = "%"
         '
+        'txtBankFeeRate
+        '
+        txtBankFeeRate.Enabled = False
+        txtBankFeeRate.Location = New System.Drawing.Point(120, 390)
+        txtBankFeeRate.Name = "txtBankFeeRate"
+        txtBankFeeRate.Size = New System.Drawing.Size(40, 21)
+        txtBankFeeRate.TabIndex = 118
+        txtBankFeeRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'Label44
         '
         Me.Label44.AutoSize = True
@@ -1050,17 +1051,17 @@ Public Class frmMeetingRecord
         'txtPartnerOpnion
         '
         Me.txtPartnerOpnion.Enabled = False
-        Me.txtPartnerOpnion.Location = New System.Drawing.Point(575, 393)
+        Me.txtPartnerOpnion.Location = New System.Drawing.Point(487, 369)
         Me.txtPartnerOpnion.MaxLength = 250
         Me.txtPartnerOpnion.Multiline = True
         Me.txtPartnerOpnion.Name = "txtPartnerOpnion"
-        Me.txtPartnerOpnion.Size = New System.Drawing.Size(45, 40)
+        Me.txtPartnerOpnion.Size = New System.Drawing.Size(45, 13)
         Me.txtPartnerOpnion.TabIndex = 108
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(531, 362)
+        Me.Label18.Location = New System.Drawing.Point(379, 366)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(89, 12)
         Me.Label18.TabIndex = 109
@@ -3020,18 +3021,18 @@ Public Class frmMeetingRecord
             End If
 
 
-            '2013-11-21 yjf add 必须填写银行费用和银行保证金比例，如果为0也要填写为0
-            If txtBankFeeRate.Text.Trim = "" Then
-                SWDialogBox.MessageBox.Show("必须填写银行费用比例", "银行费用比例", "", SWDialogBox.MessageBoxButton.OK, SWDialogBox.MessageBoxIcon.Information) '"银行费用比例")
-                txtBankFeeRate.Focus()
-                Return False
-            End If
+            ''2013-11-21 yjf add 必须填写银行费用和银行保证金比例，如果为0也要填写为0
+            'If txtBankFeeRate.Text.Trim = "" Then
+            '    SWDialogBox.MessageBox.Show("必须填写银行费用比例", "银行费用比例", "", SWDialogBox.MessageBoxButton.OK, SWDialogBox.MessageBoxIcon.Information) '"银行费用比例")
+            '    txtBankFeeRate.Focus()
+            '    Return False
+            'End If
 
-            If txtBankSecurityRate.Text.Trim = "" Then
-                SWDialogBox.MessageBox.Show("必须填写银行保证金比例", "银行保证金比例", "", SWDialogBox.MessageBoxButton.OK, SWDialogBox.MessageBoxIcon.Information) '"银行保证金比例")
-                txtBankSecurityRate.Focus()
-                Return False
-            End If
+            'If txtBankSecurityRate.Text.Trim = "" Then
+            '    SWDialogBox.MessageBox.Show("必须填写银行保证金比例", "银行保证金比例", "", SWDialogBox.MessageBoxButton.OK, SWDialogBox.MessageBoxIcon.Information) '"银行保证金比例")
+            '    txtBankSecurityRate.Focus()
+            '    Return False
+            'End If
 
         End If
 
@@ -3230,29 +3231,30 @@ Public Class frmMeetingRecord
         SecurityFee = CDbl(IIf(txtScaleMoney.Text <> "", txtScaleMoney.Text, 0)) '保证金
 
         '2013-11-29 YJF ADD
-        FinancingConsultingFee = CDbl(IIf(txtFinancingConsultingFee.Text <> "", txtFinancingConsultingFee.Text, 0)) '融资顾问费
+        FinancingConsultingFee = CDbl(IIf(txtFinancingConsultingRate.Text <> "", txtFinancingConsultingRate.Text, 0)) * txtGuarantySum.Text * 100 '融资顾问费
 
         Dim strRowFilter, result, strSql As String
         Dim dsTemp As DataSet
-        If txtGuarantyFeeStandard.Enabled Then
 
-            strSql = "{project_code='" & Me.ProjectCode & "' and item_type='" & GuaFeeItemType & "' AND item_code='" & GuaFeeItemCode & "' and payout is not null}"
-            dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
 
-            If dsTemp.Tables(0).Rows.Count <> 0 Then
-                Dim dr As DataRow
-                For Each dr In dsTemp.Tables(0).Rows
-                    dr.Delete()
-                Next
-                If dsTemp.HasChanges Then
-                    result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
-                    If result <> "1" Then
-                        SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
-                        Return False
-                    End If
+        strSql = "{project_code='" & Me.ProjectCode & "' and item_type='" & GuaFeeItemType & "' AND item_code='" & GuaFeeItemCode & "' and payout is not null}"
+        dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+
+        If dsTemp.Tables(0).Rows.Count <> 0 Then
+            Dim dr As DataRow
+            For Each dr In dsTemp.Tables(0).Rows
+                dr.Delete()
+            Next
+            If dsTemp.HasChanges Then
+                result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                If result <> "1" Then
+                    SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                    Return False
                 End If
             End If
+        End If
 
+        If txtGuarantyFeeStandard.Enabled Then
             If GuarantyFee > 0 Then '应收担保费>0
                 dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
                 Dim dr As DataRow = dsTemp.Tables(0).NewRow
@@ -3299,25 +3301,26 @@ Public Class frmMeetingRecord
 
         '取保证金的payout不为Null的记录
         '2007-08-02 yjf edit 所有业务品种都可以收取保证金
-        If txtScaleMoney.Text <> "" AndAlso txtScaleMoney.Text > 0 Then
 
-            '2007-9-5 yjf add  消除产生两条记录的可能，使用局部变量
-            strSql = "{project_code='" & Me.ProjectCode & "' and item_type='" & SecFeeItemType & "' AND item_code='" & SecFeeItemCode & "' and payout is not null}"
-            dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
-            If dsTemp.Tables(0).Rows.Count <> 0 Then
-                Dim dr As DataRow
-                For Each dr In dsTemp.Tables(0).Rows
-                    dr.Delete()
-                Next
-                If dsTemp.HasChanges Then
-                    result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
-                    If result <> "1" Then
-                        SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
-                        Return False
-                    End If
+
+        '2007-9-5 yjf add  消除产生两条记录的可能，使用局部变量
+        strSql = "{project_code='" & Me.ProjectCode & "' and item_type='" & SecFeeItemType & "' AND item_code='" & SecFeeItemCode & "' and payout is not null}"
+        dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+        If dsTemp.Tables(0).Rows.Count <> 0 Then
+            Dim dr As DataRow
+            For Each dr In dsTemp.Tables(0).Rows
+                dr.Delete()
+            Next
+            If dsTemp.HasChanges Then
+                result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                If result <> "1" Then
+                    SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                    Return False
                 End If
             End If
+        End If
 
+        If txtScaleMoney.Text <> "" AndAlso txtScaleMoney.Text > 0 Then
             If SecurityFee > 0 Then
                 dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
                 Dim dr As DataRow = dsTemp.Tables(0).NewRow
@@ -3359,130 +3362,69 @@ Public Class frmMeetingRecord
         End If
 
 
-        If txtReviewFeeStandard.Enabled Then
-            Dim dsOpinion As DataSet
-            Dim strOpinion As String
-            Dim needInsertReviewFee As Boolean = True
-            dsOpinion = gWs.GetProjectOpinionByProjectNo(ProjectCode)
-            If dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'").Length > 0 Then
-                Dim dr As DataRow = dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'")(0)
-                strOpinion = dr("conclusion") & ""
-                If strOpinion = "免收" Then
-                    needInsertReviewFee = False
-                    'Return True
+        'If txtReviewFeeStandard.Enabled Then
+        '    Dim dsOpinion As DataSet
+        '    Dim strOpinion As String
+        '    Dim needInsertReviewFee As Boolean = True
+        '    dsOpinion = gWs.GetProjectOpinionByProjectNo(ProjectCode)
+        '    If dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'").Length > 0 Then
+        '        Dim dr As DataRow = dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'")(0)
+        '        strOpinion = dr("conclusion") & ""
+        '        If strOpinion = "免收" Then
+        '            needInsertReviewFee = False
+        '            'Return True
+        '        End If
+        '    End If
+        '    If needInsertReviewFee Then
+
+
+
+        '2007-9-5 yjf add  消除产生两条记录的可能，使用局部变量
+        strSql = "{project_code='" & Me.ProjectCode & "' and item_type='" & RevFeeItemType & "' AND item_code='" & RevFeeItemCode & "' and payout is not null}"
+        dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+        If dsTemp.Tables(0).Rows.Count <> 0 Then
+            Dim dr1 As DataRow
+            For Each dr1 In dsTemp.Tables(0).Rows
+                dr1.Delete()
+            Next
+            If dsTemp.HasChanges Then
+                result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                If result <> "1" Then
+                    SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                    Return False
                 End If
             End If
-            If needInsertReviewFee Then
-
-                If ReviewFee > 0 Then
-
-                    '2007-9-5 yjf add  消除产生两条记录的可能，使用局部变量
-                    strSql = "{project_code='" & Me.ProjectCode & "' and item_type='" & RevFeeItemType & "' AND item_code='" & RevFeeItemCode & "' and payout is not null}"
-                    dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
-                    If dsTemp.Tables(0).Rows.Count <> 0 Then
-                        Dim dr1 As DataRow
-                        For Each dr1 In dsTemp.Tables(0).Rows
-                            dr1.Delete()
-                        Next
-                        If dsTemp.HasChanges Then
-                            result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
-                            If result <> "1" Then
-                                SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
-                                Return False
-                            End If
-                        End If
-                    End If
-
-                    dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
-                    Dim dr As DataRow = dsTemp.Tables(0).NewRow
-                    With dr
-                        .Item("project_code") = ProjectCode
-                        .Item("date") = SystemDate.Date
-                        .Item("item_type") = RevFeeItemType '"31"
-                        .Item("item_code") = RevFeeItemCode '"001"
-                        .Item("phase") = "评审"
-                        '.Item("payout") = balance
-                        .Item("payout") = ReviewFee
-                        .Item("create_person") = UserName
-                        .Item("create_date") = SystemDate
-                    End With
-                    dsTemp.Tables(0).Rows.Add(dr)
-                    If dsTemp.HasChanges Then
-                        result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
-                        If result <> "1" Then
-                            SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
-                            Return False
-                        End If
-                    End If
-
-                    dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
-                    If dsTemp.Tables(0).Rows.Count > 1 Then
-                        Dim i As Integer
-                        For i = 1 To dsTemp.Tables(0).Rows.Count
-                            dsTemp.Tables(0).Rows(i).Delete()
-                        Next
-                        If dsTemp.HasChanges Then
-                            result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
-                            If result <> "1" Then
-                                SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
-                                Return False
-                            End If
-                        End If
-                    End If
-
-                End If
-            End If
-
         End If
 
-        '2013-11-29 YJF ADD 融资顾问费
-        If txtFinancingConsultingRate.Enabled Then
-            Dim dsOpinion As DataSet
-            Dim strOpinion As String
-            Dim needInsertReviewFee As Boolean = True
-            dsOpinion = gWs.GetProjectOpinionByProjectNo(ProjectCode)
-            If dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'").Length > 0 Then
-                Dim dr As DataRow = dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'")(0)
-                strOpinion = dr("conclusion") & ""
-                If strOpinion = "免收" Then
-                    needInsertReviewFee = False
-                    'Return True
+        If ReviewFee > 0 Then
+            dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+            Dim dr As DataRow = dsTemp.Tables(0).NewRow
+            With dr
+                .Item("project_code") = ProjectCode
+                .Item("date") = SystemDate.Date
+                .Item("item_type") = RevFeeItemType '"31"
+                .Item("item_code") = RevFeeItemCode '"001"
+                .Item("phase") = "评审"
+                '.Item("payout") = balance
+                .Item("payout") = ReviewFee
+                .Item("create_person") = UserName
+                .Item("create_date") = SystemDate
+            End With
+            dsTemp.Tables(0).Rows.Add(dr)
+            If dsTemp.HasChanges Then
+                result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                If result <> "1" Then
+                    SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                    Return False
                 End If
             End If
 
-            If FinancingConsultingFee > 0 Then
-
-                '2007-9-5 yjf add  消除产生两条记录的可能，使用局部变量
-                strSql = "{project_code='" & Me.ProjectCode & "' and item_type='31' AND item_code='004' and payout is not null}"
-                dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
-                If dsTemp.Tables(0).Rows.Count <> 0 Then
-                    Dim dr1 As DataRow
-                    For Each dr1 In dsTemp.Tables(0).Rows
-                        dr1.Delete()
-                    Next
-                    If dsTemp.HasChanges Then
-                        result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
-                        If result <> "1" Then
-                            SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
-                            Return False
-                        End If
-                    End If
-                End If
-
-                dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
-                Dim dr As DataRow = dsTemp.Tables(0).NewRow
-                With dr
-                    .Item("project_code") = ProjectCode
-                    .Item("date") = SystemDate.Date
-                    .Item("item_type") = "31"
-                    .Item("item_code") = "004"
-                    .Item("phase") = "评审"
-                    '.Item("payout") = balance
-                    .Item("payout") = ReviewFee
-                    .Item("create_person") = UserName
-                    .Item("create_date") = SystemDate
-                End With
-                dsTemp.Tables(0).Rows.Add(dr)
+            dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+            If dsTemp.Tables(0).Rows.Count > 1 Then
+                Dim i As Integer
+                For i = 1 To dsTemp.Tables(0).Rows.Count
+                    dsTemp.Tables(0).Rows(i).Delete()
+                Next
                 If dsTemp.HasChanges Then
                     result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
                     If result <> "1" Then
@@ -3490,25 +3432,88 @@ Public Class frmMeetingRecord
                         Return False
                     End If
                 End If
-
-                dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
-                If dsTemp.Tables(0).Rows.Count > 1 Then
-                    Dim i As Integer
-                    For i = 1 To dsTemp.Tables(0).Rows.Count
-                        dsTemp.Tables(0).Rows(i).Delete()
-                    Next
-                    If dsTemp.HasChanges Then
-                        result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
-                        If result <> "1" Then
-                            SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
-                            Return False
-                        End If
-                    End If
-                End If
-
             End If
 
         End If
+        '    End If
+
+        'End If
+
+        ''2013-11-29 YJF ADD 融资顾问费
+        'If txtFinancingConsultingRate.Enabled Then
+        '    Dim dsOpinion As DataSet
+        '    Dim strOpinion As String
+        '    Dim needInsertReviewFee As Boolean = True
+        '    dsOpinion = gWs.GetProjectOpinionByProjectNo(ProjectCode)
+        '    If dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'").Length > 0 Then
+        '        Dim dr As DataRow = dsOpinion.Tables(0).Select("item_type='51' AND item_code='004'")(0)
+        '        strOpinion = dr("conclusion") & ""
+        '        If strOpinion = "免收" Then
+        '            needInsertReviewFee = False
+        '            'Return True
+        '        End If
+        '    End If
+
+
+
+        '2007-9-5 yjf add  消除产生两条记录的可能，使用局部变量
+        strSql = "{project_code='" & Me.ProjectCode & "' and item_type='31' AND item_code='004' and payout is not null}"
+        dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+        If dsTemp.Tables(0).Rows.Count <> 0 Then
+            Dim dr1 As DataRow
+            For Each dr1 In dsTemp.Tables(0).Rows
+                dr1.Delete()
+            Next
+            If dsTemp.HasChanges Then
+                result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                If result <> "1" Then
+                    SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                    Return False
+                End If
+            End If
+        End If
+
+        If FinancingConsultingFee > 0 Then
+            dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+            Dim dr As DataRow = dsTemp.Tables(0).NewRow
+            With dr
+                .Item("project_code") = ProjectCode
+                .Item("date") = SystemDate.Date
+                .Item("item_type") = "31"
+                .Item("item_code") = "004"
+                .Item("phase") = "评审"
+                '.Item("payout") = balance
+                .Item("payout") = FinancingConsultingFee
+                .Item("create_person") = UserName
+                .Item("create_date") = SystemDate
+            End With
+            dsTemp.Tables(0).Rows.Add(dr)
+            If dsTemp.HasChanges Then
+                result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                If result <> "1" Then
+                    SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                    Return False
+                End If
+            End If
+
+            dsTemp = gWs.GetProjectAccountDetailInfo(strSql)
+            If dsTemp.Tables(0).Rows.Count > 1 Then
+                Dim i As Integer
+                For i = 1 To dsTemp.Tables(0).Rows.Count
+                    dsTemp.Tables(0).Rows(i).Delete()
+                Next
+                If dsTemp.HasChanges Then
+                    result = gWs.UpdateProjectAccountDetail(dsTemp.GetChanges)
+                    If result <> "1" Then
+                        SWDialogBox.MessageBox.Show("*999", "保存费用失败", result, "")
+                        Return False
+                    End If
+                End If
+            End If
+
+        End If
+
+        'End If
 
         If Not IsNothing(dsTemp) Then
             If dsTemp.HasChanges Then
@@ -4475,6 +4480,11 @@ Public Class frmMeetingRecord
             htMeeting.Item("&#FinancingConsultingRate") = IIf(strTemp = "", 0, strTemp) & "%" & _
                                     IIf(txtFinancingConsultingFee.Text = "", "", "(" & txtFinancingConsultingFee.Text & "元)")
 
+            '2013-11-29 YJF 委贷利率
+            obj = infoRow("interest_rate")
+            strTemp = obj & ""
+            htMeeting.Item("&#InterestRate") = IIf(strTemp = "", 0, strTemp) & "%/年"
+
             If isBaoHan Then '为保函
                 htMeeting.Item("&#1Item") = "保函种类"
                 htMeeting.Item("&#1ContentItem") = cboBaoHanType.Text
@@ -4573,7 +4583,12 @@ Public Class frmMeetingRecord
         End While
         Try
             Dim ofrm1 As frmDocumentManageBusiness
-            ofrm1 = New frmDocumentManageBusiness(ProjectCode, TaskID, CorporationName, "45", "011", UserName, key, value)
+            If cmbxServiceType.Text = "小额委托放款" Then
+                ofrm1 = New frmDocumentManageBusiness(ProjectCode, TaskID, CorporationName, "45", "021", UserName, key, value)
+            Else
+                ofrm1 = New frmDocumentManageBusiness(ProjectCode, TaskID, CorporationName, "45", "011", UserName, key, value)
+            End If
+
             ofrm1.AllowTransparency = False
             ofrm1.StartPosition = FormStartPosition.CenterScreen
             ofrm1.ShowDialog()
@@ -5380,11 +5395,10 @@ Public Class frmMeetingRecord
             bmConclusion.Position = bmConclusion.Position
             '赋评审费率，担保费率的默认值
             Dim drv As DataRowView = CType(cmbxServiceType.SelectedItem, DataRowView)
-            txtReviewFeeStandard.Text = drv("review_fee_rate") & ""
-            txtGuarantyFeeStandard.Text = drv("guarantee_fee_rate") & ""
+            txtReviewFeeStandard.Text = String.Format("{0:N2}", drv("review_fee_rate")) & ""
+            txtGuarantyFeeStandard.Text = String.Format("{0:N2}", drv("guarantee_fee_rate")) & ""
 
-            '2013-11-29 YJF ADD
-            txtFinancingConsultingRate.Text = drv("FinancingConsultingRate") & ""
+
 
             ''2009-10-29 yjf add
             'txtInterestRate.Text = drv("interest_rate") & ""
@@ -5402,11 +5416,9 @@ Public Class frmMeetingRecord
 
             '业务品种改变时，评审费率，担保费率，评审费，担保费随之改变
             Dim drv As DataRowView = CType(cmbxServiceType.SelectedItem, DataRowView)
-            txtReviewFeeStandard.Text = drv("review_fee_rate") & ""
-            txtGuarantyFeeStandard.Text = drv("guarantee_fee_rate") & ""
+            txtReviewFeeStandard.Text = String.Format("{0:N2}", drv("review_fee_rate")) & ""
+            txtGuarantyFeeStandard.Text = String.Format("{0:N2}", drv("guarantee_fee_rate")) & ""
 
-            '2013-11-29 YJF ADD
-            txtFinancingConsultingRate.Text = drv("FinancingConsultingRate") & ""
 
             ''2009-10-29 yjf add
             'txtInterestRate.Text = drv("interest_rate") & ""

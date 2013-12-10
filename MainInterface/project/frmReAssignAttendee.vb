@@ -423,7 +423,7 @@ Public Class frmReAssignAttendee
                     If ds.Tables("project_responsible").Rows.Count > 0 Then
                         dr = ds.Tables("project_responsible").Rows(0)
                         With dr
-                            If Me.combo_role.Text.Trim = "项目经理" Then
+                            If Me.combo_role.Text.Trim = "项目经理A角" Then
                                 .Item("manager_A") = Me.combo_staff.Text
                             ElseIf Me.combo_role.Text.Trim = "项目经理B角" Then
                                 .Item("manager_B") = Me.combo_staff.Text
@@ -433,7 +433,7 @@ Public Class frmReAssignAttendee
                         dr = ds.Tables("project_responsible").NewRow
                         With dr
                             .Item("project_code") = ProjectCode
-                            If Me.combo_role.Text.Trim = "项目经理" Then
+                            If Me.combo_role.Text.Trim = "项目经理A角" Then
                                 .Item("manager_A") = Me.combo_staff.Text
                             ElseIf Me.combo_role.Text.Trim = "项目经理B角" Then
                                 .Item("manager_B") = Me.combo_staff.Text

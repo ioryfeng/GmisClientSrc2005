@@ -65,7 +65,7 @@ Public Class frmCommonContract
     Public WithEvents btnCar As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmCommonContract))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCommonContract))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.txtContractName = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
@@ -111,12 +111,12 @@ Public Class frmCommonContract
         Me.txtContractName.Name = "txtContractName"
         Me.txtContractName.Size = New System.Drawing.Size(536, 21)
         Me.txtContractName.TabIndex = 3
-        Me.txtContractName.Text = ""
         '
         'Label2
         '
         Me.Label2.Location = New System.Drawing.Point(320, 25)
         Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(100, 23)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "合同名称："
         '
@@ -127,12 +127,12 @@ Public Class frmCommonContract
         Me.txtCorporationName.Name = "txtCorporationName"
         Me.txtCorporationName.Size = New System.Drawing.Size(232, 21)
         Me.txtCorporationName.TabIndex = 1
-        Me.txtCorporationName.Text = ""
         '
         'Label1
         '
         Me.Label1.Location = New System.Drawing.Point(8, 25)
         Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(100, 23)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "企业名称："
         '
@@ -188,9 +188,35 @@ Public Class frmCommonContract
         '
         'ImageListBasic
         '
-        Me.ImageListBasic.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageListBasic.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
+        Me.ImageListBasic.Images.SetKeyName(25, "")
+        Me.ImageListBasic.Images.SetKeyName(26, "")
         '
         'btnExit
         '
@@ -285,6 +311,7 @@ Public Class frmCommonContract
         Me.Name = "frmCommonContract"
         Me.Text = "合同要素"
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgProjectContractElement, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

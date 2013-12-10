@@ -33,16 +33,12 @@ Public Class frmLoanInterestFee
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtLoanSum As System.Windows.Forms.TextBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents txtBalance As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLoanInterestFee))
         Me.cboMoneyType = New System.Windows.Forms.ComboBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.txtLoanSum = New System.Windows.Forms.TextBox
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.txtBalance = New System.Windows.Forms.TextBox
         Me.gpbxResult.SuspendLayout()
         CType(Me.dgMoney, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpbxDetail.SuspendLayout()
@@ -52,10 +48,6 @@ Public Class frmLoanInterestFee
         '
         Me.gpbxResult.Location = New System.Drawing.Point(8, 56)
         Me.gpbxResult.Size = New System.Drawing.Size(577, 200)
-        '
-        'Label3
-        '
-        Me.Label3.Text = "还款日期"
         '
         'dgMoney
         '
@@ -105,7 +97,6 @@ Public Class frmLoanInterestFee
         '
         Me.Label1.AutoSize = True
         Me.Label1.Size = New System.Drawing.Size(77, 12)
-        Me.Label1.Text = "还款金额(元)"
         '
         'lblFeeType
         '
@@ -192,7 +183,7 @@ Public Class frmLoanInterestFee
         '
         Me.cboMoneyType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMoneyType.Enabled = False
-        Me.cboMoneyType.Items.AddRange(New Object() {"还款"})
+        Me.cboMoneyType.Items.AddRange(New Object() {"委贷利息"})
         Me.cboMoneyType.Location = New System.Drawing.Point(248, 13)
         Me.cboMoneyType.MaxLength = 10
         Me.cboMoneyType.Name = "cboMoneyType"
@@ -228,41 +219,16 @@ Public Class frmLoanInterestFee
         Me.txtLoanSum.TabIndex = 25
         Me.txtLoanSum.Text = "0"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.SystemColors.Control
-        Me.Label8.Location = New System.Drawing.Point(184, 35)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(77, 12)
-        Me.Label8.TabIndex = 26
-        Me.Label8.Text = "差    额(元)"
-        '
-        'txtBalance
-        '
-        Me.txtBalance.BackColor = System.Drawing.SystemColors.Window
-        Me.txtBalance.ForeColor = System.Drawing.Color.Red
-        Me.txtBalance.Location = New System.Drawing.Point(264, 32)
-        Me.txtBalance.Name = "txtBalance"
-        Me.txtBalance.ReadOnly = True
-        Me.txtBalance.Size = New System.Drawing.Size(80, 21)
-        Me.txtBalance.TabIndex = 27
-        Me.txtBalance.Text = "0"
-        '
         'frmLoanInterestFee
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(593, 383)
-        Me.Controls.Add(Me.txtBalance)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtLoanSum)
         Me.Controls.Add(Me.Label7)
         Me.Name = "frmLoanInterestFee"
         Me.Text = "收取委贷利息"
         Me.Controls.SetChildIndex(Me.Label7, 0)
         Me.Controls.SetChildIndex(Me.txtLoanSum, 0)
-        Me.Controls.SetChildIndex(Me.Label8, 0)
-        Me.Controls.SetChildIndex(Me.txtBalance, 0)
         Me.Controls.SetChildIndex(Me.gpbxResult, 0)
         Me.Controls.SetChildIndex(Me.txtProjectCode, 0)
         Me.Controls.SetChildIndex(Me.txtCorName, 0)
@@ -319,7 +285,7 @@ Public Class frmLoanInterestFee
             Next
         End With
         LessMoney = CDbl(txtLoanSum.Text) * 10000 - returnSum
-        txtBalance.Text = LessMoney.ToString("n")
+        'txtBalance.Text = LessMoney.ToString("n")
         Return LessMoney
     End Function
 
@@ -335,13 +301,13 @@ Public Class frmLoanInterestFee
             Next
         End With
         LessMoney = CDbl(txtLoanSum.Text) * 10000 - returnSum
-        txtBalance.Text = LessMoney.ToString("n")
+        'txtBalance.Text = LessMoney.ToString("n")
     End Sub
 
     Private Sub frmReturnFee_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         txtCorName.Text = CorporationName : txtProjectCode.Text = ProjectCode
-        IsReturnFee = True
-        item_type = "34" : item_code = "001"
+        IsLoanInterestFee = True
+        item_type = "34" : item_code = "010"
 
         SystemDate = gWs.GetSysTime
         dtpDate.Value = SystemDate.Date
@@ -349,16 +315,16 @@ Public Class frmLoanInterestFee
         lblFeeType.Visible = False : cmbxType.Visible = False
         btnNew.Focus()
 
-        '设置再次放款按钮可用性
-        'yjf add 2007-7-11 add 
-        Dim strSql As String = "select loan_sum ,GuaranteeSum,LoanType from viewprojectinfo where ProjectCode='" & ProjectCode & "'"
-        Dim dsProject As DataSet = gWs.GetCommonQueryInfo(strSql)
+        ''设置再次放款按钮可用性
+        ''yjf add 2007-7-11 add 
+        'Dim strSql As String = "select loan_sum ,GuaranteeSum,LoanType from viewprojectinfo where ProjectCode='" & ProjectCode & "'"
+        'Dim dsProject As DataSet = gWs.GetCommonQueryInfo(strSql)
 
         'Dim dsProject As DataSet = gWs.GetProjectInfoEx("{ProjectCode LIKE '" & Me.ProjectCode & "'}")
-        If dsProject.Tables(0).Rows.Count > 0 Then
-            Dim dr As DataRow = dsProject.Tables(0).Rows(0)
-            Me.btnReloan.Enabled = (CDbl(dr("loan_sum") + "0") < CDbl(dr("GuaranteeSum") + "0")) And CStr(dr("LoanType") & "") = "多次放款"
-        End If
+        'If dsProject.Tables(0).Rows.Count > 0 Then
+        '    Dim dr As DataRow = dsProject.Tables(0).Rows(0)
+        '    Me.btnReloan.Enabled = (CDbl(dr("loan_sum") + "0") < CDbl(dr("GuaranteeSum") + "0")) And CStr(dr("LoanType") & "") = "多次放款"
+        'End If
     End Sub
 
     Protected Overrides Sub SetObjEnabled(ByVal IsEnabled As Boolean)
@@ -375,14 +341,6 @@ Public Class frmLoanInterestFee
         cboMoneyType.DataBindings.Add(New Binding("SelectedItem", dsAccountDetail, "project_account_detail.type"))
     End Sub
 
-    Private Sub btnReloan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        If SWDialogBox.MessageBox.Show("?1000", "再次放款") = DialogResult.Yes Then
-            Dim result As String = gWs.ReLoanApplication(ProjectCode)
-            If result = "1" Then
-                SWDialogBox.MessageBox.Show("$OperateSucceed")
-            End If
-        End If
-    End Sub
 
     Protected Overrides Function addTableStyle() As DataGridTableStyle
         Dim dgts As DataGridTableStyle = New DataGridTableStyle()
@@ -394,14 +352,14 @@ Public Class frmLoanInterestFee
         dgts.GridColumnStyles.Add(col7)
         Dim col3 As DataGridTextBoxColumn = New DataGridTextBoxColumn()  'index 1
         col3.MappingName = "date"
-        col3.HeaderText = "   还款日期"
+        col3.HeaderText = "收取日期"
         col3.Width = 80
         col3.Format = "yyyy-MM-dd"
         col3.Alignment = HorizontalAlignment.Left
         dgts.GridColumnStyles.Add(col3)
         Dim col2 As DataGridTextBoxColumn = New DataGridTextBoxColumn()  'index 2 
         col2.MappingName = "income"
-        col2.HeaderText = "还款金额(元)"
+        col2.HeaderText = "收取金额(元)"
         col2.Alignment = HorizontalAlignment.Right
         col2.NullText = String.Empty
         col2.Width = 100
@@ -410,7 +368,7 @@ Public Class frmLoanInterestFee
         dgts.GridColumnStyles.Add(col2)
         Dim col1 As DataGridTextBoxColumn = New DataGridTextBoxColumn()
         col1.MappingName = "total_sum"
-        col1.HeaderText = "累计还款金额(元)"
+        col1.HeaderText = "累计委贷利息(元)"
         col1.Alignment = HorizontalAlignment.Right
         col1.NullText = ""
         col1.Width = 110
