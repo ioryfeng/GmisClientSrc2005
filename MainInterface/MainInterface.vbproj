@@ -72,10 +72,6 @@
     <DebugType>none</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IrisSkin">
-      <Name>irisskin</Name>
-      <HintPath>..\..\..\源码\c#+皮肤+irisskin\破解版\irisskin.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
     </Reference>
@@ -170,9 +166,8 @@
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\SWDialogBox\SWDialogBox.csproj">
-      <Name>SWDialogBox</Name>
       <Project>{A8468205-139D-4D49-A293-527C3B0FAE40}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Name>SWDialogBox</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +275,8 @@
     </Compile>
     <Compile Include="Contract\frmEstateContract.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="credit\Banklimit.vb">
     </Compile>
     <Compile Include="FConsole.vb">
       <SubType>Form</SubType>
@@ -589,6 +586,11 @@
     </Compile>
     <Compile Include="MdlMain1.vb">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1291,8 +1293,13 @@
     <EmbeddedResource Include="Contract\frmEstateContract.resx">
       <DependentUpon>frmEstateContract.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="credit\Banklimit.resx">
+      <DependentUpon>Banklimit.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FConsole.resx">
       <DependentUpon>FConsole.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Fee\DataGridDateTimeColumn.resx">
       <DependentUpon>DataGridDateTimeColumn.vb</DependentUpon>
@@ -1506,21 +1513,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMessage.resx">
       <DependentUpon>FMessage.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FMessageSender.resx">
       <DependentUpon>FMessageSender.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainInterface.resx">
       <DependentUpon>frmMainInterface.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearchCorporation.resx">
       <DependentUpon>frmSearchCorporation.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FTaskList.resx">
       <DependentUpon>FTaskList.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FWaitingProcess.resx">
       <DependentUpon>FWaitingProcess.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ht\FApplyIntentLetter_zdb.resx">
       <DependentUpon>FApplyIntentLetter_zdb.vb</DependentUpon>
@@ -1585,8 +1598,14 @@
     <EmbeddedResource Include="ht\FViewConfirmItem.resx">
       <DependentUpon>FViewConfirmItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="NoteBox.resx">
       <DependentUpon>NoteBox.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="other\FQueryAfterGuaranteeRecord.resx">
       <DependentUpon>FQueryAfterGuaranteeRecord.vb</DependentUpon>
@@ -2185,15 +2204,14 @@
     <Content Include="dll\SWSystem.Windows.Forms.dll" />
     <Content Include="dll\SWSystem.XML.dll" />
     <Content Include="Logo.ico" />
-    <Folder Include="Pawn" />
     <WebReferenceUrl Include="http://localhost/webservice_cgmis/permission.asmx">
       <RelPath>Web References\htfServerPermission\</RelPath>
       <UrlBehavior>Static</UrlBehavior>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost/WebService_CGMIS/Service1.asmx">
+    <WebReferenceUrl Include="http://localhost:9999/WebService_CGMIS/Service1.asmx">
       <RelPath>Web References\htfServer\</RelPath>
       <UrlBehavior>Dynamic</UrlBehavior>
-      <UpdateFromURL>http://localhost/WebService_CGMIS/Service1.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:9999/WebService_CGMIS/Service1.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -2205,6 +2223,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{CF845C55-C321-4742-B673-E6212D061ED9}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pawn\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>

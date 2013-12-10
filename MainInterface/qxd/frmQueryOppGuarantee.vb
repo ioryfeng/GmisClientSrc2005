@@ -7,10 +7,13 @@ Public Class frmQueryOppGuarantee
     Private strProjectCode, strCorporationName As String
     Private strDir As String = "\Document\Image\" '图片保存的目录
 
-    Private totalOriginal, totalEvaluate, totalGuarantee As String
-    Private dOriginal, dEvaluate, dGuarantee As Double
+    Private totalOriginal, totalEvaluate, totalEvaluatenet, totalGuarantee As String
+    Private dOriginal, dEvaluate, dEvaluatenet, dGuarantee As Double
     Private isOppTypeLoaded As Boolean
     Private strItemCodeFirst, strItemCodeSecond As String
+    Friend WithEvents txtEvaluateNetTotal As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridTextBoxColumn16 As System.Windows.Forms.DataGridTextBoxColumn
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 
 #Region " Windows 窗体设计器生成的代码 "
 
@@ -89,55 +92,58 @@ Public Class frmQueryOppGuarantee
     Friend WithEvents labDetailSecond As System.Windows.Forms.Label
     Friend WithEvents txtDetailSecond As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmQueryOppGuarantee))
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtDetailSecond = New System.Windows.Forms.TextBox()
-        Me.labDetailSecond = New System.Windows.Forms.Label()
-        Me.cmbOppStatus = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmbOppForm = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.cmbOppType = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.chbDate = New System.Windows.Forms.CheckBox()
-        Me.btnQuery = New System.Windows.Forms.Button()
-        Me.dateEvaluate = New System.Windows.Forms.DateTimePicker()
-        Me.txtDetailFirst = New System.Windows.Forms.TextBox()
-        Me.txtName = New System.Windows.Forms.TextBox()
-        Me.txtCode = New System.Windows.Forms.TextBox()
-        Me.labDetailFirst = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dgOppGuarantee = New System.Windows.Forms.DataGrid()
-        Me.DataGridTableStyle2 = New System.Windows.Forms.DataGridTableStyle()
-        Me.DataGridTextBoxColumn3 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn8 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn9 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn10 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn6 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn7 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn14 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn4 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn11 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn12 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn13 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn5 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn15 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.dgDetail = New System.Windows.Forms.DataGrid()
-        Me.DataGridTableStyle1 = New System.Windows.Forms.DataGridTableStyle()
-        Me.DataGridTextBoxColumn1 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn2 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.btnView = New System.Windows.Forms.Button()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.txtGuaranteeTotal = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.txtEvaluateTotal = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtOriginalTotal = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmQueryOppGuarantee))
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.txtDetailSecond = New System.Windows.Forms.TextBox
+        Me.labDetailSecond = New System.Windows.Forms.Label
+        Me.cmbOppStatus = New System.Windows.Forms.ComboBox
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.cmbOppForm = New System.Windows.Forms.ComboBox
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.cmbOppType = New System.Windows.Forms.ComboBox
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.chbDate = New System.Windows.Forms.CheckBox
+        Me.btnQuery = New System.Windows.Forms.Button
+        Me.dateEvaluate = New System.Windows.Forms.DateTimePicker
+        Me.txtDetailFirst = New System.Windows.Forms.TextBox
+        Me.txtName = New System.Windows.Forms.TextBox
+        Me.txtCode = New System.Windows.Forms.TextBox
+        Me.labDetailFirst = New System.Windows.Forms.Label
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.dgOppGuarantee = New System.Windows.Forms.DataGrid
+        Me.DataGridTableStyle2 = New System.Windows.Forms.DataGridTableStyle
+        Me.DataGridTextBoxColumn3 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn8 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn9 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn10 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn6 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn7 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn14 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn4 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn11 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn12 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn16 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn13 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn5 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn15 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.dgDetail = New System.Windows.Forms.DataGrid
+        Me.DataGridTableStyle1 = New System.Windows.Forms.DataGridTableStyle
+        Me.DataGridTextBoxColumn1 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn2 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.btnView = New System.Windows.Forms.Button
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox
+        Me.txtEvaluateNetTotal = New System.Windows.Forms.TextBox
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.txtGuaranteeTotal = New System.Windows.Forms.TextBox
+        Me.Label16 = New System.Windows.Forms.Label
+        Me.txtEvaluateTotal = New System.Windows.Forms.TextBox
+        Me.Label15 = New System.Windows.Forms.Label
+        Me.txtOriginalTotal = New System.Windows.Forms.TextBox
+        Me.Label14 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -146,26 +152,67 @@ Public Class frmQueryOppGuarantee
         Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ImageListBasic
-        '
-        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        '
         'btnExit
         '
         Me.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Bitmap)
+        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Image)
         Me.btnExit.ImageIndex = -1
         Me.btnExit.ImageList = Nothing
         Me.btnExit.Location = New System.Drawing.Point(395, 490)
         Me.btnExit.Size = New System.Drawing.Size(77, 24)
         Me.btnExit.TabIndex = 5
-        Me.btnExit.Visible = True
+        '
+        'ImageListBasic
+        '
+        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox1.Controls.AddRange(New System.Windows.Forms.Control() {Me.txtDetailSecond, Me.labDetailSecond, Me.cmbOppStatus, Me.Label7, Me.cmbOppForm, Me.Label6, Me.cmbOppType, Me.Label5, Me.chbDate, Me.btnQuery, Me.dateEvaluate, Me.txtDetailFirst, Me.txtName, Me.txtCode, Me.labDetailFirst, Me.Label3, Me.Label2, Me.Label1})
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.txtDetailSecond)
+        Me.GroupBox1.Controls.Add(Me.labDetailSecond)
+        Me.GroupBox1.Controls.Add(Me.cmbOppStatus)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.cmbOppForm)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.cmbOppType)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.chbDate)
+        Me.GroupBox1.Controls.Add(Me.btnQuery)
+        Me.GroupBox1.Controls.Add(Me.dateEvaluate)
+        Me.GroupBox1.Controls.Add(Me.txtDetailFirst)
+        Me.GroupBox1.Controls.Add(Me.txtName)
+        Me.GroupBox1.Controls.Add(Me.txtCode)
+        Me.GroupBox1.Controls.Add(Me.labDetailFirst)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 8)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(744, 112)
@@ -175,20 +222,19 @@ Public Class frmQueryOppGuarantee
         '
         'txtDetailSecond
         '
-        Me.txtDetailSecond.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.txtDetailSecond.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtDetailSecond.Location = New System.Drawing.Point(520, 50)
         Me.txtDetailSecond.Name = "txtDetailSecond"
         Me.txtDetailSecond.Size = New System.Drawing.Size(176, 21)
         Me.txtDetailSecond.TabIndex = 12
-        Me.txtDetailSecond.Text = ""
         '
         'labDetailSecond
         '
         Me.labDetailSecond.AutoSize = True
         Me.labDetailSecond.Location = New System.Drawing.Point(432, 53)
         Me.labDetailSecond.Name = "labDetailSecond"
-        Me.labDetailSecond.Size = New System.Drawing.Size(54, 14)
+        Me.labDetailSecond.Size = New System.Drawing.Size(53, 12)
         Me.labDetailSecond.TabIndex = 11
         Me.labDetailSecond.Text = "注册资本"
         '
@@ -252,8 +298,7 @@ Public Class frmQueryOppGuarantee
         '
         'btnQuery
         '
-        Me.btnQuery.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right)
-        Me.btnQuery.Image = CType(resources.GetObject("btnQuery.Image"), System.Drawing.Bitmap)
+        Me.btnQuery.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnQuery.ImageIndex = 3
         Me.btnQuery.ImageList = Me.ImageListBasic
@@ -273,13 +318,12 @@ Public Class frmQueryOppGuarantee
         '
         'txtDetailFirst
         '
-        Me.txtDetailFirst.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.txtDetailFirst.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtDetailFirst.Location = New System.Drawing.Point(520, 20)
         Me.txtDetailFirst.Name = "txtDetailFirst"
         Me.txtDetailFirst.Size = New System.Drawing.Size(176, 21)
         Me.txtDetailFirst.TabIndex = 6
-        Me.txtDetailFirst.Text = ""
         '
         'txtName
         '
@@ -287,7 +331,6 @@ Public Class frmQueryOppGuarantee
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(120, 21)
         Me.txtName.TabIndex = 1
-        Me.txtName.Text = ""
         '
         'txtCode
         '
@@ -296,14 +339,13 @@ Public Class frmQueryOppGuarantee
         Me.txtCode.Name = "txtCode"
         Me.txtCode.Size = New System.Drawing.Size(112, 21)
         Me.txtCode.TabIndex = 0
-        Me.txtCode.Text = ""
         '
         'labDetailFirst
         '
         Me.labDetailFirst.AutoSize = True
         Me.labDetailFirst.Location = New System.Drawing.Point(432, 23)
         Me.labDetailFirst.Name = "labDetailFirst"
-        Me.labDetailFirst.Size = New System.Drawing.Size(79, 14)
+        Me.labDetailFirst.Size = New System.Drawing.Size(77, 12)
         Me.labDetailFirst.TabIndex = 3
         Me.labDetailFirst.Text = "投资企业名称"
         Me.labDetailFirst.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -337,10 +379,10 @@ Public Class frmQueryOppGuarantee
         '
         'GroupBox2
         '
-        Me.GroupBox2.Anchor = (((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox2.Controls.AddRange(New System.Windows.Forms.Control() {Me.dgOppGuarantee})
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.dgOppGuarantee)
         Me.GroupBox2.Location = New System.Drawing.Point(8, 128)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(472, 296)
@@ -364,7 +406,7 @@ Public Class frmQueryOppGuarantee
         'DataGridTableStyle2
         '
         Me.DataGridTableStyle2.DataGrid = Me.dgOppGuarantee
-        Me.DataGridTableStyle2.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.DataGridTextBoxColumn3, Me.DataGridTextBoxColumn8, Me.DataGridTextBoxColumn9, Me.DataGridTextBoxColumn10, Me.DataGridTextBoxColumn6, Me.DataGridTextBoxColumn7, Me.DataGridTextBoxColumn14, Me.DataGridTextBoxColumn4, Me.DataGridTextBoxColumn11, Me.DataGridTextBoxColumn12, Me.DataGridTextBoxColumn13, Me.DataGridTextBoxColumn5, Me.DataGridTextBoxColumn15})
+        Me.DataGridTableStyle2.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.DataGridTextBoxColumn3, Me.DataGridTextBoxColumn8, Me.DataGridTextBoxColumn9, Me.DataGridTextBoxColumn10, Me.DataGridTextBoxColumn6, Me.DataGridTextBoxColumn7, Me.DataGridTextBoxColumn14, Me.DataGridTextBoxColumn4, Me.DataGridTextBoxColumn11, Me.DataGridTextBoxColumn12, Me.DataGridTextBoxColumn16, Me.DataGridTextBoxColumn13, Me.DataGridTextBoxColumn5, Me.DataGridTextBoxColumn15})
         Me.DataGridTableStyle2.HeaderForeColor = System.Drawing.SystemColors.ControlText
         Me.DataGridTableStyle2.MappingName = "Table"
         '
@@ -450,10 +492,19 @@ Public Class frmQueryOppGuarantee
         '
         Me.DataGridTextBoxColumn12.Format = ""
         Me.DataGridTextBoxColumn12.FormatInfo = Nothing
-        Me.DataGridTextBoxColumn12.HeaderText = "评估值(元)"
+        Me.DataGridTextBoxColumn12.HeaderText = "评估总值(元)"
         Me.DataGridTextBoxColumn12.MappingName = "evaluate_value"
         Me.DataGridTextBoxColumn12.NullText = "0"
         Me.DataGridTextBoxColumn12.Width = 75
+        '
+        'DataGridTextBoxColumn16
+        '
+        Me.DataGridTextBoxColumn16.Format = ""
+        Me.DataGridTextBoxColumn16.FormatInfo = Nothing
+        Me.DataGridTextBoxColumn16.HeaderText = "评估净值(元)"
+        Me.DataGridTextBoxColumn16.MappingName = "evaluate_net_value"
+        Me.DataGridTextBoxColumn16.NullText = "0"
+        Me.DataGridTextBoxColumn16.Width = 75
         '
         'DataGridTextBoxColumn13
         '
@@ -484,9 +535,9 @@ Public Class frmQueryOppGuarantee
         '
         'GroupBox3
         '
-        Me.GroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox3.Controls.AddRange(New System.Windows.Forms.Control() {Me.dgDetail})
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.dgDetail)
         Me.GroupBox3.Location = New System.Drawing.Point(488, 128)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(264, 296)
@@ -535,7 +586,6 @@ Public Class frmQueryOppGuarantee
         'btnView
         '
         Me.btnView.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnView.Image = CType(resources.GetObject("btnView.Image"), System.Drawing.Bitmap)
         Me.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnView.ImageIndex = 17
         Me.btnView.ImageList = Me.ImageListBasic
@@ -548,9 +598,16 @@ Public Class frmQueryOppGuarantee
         '
         'GroupBox5
         '
-        Me.GroupBox5.Anchor = ((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox5.Controls.AddRange(New System.Windows.Forms.Control() {Me.txtGuaranteeTotal, Me.Label16, Me.txtEvaluateTotal, Me.Label15, Me.txtOriginalTotal, Me.Label14})
+        Me.GroupBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox5.Controls.Add(Me.txtEvaluateNetTotal)
+        Me.GroupBox5.Controls.Add(Me.Label4)
+        Me.GroupBox5.Controls.Add(Me.txtGuaranteeTotal)
+        Me.GroupBox5.Controls.Add(Me.Label16)
+        Me.GroupBox5.Controls.Add(Me.txtEvaluateTotal)
+        Me.GroupBox5.Controls.Add(Me.Label15)
+        Me.GroupBox5.Controls.Add(Me.txtOriginalTotal)
+        Me.GroupBox5.Controls.Add(Me.Label14)
         Me.GroupBox5.Location = New System.Drawing.Point(8, 434)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(744, 48)
@@ -558,20 +615,36 @@ Public Class frmQueryOppGuarantee
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "汇总信息"
         '
+        'txtEvaluateNetTotal
+        '
+        Me.txtEvaluateNetTotal.Location = New System.Drawing.Point(435, 17)
+        Me.txtEvaluateNetTotal.Name = "txtEvaluateNetTotal"
+        Me.txtEvaluateNetTotal.ReadOnly = True
+        Me.txtEvaluateNetTotal.Size = New System.Drawing.Size(100, 21)
+        Me.txtEvaluateNetTotal.TabIndex = 7
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(358, 22)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(77, 12)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "评估净值(元)"
+        '
         'txtGuaranteeTotal
         '
-        Me.txtGuaranteeTotal.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.txtGuaranteeTotal.Location = New System.Drawing.Point(608, 16)
+        Me.txtGuaranteeTotal.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtGuaranteeTotal.Location = New System.Drawing.Point(614, 16)
         Me.txtGuaranteeTotal.Name = "txtGuaranteeTotal"
         Me.txtGuaranteeTotal.ReadOnly = True
-        Me.txtGuaranteeTotal.Size = New System.Drawing.Size(128, 21)
+        Me.txtGuaranteeTotal.Size = New System.Drawing.Size(122, 21)
         Me.txtGuaranteeTotal.TabIndex = 5
-        Me.txtGuaranteeTotal.Text = ""
         '
         'Label16
         '
-        Me.Label16.Location = New System.Drawing.Point(536, 15)
+        Me.Label16.Location = New System.Drawing.Point(547, 15)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(72, 23)
         Me.Label16.TabIndex = 4
@@ -580,20 +653,19 @@ Public Class frmQueryOppGuarantee
         '
         'txtEvaluateTotal
         '
-        Me.txtEvaluateTotal.Location = New System.Drawing.Point(352, 16)
+        Me.txtEvaluateTotal.Location = New System.Drawing.Point(251, 16)
         Me.txtEvaluateTotal.Name = "txtEvaluateTotal"
         Me.txtEvaluateTotal.ReadOnly = True
-        Me.txtEvaluateTotal.Size = New System.Drawing.Size(128, 21)
+        Me.txtEvaluateTotal.Size = New System.Drawing.Size(94, 21)
         Me.txtEvaluateTotal.TabIndex = 3
-        Me.txtEvaluateTotal.Text = ""
         '
         'Label15
         '
-        Me.Label15.Location = New System.Drawing.Point(280, 15)
+        Me.Label15.Location = New System.Drawing.Point(170, 16)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(72, 23)
+        Me.Label15.Size = New System.Drawing.Size(88, 23)
         Me.Label15.TabIndex = 2
-        Me.Label15.Text = "评估值(元)"
+        Me.Label15.Text = "评估总值(元)"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtOriginalTotal
@@ -601,9 +673,8 @@ Public Class frmQueryOppGuarantee
         Me.txtOriginalTotal.Location = New System.Drawing.Point(64, 16)
         Me.txtOriginalTotal.Name = "txtOriginalTotal"
         Me.txtOriginalTotal.ReadOnly = True
-        Me.txtOriginalTotal.Size = New System.Drawing.Size(128, 21)
+        Me.txtOriginalTotal.Size = New System.Drawing.Size(90, 21)
         Me.txtOriginalTotal.TabIndex = 1
-        Me.txtOriginalTotal.Text = ""
         '
         'Label14
         '
@@ -618,16 +689,28 @@ Public Class frmQueryOppGuarantee
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(762, 519)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.GroupBox5, Me.btnExit, Me.btnView, Me.GroupBox3, Me.GroupBox2, Me.GroupBox1})
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.btnView)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Name = "frmQueryOppGuarantee"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "反担保物查询"
+        Me.Controls.SetChildIndex(Me.GroupBox1, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox2, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox3, 0)
+        Me.Controls.SetChildIndex(Me.btnView, 0)
+        Me.Controls.SetChildIndex(Me.btnExit, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox5, 0)
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -674,9 +757,11 @@ Public Class frmQueryOppGuarantee
     Private Function queryOppGuarantee(ByVal ds As DataSet)
         dOriginal = 0.0
         dEvaluate = 0.0
+        dEvaluatenet = 0.0
         dGuarantee = 0.0
         totalOriginal = 0.0
         totalEvaluate = 0.0
+        totalEvaluatenet = 0.0
         totalGuarantee = 0.0
         Dim i As Integer
         Dim strSql As String
@@ -701,6 +786,10 @@ Public Class frmQueryOppGuarantee
                     If Not .Item("evaluate_value") Is System.DBNull.Value Then
                         totalEvaluate = .Item("evaluate_value")
                         dEvaluate = totalEvaluate + dEvaluate
+                    End If
+                    If Not .Item("evaluate_net_value") Is System.DBNull.Value Then
+                        totalEvaluatenet = .Item("evaluate_net_value")
+                        dEvaluatenet = totalEvaluatenet + dEvaluatenet
                     End If
                     If Not .Item("guarantee_value") Is System.DBNull.Value Then
                         totalGuarantee = .Item("guarantee_value")
@@ -745,6 +834,7 @@ Public Class frmQueryOppGuarantee
         Finally
             Me.txtOriginalTotal.Text = dOriginal
             Me.txtEvaluateTotal.Text = dEvaluate
+            Me.txtEvaluateNetTotal.Text = dEvaluatenet
             Me.txtGuaranteeTotal.Text = dGuarantee
             Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try

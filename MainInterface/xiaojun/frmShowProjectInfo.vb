@@ -4798,11 +4798,20 @@ Public Class frmShowProjectInfo
         col3.Width = 75
         col3.ReadOnly = True
         Dim col4 As DataGridTextBoxColumn = New DataGridTextBoxColumn
-        col4.HeaderText = "评估值(元)"
+        col4.HeaderText = "评估总值(元)"
         col4.MappingName = "evaluate_value"
         col4.NullText = "0"
-        col4.Width = 75
+        col4.Width = 80
         col4.ReadOnly = True
+
+        'add   yansm  2013/12/4
+        Dim col12 As DataGridTextBoxColumn = New DataGridTextBoxColumn
+        col12.HeaderText = "评估净值(元)"
+        col12.MappingName = "evaluate_net_value"
+        col12.NullText = "0"
+        col12.Width = 80
+        col12.ReadOnly = True
+
         Dim col5 As DataGridTextBoxColumn = New DataGridTextBoxColumn
         col5.HeaderText = "担保额(元)"
         col5.MappingName = "guarantee_value"
@@ -4829,7 +4838,7 @@ Public Class frmShowProjectInfo
         col8.NullText = ""
         col8.Width = 75
         col8.ReadOnly = True
-        dgts.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {col9, col2, col1, col10, col3, col4, col5, col6, col7, col8})
+        dgts.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {col9, col2, col1, col10, col3, col4, col12, col5, col6, col7, col8})
         dgDetail.TableStyles.Add(dgts)
     End Sub
 

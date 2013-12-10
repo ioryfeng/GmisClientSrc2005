@@ -279,11 +279,16 @@ Public Class frmMainInterface
     Friend WithEvents mnuMessagesSender As SWSystem.Windows.Forms.MenuItem
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents grpTask As System.Windows.Forms.GroupBox
+    Friend WithEvents MenuItem12 As System.Windows.Forms.MenuItem
+    Friend WithEvents NewlyLimit As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem37 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem38 As System.Windows.Forms.MenuItem
     Friend WithEvents task_name_tree As System.Windows.Forms.TreeView
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmMainInterface))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainInterface))
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("任务列表")
         Me.StatusBar1 = New System.Windows.Forms.StatusBar
         Me.StatusBarPanel2 = New System.Windows.Forms.StatusBarPanel
         Me.StatusBarPanel3 = New System.Windows.Forms.StatusBarPanel
@@ -330,7 +335,7 @@ Public Class frmMainInterface
         Me.ToolBarBttnApply = New System.Windows.Forms.ToolBarButton
         Me.ToolBarButton5 = New System.Windows.Forms.ToolBarButton
         Me.ToolBarButton8 = New System.Windows.Forms.ToolBarButton
-        Me.MainMn = New System.Windows.Forms.MainMenu
+        Me.MainMn = New System.Windows.Forms.MainMenu(Me.components)
         Me.mnuSystem = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemLogin = New SWSystem.Windows.Forms.MenuItem
         Me.mnuSystemSeparator1 = New SWSystem.Windows.Forms.MenuItem
@@ -491,6 +496,10 @@ Public Class frmMainInterface
         Me.MnItemStaticsFirstLoan = New SWSystem.Windows.Forms.MenuItem
         Me.mnuQueryStatisticsPMService = New SWSystem.Windows.Forms.MenuItem
         Me.MnItemStatisticsRecommendproject = New SWSystem.Windows.Forms.MenuItem
+        Me.MenuItem12 = New System.Windows.Forms.MenuItem
+        Me.NewlyLimit = New System.Windows.Forms.MenuItem
+        Me.MenuItem37 = New System.Windows.Forms.MenuItem
+        Me.MenuItem38 = New System.Windows.Forms.MenuItem
         Me.mnuTools = New SWSystem.Windows.Forms.MenuItem
         Me.mnuToolsPassword = New SWSystem.Windows.Forms.MenuItem
         Me.MnItemRight = New SWSystem.Windows.Forms.MenuItem
@@ -534,12 +543,14 @@ Public Class frmMainInterface
         Me.Panel4.SuspendLayout()
         Me.grpTask.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 446)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 366)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarPanel2, Me.StatusBarPanel3, Me.StatusBarPanel5, Me.StatusBarPanel4})
         Me.StatusBar1.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -552,30 +563,46 @@ Public Class frmMainInterface
         '
         Me.StatusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring
         Me.StatusBarPanel2.Icon = CType(resources.GetObject("StatusBarPanel2.Icon"), System.Drawing.Icon)
+        Me.StatusBarPanel2.Name = "StatusBarPanel2"
         Me.StatusBarPanel2.Text = "消息"
-        Me.StatusBarPanel2.Width = 388
+        Me.StatusBarPanel2.Width = 387
         '
         'StatusBarPanel3
         '
         Me.StatusBarPanel3.Icon = CType(resources.GetObject("StatusBarPanel3.Icon"), System.Drawing.Icon)
+        Me.StatusBarPanel3.Name = "StatusBarPanel3"
         Me.StatusBarPanel3.Text = "操作员："
         Me.StatusBarPanel3.Width = 160
         '
         'StatusBarPanel5
         '
         Me.StatusBarPanel5.Icon = CType(resources.GetObject("StatusBarPanel5.Icon"), System.Drawing.Icon)
+        Me.StatusBarPanel5.Name = "StatusBarPanel5"
         Me.StatusBarPanel5.Width = 150
         '
         'StatusBarPanel4
         '
         Me.StatusBarPanel4.Icon = CType(resources.GetObject("StatusBarPanel4.Icon"), System.Drawing.Icon)
+        Me.StatusBarPanel4.Name = "StatusBarPanel4"
         Me.StatusBarPanel4.Width = 150
         '
         'ImageList1
         '
-        Me.ImageList1.ImageSize = New System.Drawing.Size(20, 20)
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "")
+        Me.ImageList1.Images.SetKeyName(1, "")
+        Me.ImageList1.Images.SetKeyName(2, "")
+        Me.ImageList1.Images.SetKeyName(3, "")
+        Me.ImageList1.Images.SetKeyName(4, "")
+        Me.ImageList1.Images.SetKeyName(5, "")
+        Me.ImageList1.Images.SetKeyName(6, "")
+        Me.ImageList1.Images.SetKeyName(7, "")
+        Me.ImageList1.Images.SetKeyName(8, "")
+        Me.ImageList1.Images.SetKeyName(9, "")
+        Me.ImageList1.Images.SetKeyName(10, "")
+        Me.ImageList1.Images.SetKeyName(11, "")
+        Me.ImageList1.Images.SetKeyName(12, "")
         '
         'mnQuery
         '
@@ -659,7 +686,7 @@ Public Class frmMainInterface
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 32)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(224, 414)
+        Me.Panel1.Size = New System.Drawing.Size(224, 334)
         Me.Panel1.TabIndex = 10
         Me.Panel1.Visible = False
         '
@@ -669,7 +696,7 @@ Public Class frmMainInterface
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(224, 414)
+        Me.Panel4.Size = New System.Drawing.Size(224, 334)
         Me.Panel4.TabIndex = 0
         '
         'grpTask
@@ -678,7 +705,7 @@ Public Class frmMainInterface
         Me.grpTask.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpTask.Location = New System.Drawing.Point(0, 0)
         Me.grpTask.Name = "grpTask"
-        Me.grpTask.Size = New System.Drawing.Size(224, 414)
+        Me.grpTask.Size = New System.Drawing.Size(224, 334)
         Me.grpTask.TabIndex = 0
         Me.grpTask.TabStop = False
         '
@@ -693,10 +720,12 @@ Public Class frmMainInterface
         Me.task_name_tree.ItemHeight = 20
         Me.task_name_tree.Location = New System.Drawing.Point(3, 17)
         Me.task_name_tree.Name = "task_name_tree"
-        Me.task_name_tree.Nodes.AddRange(New System.Windows.Forms.TreeNode() {New System.Windows.Forms.TreeNode("任务列表")})
+        TreeNode1.Name = ""
+        TreeNode1.Text = "任务列表"
+        Me.task_name_tree.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.task_name_tree.SelectedImageIndex = 5
         Me.task_name_tree.ShowRootLines = False
-        Me.task_name_tree.Size = New System.Drawing.Size(218, 394)
+        Me.task_name_tree.Size = New System.Drawing.Size(218, 314)
         Me.task_name_tree.TabIndex = 21
         '
         'CntxtMnMsg
@@ -734,7 +763,7 @@ Public Class frmMainInterface
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(224, 32)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(5, 414)
+        Me.Panel2.Size = New System.Drawing.Size(5, 334)
         Me.Panel2.TabIndex = 16
         '
         'PictureBox2
@@ -769,55 +798,65 @@ Public Class frmMainInterface
         '
         'ToolBarButton10
         '
+        Me.ToolBarButton10.Name = "ToolBarButton10"
         Me.ToolBarButton10.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'ToolBarBttnConsult
         '
         Me.ToolBarBttnConsult.Enabled = False
         Me.ToolBarBttnConsult.ImageIndex = 9
+        Me.ToolBarBttnConsult.Name = "ToolBarBttnConsult"
         Me.ToolBarBttnConsult.Tag = "1"
         Me.ToolBarBttnConsult.ToolTipText = "咨询登记"
         '
         'ToolBarButton2
         '
+        Me.ToolBarButton2.Name = "ToolBarButton2"
         Me.ToolBarButton2.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'ToolBarButton3
         '
         Me.ToolBarButton3.DropDownMenu = Me.mnQuery
         Me.ToolBarButton3.ImageIndex = 12
+        Me.ToolBarButton3.Name = "ToolBarButton3"
         Me.ToolBarButton3.Tag = "5"
         Me.ToolBarButton3.ToolTipText = "重新登录"
         '
         'ToolBarBttn1
         '
+        Me.ToolBarBttn1.Name = "ToolBarBttn1"
         Me.ToolBarBttn1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'ToolBarBttnRefresh
         '
         Me.ToolBarBttnRefresh.ImageIndex = 3
+        Me.ToolBarBttnRefresh.Name = "ToolBarBttnRefresh"
         Me.ToolBarBttnRefresh.Tag = "3"
         Me.ToolBarBttnRefresh.ToolTipText = "任务刷新"
         '
         'ToolBarButton6
         '
+        Me.ToolBarButton6.Name = "ToolBarButton6"
         Me.ToolBarButton6.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'btnCredit
         '
         Me.btnCredit.ImageIndex = 1
+        Me.btnCredit.Name = "btnCredit"
         Me.btnCredit.Tag = "4"
         Me.btnCredit.ToolTipText = "资信评分"
         '
         'ToolBarButton9
         '
         Me.ToolBarButton9.DropDownMenu = Me.muHelp
+        Me.ToolBarButton9.Name = "ToolBarButton9"
         Me.ToolBarButton9.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         Me.ToolBarButton9.Tag = "6"
         '
         'TlBrBttnExit
         '
         Me.TlBrBttnExit.ImageIndex = 4
+        Me.TlBrBttnExit.Name = "TlBrBttnExit"
         Me.TlBrBttnExit.Tag = "0"
         Me.TlBrBttnExit.ToolTipText = "退出"
         '
@@ -836,20 +875,23 @@ Public Class frmMainInterface
         '
         Me.ToolBarBttnApply.Enabled = False
         Me.ToolBarBttnApply.ImageIndex = 8
+        Me.ToolBarBttnApply.Name = "ToolBarBttnApply"
         Me.ToolBarBttnApply.Tag = "2"
         Me.ToolBarBttnApply.ToolTipText = "受理申请"
         '
         'ToolBarButton5
         '
+        Me.ToolBarButton5.Name = "ToolBarButton5"
         Me.ToolBarButton5.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'ToolBarButton8
         '
+        Me.ToolBarButton8.Name = "ToolBarButton8"
         Me.ToolBarButton8.Style = System.Windows.Forms.ToolBarButtonStyle.Separator
         '
         'MainMn
         '
-        Me.MainMn.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystem, Me.mnuTransaction, Me.mnuBase, Me.mnuDocument, Me.mnuWorkLog, Me.mnuQuery, Me.mnuTools, Me.mnuView, Me.mnuHelp})
+        Me.MainMn.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuSystem, Me.mnuTransaction, Me.mnuBase, Me.mnuDocument, Me.mnuWorkLog, Me.mnuQuery, Me.MenuItem12, Me.mnuTools, Me.mnuView, Me.mnuHelp})
         '
         'mnuSystem
         '
@@ -1912,9 +1954,30 @@ Public Class frmMainInterface
         Me.MnItemStatisticsRecommendproject.OwnerDraw = True
         Me.MnItemStatisticsRecommendproject.Text = "项目来源情况统计"
         '
+        'MenuItem12
+        '
+        Me.MenuItem12.Index = 6
+        Me.MenuItem12.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.NewlyLimit, Me.MenuItem37, Me.MenuItem38})
+        Me.MenuItem12.Text = "额度管理(&E)"
+        '
+        'NewlyLimit
+        '
+        Me.NewlyLimit.Index = 0
+        Me.NewlyLimit.Text = "新增额度"
+        '
+        'MenuItem37
+        '
+        Me.MenuItem37.Index = 1
+        Me.MenuItem37.Text = "修改额度"
+        '
+        'MenuItem38
+        '
+        Me.MenuItem38.Index = 2
+        Me.MenuItem38.Text = "额度统计"
+        '
         'mnuTools
         '
-        Me.mnuTools.Index = 6
+        Me.mnuTools.Index = 7
         Me.mnuTools.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuToolsPassword, Me.MnItemRight, Me.MenuItem23, Me.mnuToolsNotepad, Me.mnuToolsCalculator, Me.mnuMessages, Me.mnuMessagesSender, Me.MenuItem36, Me.mnuToolsOptions})
         Me.mnuTools.OwnerDraw = True
         Me.mnuTools.Text = "工具(&T)"
@@ -1959,6 +2022,7 @@ Public Class frmMainInterface
         'mnuMessagesSender
         '
         Me.mnuMessagesSender.Index = 6
+        Me.mnuMessagesSender.OwnerDraw = True
         Me.mnuMessagesSender.Text = "发送消息(&S)"
         '
         'MenuItem36
@@ -1977,7 +2041,7 @@ Public Class frmMainInterface
         '
         'mnuView
         '
-        Me.mnuView.Index = 7
+        Me.mnuView.Index = 8
         Me.mnuView.MdiList = True
         Me.mnuView.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MnItemTool, Me.MnItemStatic, Me.MenuItem25, Me.mnuTaskList, Me.MenuItem71, Me.MenuItem26})
         Me.mnuView.OwnerDraw = True
@@ -2025,7 +2089,7 @@ Public Class frmMainInterface
         '
         'mnuHelp
         '
-        Me.mnuHelp.Index = 8
+        Me.mnuHelp.Index = 9
         Me.mnuHelp.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuHelpContext, Me.mnuHelpIndex, Me.mnuHelpSearch, Me.mnuHelpSeparator1, Me.mnuHelpSupport, Me.mnuHelpSeparator2, Me.mnuHelpAbout})
         Me.mnuHelp.OwnerDraw = True
         Me.mnuHelp.Text = "帮助(&H)"
@@ -2082,15 +2146,20 @@ Public Class frmMainInterface
         '
         'imgMenu
         '
-        Me.imgMenu.ImageSize = New System.Drawing.Size(16, 16)
         Me.imgMenu.ImageStream = CType(resources.GetObject("imgMenu.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.imgMenu.TransparentColor = System.Drawing.Color.Transparent
+        Me.imgMenu.Images.SetKeyName(0, "")
+        Me.imgMenu.Images.SetKeyName(1, "")
+        Me.imgMenu.Images.SetKeyName(2, "")
+        Me.imgMenu.Images.SetKeyName(3, "")
+        Me.imgMenu.Images.SetKeyName(4, "")
+        Me.imgMenu.Images.SetKeyName(5, "")
         '
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.LstVwMsg)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(229, 330)
+        Me.Panel5.Location = New System.Drawing.Point(229, 250)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(635, 116)
         Me.Panel5.TabIndex = 20
@@ -2108,6 +2177,7 @@ Public Class frmMainInterface
         Me.LstVwMsg.Name = "LstVwMsg"
         Me.LstVwMsg.Size = New System.Drawing.Size(635, 116)
         Me.LstVwMsg.TabIndex = 22
+        Me.LstVwMsg.UseCompatibleStateImageBehavior = False
         Me.LstVwMsg.View = System.Windows.Forms.View.Details
         Me.LstVwMsg.Visible = False
         '
@@ -2135,7 +2205,7 @@ Public Class frmMainInterface
         '
         Me.Splitter2.Cursor = System.Windows.Forms.Cursors.HSplit
         Me.Splitter2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Splitter2.Location = New System.Drawing.Point(229, 294)
+        Me.Splitter2.Location = New System.Drawing.Point(229, 214)
         Me.Splitter2.Name = "Splitter2"
         Me.Splitter2.Size = New System.Drawing.Size(635, 36)
         Me.Splitter2.TabIndex = 21
@@ -2145,7 +2215,7 @@ Public Class frmMainInterface
         'frmMainInterface
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
-        Me.ClientSize = New System.Drawing.Size(864, 473)
+        Me.ClientSize = New System.Drawing.Size(864, 393)
         Me.Controls.Add(Me.Splitter2)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel3)
@@ -2168,8 +2238,11 @@ Public Class frmMainInterface
         Me.Panel4.ResumeLayout(False)
         Me.grpTask.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -5698,6 +5771,26 @@ Public Class frmMainInterface
 
             _messageSender.Owner = Me
             _messageSender.ShowDialog()
+        Catch ex As Exception
+            SWDialogBox.MessageBox.Show("*999", ex.Source, ex.Message, ex.StackTrace)
+        Finally
+            Me.Cursor = Cursors.Default
+        End Try
+    End Sub
+
+
+    Private Sub NewlyLimit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewlyLimit.Click
+        Try
+            Me.Cursor = Cursors.AppStarting
+
+            If WorkLog Is Nothing OrElse WorkLog.IsDisposed Then
+                WorkLog = New FWorkLog
+            End If
+
+            WorkLog.MdiParent = Me
+            WorkLog.WindowState = FormWindowState.Maximized
+            WorkLog.Show()
+            WorkLog.Activate()
         Catch ex As Exception
             SWDialogBox.MessageBox.Show("*999", ex.Source, ex.Message, ex.StackTrace)
         Finally

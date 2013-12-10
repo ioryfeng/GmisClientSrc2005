@@ -883,14 +883,23 @@ Public Class frmWardAffirm
         column_2.HeaderText = "原值(元)"
         column_2.MappingName = "original_value"
         tableStyle.GridColumnStyles.Add(column_2)
-
+        'add  yansm 评估净值
         Dim column_3 As New DataGridTextBoxColumn()
         column_3.ReadOnly = True
         column_3.Width = 75
         column_3.NullText = "0"
-        column_3.HeaderText = "评估值(元)"
+        column_3.HeaderText = "评估总值(元)"
         column_3.MappingName = "evaluate_value"
         tableStyle.GridColumnStyles.Add(column_3)
+
+        Dim column_14 As New DataGridTextBoxColumn()
+        column_14.ReadOnly = True
+        column_14.Width = 75
+        column_14.NullText = "0"
+        column_14.HeaderText = "评估净值(元)"
+        column_14.MappingName = "evaluate_net_value"
+        tableStyle.GridColumnStyles.Add(column_14)
+
 
         Dim column_4 As New DataGridTextBoxColumn()
         column_4.ReadOnly = True

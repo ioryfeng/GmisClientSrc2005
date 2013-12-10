@@ -17,6 +17,17 @@ Public Class frmRegisterCorporationInfo
     Private dsRef As DataSet = Nothing
 
     Private bPageLoaded As Boolean = False
+    Public WithEvents cbxHightec As System.Windows.Forms.ComboBox
+    Friend WithEvents Label47 As System.Windows.Forms.Label
+    Public WithEvents cbxImport As System.Windows.Forms.ComboBox
+    Friend WithEvents Label29 As System.Windows.Forms.Label
+    Public WithEvents cbxIndus As System.Windows.Forms.ComboBox
+    Friend WithEvents Label48 As System.Windows.Forms.Label
+    Friend WithEvents Label51 As System.Windows.Forms.Label
+    Friend WithEvents Label50 As System.Windows.Forms.Label
+    Friend WithEvents Label49 As System.Windows.Forms.Label
+    Friend WithEvents cbxReferencia As System.Windows.Forms.ComboBox
+    Friend WithEvents Label52 As System.Windows.Forms.Label
 
     Protected int_TechTypes As Integer = 0 '技术类型
 
@@ -171,16 +182,27 @@ Public Class frmRegisterCorporationInfo
     Friend WithEvents Label27 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmRegisterCorporationInfo))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRegisterCorporationInfo))
         Me.btnSave = New System.Windows.Forms.Button
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ttp = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
+        Me.Label51 = New System.Windows.Forms.Label
+        Me.Label50 = New System.Windows.Forms.Label
+        Me.Label49 = New System.Windows.Forms.Label
+        Me.cbxIndus = New System.Windows.Forms.ComboBox
+        Me.Label48 = New System.Windows.Forms.Label
+        Me.clbCorporationTypeEx = New System.Windows.Forms.CheckedListBox
+        Me.cbxHightec = New System.Windows.Forms.ComboBox
+        Me.Label47 = New System.Windows.Forms.Label
+        Me.cbxImport = New System.Windows.Forms.ComboBox
+        Me.Label29 = New System.Windows.Forms.Label
+        Me.Label27 = New System.Windows.Forms.Label
+        Me.Label25 = New System.Windows.Forms.Label
         Me.cbxAddressRangeParent = New System.Windows.Forms.ComboBox
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label19 = New System.Windows.Forms.Label
-        Me.clbCorporationTypeEx = New System.Windows.Forms.CheckedListBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.txtCorpDesc = New System.Windows.Forms.TextBox
         Me.txtcorpcreditlevel = New System.Windows.Forms.TextBox
@@ -225,6 +247,8 @@ Public Class frmRegisterCorporationInfo
         Me.txtCorporation_name = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.TabPage2 = New System.Windows.Forms.TabPage
+        Me.cbxReferencia = New System.Windows.Forms.ComboBox
+        Me.Label52 = New System.Windows.Forms.Label
         Me.nudLoanTerm = New System.Windows.Forms.NumericUpDown
         Me.Splitter1 = New System.Windows.Forms.Splitter
         Me.txtLoanSum = New System.Windows.Forms.TextBox
@@ -269,8 +293,6 @@ Public Class frmRegisterCorporationInfo
         Me.btnExit = New System.Windows.Forms.Button
         Me.btnAccept = New System.Windows.Forms.Button
         Me.btnMake = New System.Windows.Forms.Button
-        Me.Label25 = New System.Windows.Forms.Label
-        Me.Label27 = New System.Windows.Forms.Label
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -293,9 +315,12 @@ Public Class frmRegisterCorporationInfo
         '
         'ImageList1
         '
-        Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "")
+        Me.ImageList1.Images.SetKeyName(1, "")
+        Me.ImageList1.Images.SetKeyName(2, "")
+        Me.ImageList1.Images.SetKeyName(3, "")
         '
         'TabControl1
         '
@@ -313,12 +338,21 @@ Public Class frmRegisterCorporationInfo
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label51)
+        Me.TabPage1.Controls.Add(Me.Label50)
+        Me.TabPage1.Controls.Add(Me.Label49)
+        Me.TabPage1.Controls.Add(Me.cbxIndus)
+        Me.TabPage1.Controls.Add(Me.Label48)
+        Me.TabPage1.Controls.Add(Me.clbCorporationTypeEx)
+        Me.TabPage1.Controls.Add(Me.cbxHightec)
+        Me.TabPage1.Controls.Add(Me.Label47)
+        Me.TabPage1.Controls.Add(Me.cbxImport)
+        Me.TabPage1.Controls.Add(Me.Label29)
         Me.TabPage1.Controls.Add(Me.Label27)
         Me.TabPage1.Controls.Add(Me.Label25)
         Me.TabPage1.Controls.Add(Me.cbxAddressRangeParent)
         Me.TabPage1.Controls.Add(Me.Label15)
         Me.TabPage1.Controls.Add(Me.Label19)
-        Me.TabPage1.Controls.Add(Me.clbCorporationTypeEx)
         Me.TabPage1.Controls.Add(Me.Label8)
         Me.TabPage1.Controls.Add(Me.txtCorpDesc)
         Me.TabPage1.Controls.Add(Me.txtcorpcreditlevel)
@@ -362,11 +396,136 @@ Public Class frmRegisterCorporationInfo
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.txtCorporation_name)
         Me.TabPage1.Controls.Add(Me.Label1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 21)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(752, 511)
+        Me.TabPage1.Size = New System.Drawing.Size(752, 510)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "企业信息"
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.ForeColor = System.Drawing.Color.Crimson
+        Me.Label51.Location = New System.Drawing.Point(503, 304)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(11, 12)
+        Me.Label51.TabIndex = 60
+        Me.Label51.Text = "*"
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.ForeColor = System.Drawing.Color.Crimson
+        Me.Label50.Location = New System.Drawing.Point(112, 331)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(11, 12)
+        Me.Label50.TabIndex = 59
+        Me.Label50.Text = "*"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.ForeColor = System.Drawing.Color.Crimson
+        Me.Label49.Location = New System.Drawing.Point(112, 304)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(11, 12)
+        Me.Label49.TabIndex = 58
+        Me.Label49.Text = "*"
+        '
+        'cbxIndus
+        '
+        Me.cbxIndus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxIndus.ItemHeight = 12
+        Me.cbxIndus.Items.AddRange(New Object() {"第一产业", "第二产业", "第三产业"})
+        Me.cbxIndus.Location = New System.Drawing.Point(128, 327)
+        Me.cbxIndus.Name = "cbxIndus"
+        Me.cbxIndus.Size = New System.Drawing.Size(208, 20)
+        Me.cbxIndus.TabIndex = 57
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(16, 331)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(53, 12)
+        Me.Label48.TabIndex = 56
+        Me.Label48.Text = "产业类型"
+        Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'clbCorporationTypeEx
+        '
+        Me.clbCorporationTypeEx.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.clbCorporationTypeEx.CheckOnClick = True
+        Me.clbCorporationTypeEx.Location = New System.Drawing.Point(128, 482)
+        Me.clbCorporationTypeEx.MultiColumn = True
+        Me.clbCorporationTypeEx.Name = "clbCorporationTypeEx"
+        Me.clbCorporationTypeEx.Size = New System.Drawing.Size(616, 20)
+        Me.clbCorporationTypeEx.TabIndex = 45
+        Me.clbCorporationTypeEx.Visible = False
+        '
+        'cbxHightec
+        '
+        Me.cbxHightec.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbxHightec.AutoCompleteCustomSource.AddRange(New String() {"是", "否"})
+        Me.cbxHightec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxHightec.ItemHeight = 12
+        Me.cbxHightec.Items.AddRange(New Object() {"是", "否"})
+        Me.cbxHightec.Location = New System.Drawing.Point(520, 301)
+        Me.cbxHightec.Name = "cbxHightec"
+        Me.cbxHightec.Size = New System.Drawing.Size(224, 20)
+        Me.cbxHightec.TabIndex = 55
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(384, 304)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(101, 12)
+        Me.Label47.TabIndex = 54
+        Me.Label47.Text = "是否高新技术企业"
+        Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cbxImport
+        '
+        Me.cbxImport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxImport.ItemHeight = 12
+        Me.cbxImport.Items.AddRange(New Object() {"是", "否"})
+        Me.cbxImport.Location = New System.Drawing.Point(128, 301)
+        Me.cbxImport.Name = "cbxImport"
+        Me.cbxImport.Size = New System.Drawing.Size(208, 20)
+        Me.cbxImport.TabIndex = 53
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(16, 304)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(65, 12)
+        Me.Label29.TabIndex = 52
+        Me.Label29.Text = "是否进出口"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.ForeColor = System.Drawing.Color.Crimson
+        Me.Label27.Location = New System.Drawing.Point(505, 76)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(11, 12)
+        Me.Label27.TabIndex = 51
+        Me.Label27.Text = "*"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.ForeColor = System.Drawing.Color.Crimson
+        Me.Label25.Location = New System.Drawing.Point(113, 75)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(11, 12)
+        Me.Label25.TabIndex = 50
+        Me.Label25.Text = "*"
         '
         'cbxAddressRangeParent
         '
@@ -384,7 +543,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(384, 75)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(103, 17)
+        Me.Label15.Size = New System.Drawing.Size(101, 12)
         Me.Label15.TabIndex = 47
         Me.Label15.Text = "企业归属地(二级)"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -394,42 +553,32 @@ Public Class frmRegisterCorporationInfo
         Me.Label19.AutoSize = True
         Me.Label19.Location = New System.Drawing.Point(16, 75)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(103, 17)
+        Me.Label19.Size = New System.Drawing.Size(101, 12)
         Me.Label19.TabIndex = 46
         Me.Label19.Text = "企业归属地(一级)"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'clbCorporationTypeEx
-        '
-        Me.clbCorporationTypeEx.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.clbCorporationTypeEx.CheckOnClick = True
-        Me.clbCorporationTypeEx.Location = New System.Drawing.Point(128, 296)
-        Me.clbCorporationTypeEx.MultiColumn = True
-        Me.clbCorporationTypeEx.Name = "clbCorporationTypeEx"
-        Me.clbCorporationTypeEx.Size = New System.Drawing.Size(616, 52)
-        Me.clbCorporationTypeEx.TabIndex = 45
-        '
         'Label8
         '
-        Me.Label8.Location = New System.Drawing.Point(16, 304)
+        Me.Label8.Location = New System.Drawing.Point(3, 482)
         Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(100, 23)
         Me.Label8.TabIndex = 44
         Me.Label8.Text = "企业类型扩充"
+        Me.Label8.Visible = False
         '
         'txtCorpDesc
         '
         Me.txtCorpDesc.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCorpDesc.Location = New System.Drawing.Point(128, 408)
+        Me.txtCorpDesc.Location = New System.Drawing.Point(128, 356)
         Me.txtCorpDesc.MaxLength = 250
         Me.txtCorpDesc.Multiline = True
         Me.txtCorpDesc.Name = "txtCorpDesc"
         Me.txtCorpDesc.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtCorpDesc.Size = New System.Drawing.Size(616, 88)
+        Me.txtCorpDesc.Size = New System.Drawing.Size(616, 94)
         Me.txtCorpDesc.TabIndex = 43
-        Me.txtCorpDesc.Text = ""
         '
         'txtcorpcreditlevel
         '
@@ -440,7 +589,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtcorpcreditlevel.Name = "txtcorpcreditlevel"
         Me.txtcorpcreditlevel.Size = New System.Drawing.Size(224, 21)
         Me.txtcorpcreditlevel.TabIndex = 18
-        Me.txtcorpcreditlevel.Text = ""
         '
         'lblcorpcreditlevel
         '
@@ -453,9 +601,9 @@ Public Class frmRegisterCorporationInfo
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(16, 416)
+        Me.Label33.Location = New System.Drawing.Point(16, 374)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(54, 17)
+        Me.Label33.Size = New System.Drawing.Size(53, 12)
         Me.Label33.TabIndex = 41
         Me.Label33.Text = "企业概况"
         Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -465,21 +613,23 @@ Public Class frmRegisterCorporationInfo
         Me.clbTechnology.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.clbTechnology.CheckOnClick = True
-        Me.clbTechnology.Location = New System.Drawing.Point(128, 352)
+        Me.clbTechnology.Location = New System.Drawing.Point(128, 456)
         Me.clbTechnology.MultiColumn = True
         Me.clbTechnology.Name = "clbTechnology"
-        Me.clbTechnology.Size = New System.Drawing.Size(616, 52)
+        Me.clbTechnology.Size = New System.Drawing.Size(616, 20)
         Me.clbTechnology.TabIndex = 19
+        Me.clbTechnology.Visible = False
         '
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(16, 360)
+        Me.Label32.Location = New System.Drawing.Point(16, 460)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(54, 17)
+        Me.Label32.Size = New System.Drawing.Size(53, 12)
         Me.Label32.TabIndex = 39
         Me.Label32.Text = "技术创新"
         Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label32.Visible = False
         '
         'Label39
         '
@@ -487,7 +637,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label39.ForeColor = System.Drawing.Color.Crimson
         Me.Label39.Location = New System.Drawing.Point(112, 216)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(11, 17)
+        Me.Label39.Size = New System.Drawing.Size(11, 12)
         Me.Label39.TabIndex = 35
         Me.Label39.Text = "*"
         '
@@ -497,7 +647,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label38.ForeColor = System.Drawing.Color.Crimson
         Me.Label38.Location = New System.Drawing.Point(112, 192)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(11, 17)
+        Me.Label38.Size = New System.Drawing.Size(11, 12)
         Me.Label38.TabIndex = 34
         Me.Label38.Text = "*"
         '
@@ -507,7 +657,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label23.ForeColor = System.Drawing.Color.Crimson
         Me.Label23.Location = New System.Drawing.Point(112, 19)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(11, 17)
+        Me.Label23.Size = New System.Drawing.Size(11, 12)
         Me.Label23.TabIndex = 0
         Me.Label23.Text = "*"
         '
@@ -521,14 +671,13 @@ Public Class frmRegisterCorporationInfo
         Me.txtMobile.Name = "txtMobile"
         Me.txtMobile.Size = New System.Drawing.Size(224, 21)
         Me.txtMobile.TabIndex = 14
-        Me.txtMobile.Text = ""
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(384, 216)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(42, 17)
+        Me.Label4.Size = New System.Drawing.Size(41, 12)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "手  机"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -541,7 +690,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(208, 21)
         Me.txtEmail.TabIndex = 15
-        Me.txtEmail.Text = ""
         '
         'txtFax
         '
@@ -553,7 +701,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtFax.Name = "txtFax"
         Me.txtFax.Size = New System.Drawing.Size(224, 21)
         Me.txtFax.TabIndex = 16
-        Me.txtFax.Text = ""
         '
         'txtPhoneNumber
         '
@@ -563,7 +710,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtPhoneNumber.Name = "txtPhoneNumber"
         Me.txtPhoneNumber.Size = New System.Drawing.Size(208, 21)
         Me.txtPhoneNumber.TabIndex = 13
-        Me.txtPhoneNumber.Text = ""
         '
         'txtJob
         '
@@ -575,7 +721,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtJob.Name = "txtJob"
         Me.txtJob.Size = New System.Drawing.Size(224, 21)
         Me.txtJob.TabIndex = 12
-        Me.txtJob.Text = ""
         '
         'txtContactPerson
         '
@@ -585,14 +730,13 @@ Public Class frmRegisterCorporationInfo
         Me.txtContactPerson.Name = "txtContactPerson"
         Me.txtContactPerson.Size = New System.Drawing.Size(208, 21)
         Me.txtContactPerson.TabIndex = 11
-        Me.txtContactPerson.Text = ""
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Location = New System.Drawing.Point(16, 248)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(35, 17)
+        Me.Label21.Size = New System.Drawing.Size(35, 12)
         Me.Label21.TabIndex = 0
         Me.Label21.Text = "Email"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -602,7 +746,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label20.AutoSize = True
         Me.Label20.Location = New System.Drawing.Point(384, 248)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(42, 17)
+        Me.Label20.Size = New System.Drawing.Size(41, 12)
         Me.Label20.TabIndex = 0
         Me.Label20.Text = "传  真"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -612,7 +756,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label18.AutoSize = True
         Me.Label18.Location = New System.Drawing.Point(16, 216)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(54, 17)
+        Me.Label18.Size = New System.Drawing.Size(53, 12)
         Me.Label18.TabIndex = 0
         Me.Label18.Text = "联系电话"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -622,7 +766,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(384, 192)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(42, 17)
+        Me.Label17.Size = New System.Drawing.Size(41, 12)
         Me.Label17.TabIndex = 0
         Me.Label17.Text = "职  位"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -632,7 +776,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(16, 192)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(42, 17)
+        Me.Label16.Size = New System.Drawing.Size(41, 12)
         Me.Label16.TabIndex = 0
         Me.Label16.Text = "联系人"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -653,7 +797,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label22.AutoSize = True
         Me.Label22.Location = New System.Drawing.Point(384, 104)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(66, 17)
+        Me.Label22.Size = New System.Drawing.Size(65, 12)
         Me.Label22.TabIndex = 0
         Me.Label22.Text = "所有制类型"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -668,7 +812,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtLyProfit.Name = "txtLyProfit"
         Me.txtLyProfit.Size = New System.Drawing.Size(224, 21)
         Me.txtLyProfit.TabIndex = 10
-        Me.txtLyProfit.Text = ""
         Me.txtLyProfit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label31
@@ -676,7 +819,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label31.AutoSize = True
         Me.Label31.Location = New System.Drawing.Point(384, 160)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(116, 17)
+        Me.Label31.Size = New System.Drawing.Size(113, 12)
         Me.Label31.TabIndex = 0
         Me.Label31.Text = "上年利润总额(万元)"
         Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -691,7 +834,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtCapital.Name = "txtCapital"
         Me.txtCapital.Size = New System.Drawing.Size(224, 21)
         Me.txtCapital.TabIndex = 8
-        Me.txtCapital.Text = ""
         Me.txtCapital.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label28
@@ -699,7 +841,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label28.AutoSize = True
         Me.Label28.Location = New System.Drawing.Point(16, 136)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(79, 17)
+        Me.Label28.Size = New System.Drawing.Size(77, 12)
         Me.Label28.TabIndex = 0
         Me.Label28.Text = "总资产(万元)"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -712,7 +854,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtLySales.Name = "txtLySales"
         Me.txtLySales.Size = New System.Drawing.Size(208, 21)
         Me.txtLySales.TabIndex = 9
-        Me.txtLySales.Text = ""
         Me.txtLySales.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label26
@@ -720,7 +861,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label26.AutoSize = True
         Me.Label26.Location = New System.Drawing.Point(16, 160)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(116, 17)
+        Me.Label26.Size = New System.Drawing.Size(113, 12)
         Me.Label26.TabIndex = 0
         Me.Label26.Text = "上年销售收入(万元)"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -733,7 +874,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtAssets.Name = "txtAssets"
         Me.txtAssets.Size = New System.Drawing.Size(208, 21)
         Me.txtAssets.TabIndex = 7
-        Me.txtAssets.Text = ""
         Me.txtAssets.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label24
@@ -741,7 +881,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label24.AutoSize = True
         Me.Label24.Location = New System.Drawing.Point(384, 136)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(91, 17)
+        Me.Label24.Size = New System.Drawing.Size(89, 12)
         Me.Label24.TabIndex = 0
         Me.Label24.Text = "注册资本(万元)"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -760,7 +900,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(16, 104)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(54, 17)
+        Me.Label7.Size = New System.Drawing.Size(53, 12)
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "行业类型"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -795,14 +935,13 @@ Public Class frmRegisterCorporationInfo
         Me.txtWebSite.Name = "txtWebSite"
         Me.txtWebSite.Size = New System.Drawing.Size(208, 21)
         Me.txtWebSite.TabIndex = 17
-        Me.txtWebSite.Text = ""
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(16, 272)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(42, 17)
+        Me.Label9.Size = New System.Drawing.Size(41, 12)
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "网  址"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -816,14 +955,13 @@ Public Class frmRegisterCorporationInfo
         Me.txtAddressDetail.Name = "txtAddressDetail"
         Me.txtAddressDetail.Size = New System.Drawing.Size(616, 21)
         Me.txtAddressDetail.TabIndex = 4
-        Me.txtAddressDetail.Text = ""
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(16, 46)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(54, 17)
+        Me.Label3.Size = New System.Drawing.Size(53, 12)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "注册地址"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -833,7 +971,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(496, 18)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(54, 17)
+        Me.Label2.Size = New System.Drawing.Size(53, 12)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "成立日期"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -846,19 +984,20 @@ Public Class frmRegisterCorporationInfo
         Me.txtCorporation_name.Name = "txtCorporation_name"
         Me.txtCorporation_name.Size = New System.Drawing.Size(320, 21)
         Me.txtCorporation_name.TabIndex = 1
-        Me.txtCorporation_name.Text = ""
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(16, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 17)
+        Me.Label1.Size = New System.Drawing.Size(53, 12)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "企业名称"
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.cbxReferencia)
+        Me.TabPage2.Controls.Add(Me.Label52)
         Me.TabPage2.Controls.Add(Me.nudLoanTerm)
         Me.TabPage2.Controls.Add(Me.Splitter1)
         Me.TabPage2.Controls.Add(Me.txtLoanSum)
@@ -900,11 +1039,29 @@ Public Class frmRegisterCorporationInfo
         Me.TabPage2.Controls.Add(Me.txtVouchSum)
         Me.TabPage2.Controls.Add(Me.Label13)
         Me.TabPage2.Controls.Add(Me.Label11)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 21)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(752, 511)
+        Me.TabPage2.Size = New System.Drawing.Size(752, 510)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "项目信息"
+        '
+        'cbxReferencia
+        '
+        Me.cbxReferencia.FormattingEnabled = True
+        Me.cbxReferencia.Location = New System.Drawing.Point(544, 8)
+        Me.cbxReferencia.Name = "cbxReferencia"
+        Me.cbxReferencia.Size = New System.Drawing.Size(200, 20)
+        Me.cbxReferencia.TabIndex = 67
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(440, 11)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(53, 12)
+        Me.Label52.TabIndex = 66
+        Me.Label52.Text = "业务来源"
+        Me.Label52.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'nudLoanTerm
         '
@@ -923,7 +1080,7 @@ Public Class frmRegisterCorporationInfo
         '
         Me.Splitter1.Location = New System.Drawing.Point(0, 0)
         Me.Splitter1.Name = "Splitter1"
-        Me.Splitter1.Size = New System.Drawing.Size(3, 511)
+        Me.Splitter1.Size = New System.Drawing.Size(3, 510)
         Me.Splitter1.TabIndex = 65
         Me.Splitter1.TabStop = False
         '
@@ -936,7 +1093,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtLoanSum.Name = "txtLoanSum"
         Me.txtLoanSum.Size = New System.Drawing.Size(248, 21)
         Me.txtLoanSum.TabIndex = 35
-        Me.txtLoanSum.Text = ""
         Me.txtLoanSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'cmbSserviceType
@@ -948,7 +1104,7 @@ Public Class frmRegisterCorporationInfo
         Me.cmbSserviceType.ItemHeight = 12
         Me.cmbSserviceType.Location = New System.Drawing.Point(544, 176)
         Me.cmbSserviceType.Name = "cmbSserviceType"
-        Me.cmbSserviceType.Size = New System.Drawing.Size(200, 21)
+        Me.cmbSserviceType.Size = New System.Drawing.Size(200, 20)
         Me.cmbSserviceType.TabIndex = 34
         '
         'Label46
@@ -956,7 +1112,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label46.AutoSize = True
         Me.Label46.Location = New System.Drawing.Point(440, 180)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(79, 17)
+        Me.Label46.Size = New System.Drawing.Size(77, 12)
         Me.Label46.TabIndex = 62
         Me.Label46.Text = "贷款业务品种"
         Me.Label46.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -966,7 +1122,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label45.AutoSize = True
         Me.Label45.Location = New System.Drawing.Point(440, 207)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(79, 17)
+        Me.Label45.Size = New System.Drawing.Size(77, 12)
         Me.Label45.TabIndex = 61
         Me.Label45.Text = "贷款期限(月)"
         Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -976,7 +1132,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label44.AutoSize = True
         Me.Label44.Location = New System.Drawing.Point(16, 207)
         Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(91, 17)
+        Me.Label44.Size = New System.Drawing.Size(89, 12)
         Me.Label44.TabIndex = 60
         Me.Label44.Text = "贷款金额(万元)"
         Me.Label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -991,9 +1147,8 @@ Public Class frmRegisterCorporationInfo
         Me.txtProjDesc.Multiline = True
         Me.txtProjDesc.Name = "txtProjDesc"
         Me.txtProjDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtProjDesc.Size = New System.Drawing.Size(616, 118)
+        Me.txtProjDesc.Size = New System.Drawing.Size(616, 117)
         Me.txtProjDesc.TabIndex = 39
-        Me.txtProjDesc.Text = ""
         '
         'cmbOrgName
         '
@@ -1017,14 +1172,13 @@ Public Class frmRegisterCorporationInfo
         Me.txtOrgOpinion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtOrgOpinion.Size = New System.Drawing.Size(616, 72)
         Me.txtOrgOpinion.TabIndex = 37
-        Me.txtOrgOpinion.Text = ""
         '
         'Label43
         '
         Me.Label43.AutoSize = True
         Me.Label43.Location = New System.Drawing.Point(16, 242)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(103, 17)
+        Me.Label43.Size = New System.Drawing.Size(101, 12)
         Me.Label43.TabIndex = 58
         Me.Label43.Text = "担保机构评审意见"
         Me.Label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1034,7 +1188,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label42.AutoSize = True
         Me.Label42.Location = New System.Drawing.Point(16, 180)
         Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(79, 17)
+        Me.Label42.Size = New System.Drawing.Size(77, 12)
         Me.Label42.TabIndex = 57
         Me.Label42.Text = "担保机构名称"
         Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1044,7 +1198,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label41.AutoSize = True
         Me.Label41.Location = New System.Drawing.Point(16, 388)
         Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(85, 17)
+        Me.Label41.Size = New System.Drawing.Size(83, 12)
         Me.Label41.TabIndex = 56
         Me.Label41.Text = "项目/产品概况"
         Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1066,7 +1220,7 @@ Public Class frmRegisterCorporationInfo
         Me.cmbGuaranteeLetterType.Enabled = False
         Me.cmbGuaranteeLetterType.Location = New System.Drawing.Point(544, 96)
         Me.cmbGuaranteeLetterType.Name = "cmbGuaranteeLetterType"
-        Me.cmbGuaranteeLetterType.Size = New System.Drawing.Size(200, 21)
+        Me.cmbGuaranteeLetterType.Size = New System.Drawing.Size(200, 20)
         Me.cmbGuaranteeLetterType.TabIndex = 28
         '
         'txtBeneficiary
@@ -1079,7 +1233,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtBeneficiary.Name = "txtBeneficiary"
         Me.txtBeneficiary.Size = New System.Drawing.Size(200, 21)
         Me.txtBeneficiary.TabIndex = 30
-        Me.txtBeneficiary.Text = ""
         '
         'txtPurpose
         '
@@ -1092,7 +1245,6 @@ Public Class frmRegisterCorporationInfo
         Me.txtPurpose.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtPurpose.Size = New System.Drawing.Size(616, 56)
         Me.txtPurpose.TabIndex = 38
-        Me.txtPurpose.Text = ""
         '
         'cmbBankBranch
         '
@@ -1101,7 +1253,7 @@ Public Class frmRegisterCorporationInfo
         Me.cmbBankBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbBankBranch.Location = New System.Drawing.Point(544, 70)
         Me.cmbBankBranch.Name = "cmbBankBranch"
-        Me.cmbBankBranch.Size = New System.Drawing.Size(200, 21)
+        Me.cmbBankBranch.Size = New System.Drawing.Size(200, 20)
         Me.cmbBankBranch.TabIndex = 26
         '
         'Label40
@@ -1109,7 +1261,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label40.AutoSize = True
         Me.Label40.Location = New System.Drawing.Point(440, 72)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(79, 17)
+        Me.Label40.Size = New System.Drawing.Size(77, 12)
         Me.Label40.TabIndex = 50
         Me.Label40.Text = "申请贷款支行"
         Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1119,7 +1271,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label37.AutoSize = True
         Me.Label37.Location = New System.Drawing.Point(440, 126)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(42, 17)
+        Me.Label37.Size = New System.Drawing.Size(41, 12)
         Me.Label37.TabIndex = 49
         Me.Label37.Text = "受益人"
         Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1129,7 +1281,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label36.AutoSize = True
         Me.Label36.Location = New System.Drawing.Point(16, 126)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(79, 17)
+        Me.Label36.Size = New System.Drawing.Size(77, 12)
         Me.Label36.TabIndex = 48
         Me.Label36.Text = "偿付责任类型"
         Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1139,7 +1291,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label35.AutoSize = True
         Me.Label35.Location = New System.Drawing.Point(440, 99)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(54, 17)
+        Me.Label35.Size = New System.Drawing.Size(53, 12)
         Me.Label35.TabIndex = 47
         Me.Label35.Text = "保函品种"
         Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1149,7 +1301,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label34.AutoSize = True
         Me.Label34.Location = New System.Drawing.Point(16, 322)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(42, 17)
+        Me.Label34.Size = New System.Drawing.Size(41, 12)
         Me.Label34.TabIndex = 46
         Me.Label34.Text = "用  途"
         Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1158,27 +1310,26 @@ Public Class frmRegisterCorporationInfo
         '
         Me.cbxRecommendItems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxRecommendItems.ItemHeight = 12
-        Me.cbxRecommendItems.Location = New System.Drawing.Point(232, 12)
+        Me.cbxRecommendItems.Location = New System.Drawing.Point(232, 9)
         Me.cbxRecommendItems.Name = "cbxRecommendItems"
         Me.cbxRecommendItems.Size = New System.Drawing.Size(144, 20)
         Me.cbxRecommendItems.TabIndex = 21
-        Me.cbxRecommendItems.Visible = False
         '
         'txtRecommendPerson
         '
-        Me.txtRecommendPerson.Location = New System.Drawing.Point(237, 12)
+        Me.txtRecommendPerson.Location = New System.Drawing.Point(238, 8)
         Me.txtRecommendPerson.MaxLength = 20
         Me.txtRecommendPerson.Name = "txtRecommendPerson"
         Me.txtRecommendPerson.Size = New System.Drawing.Size(136, 21)
         Me.txtRecommendPerson.TabIndex = 44
-        Me.txtRecommendPerson.Text = ""
         Me.txtRecommendPerson.Visible = False
+        Me.txtRecommendPerson.WordWrap = False
         '
         'cbxRecommendType
         '
         Me.cbxRecommendType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxRecommendType.ItemHeight = 12
-        Me.cbxRecommendType.Location = New System.Drawing.Point(128, 12)
+        Me.cbxRecommendType.Location = New System.Drawing.Point(128, 9)
         Me.cbxRecommendType.Name = "cbxRecommendType"
         Me.cbxRecommendType.Size = New System.Drawing.Size(104, 20)
         Me.cbxRecommendType.TabIndex = 20
@@ -1186,9 +1337,9 @@ Public Class frmRegisterCorporationInfo
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(16, 18)
+        Me.Label14.Location = New System.Drawing.Point(16, 17)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(79, 17)
+        Me.Label14.Size = New System.Drawing.Size(77, 12)
         Me.Label14.TabIndex = 42
         Me.Label14.Text = "推荐单位(人)"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1207,7 +1358,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label30.AutoSize = True
         Me.Label30.Location = New System.Drawing.Point(16, 153)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(54, 17)
+        Me.Label30.Size = New System.Drawing.Size(53, 12)
         Me.Label30.TabIndex = 40
         Me.Label30.Text = "咨询人员"
         Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1220,6 +1371,7 @@ Public Class frmRegisterCorporationInfo
         Me.dtpConsultDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.dtpConsultDate.Location = New System.Drawing.Point(544, 149)
         Me.dtpConsultDate.Name = "dtpConsultDate"
+        Me.dtpConsultDate.Size = New System.Drawing.Size(200, 21)
         Me.dtpConsultDate.TabIndex = 32
         '
         'Label6
@@ -1227,7 +1379,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(440, 153)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(54, 17)
+        Me.Label6.Size = New System.Drawing.Size(53, 12)
         Me.Label6.TabIndex = 38
         Me.Label6.Text = "咨询日期"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1236,7 +1388,7 @@ Public Class frmRegisterCorporationInfo
         '
         Me.cbFirstLoan.Checked = True
         Me.cbFirstLoan.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbFirstLoan.Location = New System.Drawing.Point(544, 12)
+        Me.cbFirstLoan.Location = New System.Drawing.Point(128, 41)
         Me.cbFirstLoan.Name = "cbFirstLoan"
         Me.cbFirstLoan.Size = New System.Drawing.Size(16, 24)
         Me.cbFirstLoan.TabIndex = 22
@@ -1245,10 +1397,10 @@ Public Class frmRegisterCorporationInfo
         '
         Me.nuTerm.BackColor = System.Drawing.Color.White
         Me.nuTerm.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.nuTerm.Location = New System.Drawing.Point(544, 43)
+        Me.nuTerm.Location = New System.Drawing.Point(297, 41)
         Me.nuTerm.Maximum = New Decimal(New Integer() {36, 0, 0, 0})
         Me.nuTerm.Name = "nuTerm"
-        Me.nuTerm.Size = New System.Drawing.Size(88, 21)
+        Me.nuTerm.Size = New System.Drawing.Size(79, 21)
         Me.nuTerm.TabIndex = 24
         Me.nuTerm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.nuTerm.Value = New Decimal(New Integer() {12, 0, 0, 0})
@@ -1276,7 +1428,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(16, 72)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(79, 17)
+        Me.Label5.Size = New System.Drawing.Size(77, 12)
         Me.Label5.TabIndex = 21
         Me.Label5.Text = "申请贷款银行"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1286,7 +1438,7 @@ Public Class frmRegisterCorporationInfo
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(16, 99)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(79, 17)
+        Me.Label12.Size = New System.Drawing.Size(77, 12)
         Me.Label12.TabIndex = 20
         Me.Label12.Text = "申请业务品种"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1294,9 +1446,9 @@ Public Class frmRegisterCorporationInfo
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(440, 45)
+        Me.Label10.Location = New System.Drawing.Point(190, 45)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(103, 17)
+        Me.Label10.Size = New System.Drawing.Size(101, 12)
         Me.Label10.TabIndex = 15
         Me.Label10.Text = "申请担保期限(月)"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1304,20 +1456,19 @@ Public Class frmRegisterCorporationInfo
         'txtVouchSum
         '
         Me.txtVouchSum.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.txtVouchSum.Location = New System.Drawing.Point(128, 39)
+        Me.txtVouchSum.Location = New System.Drawing.Point(544, 40)
         Me.txtVouchSum.MaxLength = 10
         Me.txtVouchSum.Name = "txtVouchSum"
-        Me.txtVouchSum.Size = New System.Drawing.Size(248, 21)
+        Me.txtVouchSum.Size = New System.Drawing.Size(200, 21)
         Me.txtVouchSum.TabIndex = 23
-        Me.txtVouchSum.Text = ""
         Me.txtVouchSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(440, 18)
+        Me.Label13.Location = New System.Drawing.Point(16, 45)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(79, 17)
+        Me.Label13.Size = New System.Drawing.Size(77, 12)
         Me.Label13.TabIndex = 17
         Me.Label13.Text = "是否首次贷款"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1325,11 +1476,11 @@ Public Class frmRegisterCorporationInfo
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(16, 45)
+        Me.Label11.Location = New System.Drawing.Point(440, 43)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(116, 17)
+        Me.Label11.Size = New System.Drawing.Size(89, 12)
         Me.Label11.TabIndex = 19
-        Me.Label11.Text = "申请担保金额(万元)"
+        Me.Label11.Text = "申请金额(万元)"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnExit
@@ -1371,26 +1522,6 @@ Public Class frmRegisterCorporationInfo
         Me.btnMake.Text = "生成采集表(&M)"
         Me.btnMake.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.ForeColor = System.Drawing.Color.Crimson
-        Me.Label25.Location = New System.Drawing.Point(113, 75)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(11, 17)
-        Me.Label25.TabIndex = 50
-        Me.Label25.Text = "*"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.ForeColor = System.Drawing.Color.Crimson
-        Me.Label27.Location = New System.Drawing.Point(505, 76)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(11, 17)
-        Me.Label27.TabIndex = 51
-        Me.Label27.Text = "*"
-        '
         'frmRegisterCorporationInfo
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
@@ -1409,7 +1540,9 @@ Public Class frmRegisterCorporationInfo
         Me.Text = "登记咨询企业信息"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         CType(Me.nudLoanTerm, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nuTerm, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -1540,6 +1673,12 @@ Public Class frmRegisterCorporationInfo
         Me.cmbConsultPerson.ValueMember = "staff_name"
         Me.cmbConsultPerson.SelectedValue = UserName
 
+        '业务来源            yansm  add    2013/11/29
+        Me.cbxReferencia.DataSource = ReferenciaDS.Tables("Referencia")
+        Me.cbxReferencia.DisplayMember = "referencia_type"
+        Me.cbxReferencia.ValueMember = "referencia_type"
+
+
         '技术类型
         Me.clbTechnology.DataSource = TechnologyTypeDS.Tables("TTechnologyType")
         Me.clbTechnology.DisplayMember = "technology_type"
@@ -1600,6 +1739,10 @@ Public Class frmRegisterCorporationInfo
         AddHandler txtAddressDetail.TextChanged, AddressOf The_TextChanged  '注册地址
         AddHandler cbxIndustryType.SelectedValueChanged, AddressOf The_TextChanged  '行业类型
         AddHandler cbxProprietorShip.SelectedValueChanged, AddressOf The_TextChanged  '所有制类型
+
+
+        AddHandler cbxReferencia.SelectedValueChanged, AddressOf The_TextChanged   '业务来源  add  yansm
+
 
         AddHandler txtWebSite.TextChanged, AddressOf The_TextChanged  '单位网址
         AddHandler txtAssets.TextChanged, AddressOf The_TextChanged '总资产
@@ -1684,6 +1827,7 @@ Public Class frmRegisterCorporationInfo
             If Not .Item("credit_grade") Is System.DBNull.Value Then
                 Me.txtcorpcreditlevel.Text = .Item("credit_grade")
             End If
+
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             '地址信息
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -1713,6 +1857,11 @@ Public Class frmRegisterCorporationInfo
                     Me.cbxRecommendItems.SelectedValue = Me.str_RecommendType
                 End If
                 Me.txtRecommendPerson.Text = Me.str_RecommendType
+            End If
+
+            '业务来源     yansm add 2013/11/29
+            If Not .Item("referencia_type") Is System.DBNull.Value Then
+                Me.cbxReferencia.SelectedValue = .Item("referencia_type")
             End If
 
             ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -1912,6 +2061,34 @@ Public Class frmRegisterCorporationInfo
             Me.cbxAddressRange.Focus()
             Return False
         End If
+        '是否进出口不能为空
+        If Me.cbxImport.Text = "" Then
+            SWDialogBox.MessageBox.Show("$1001", "是否进出口")
+            Me.cbxImport.Focus()
+            Return False
+        End If
+
+        '是否高新技术企业不能为空
+
+        If Me.cbxHightec.Text = "" Then
+            SWDialogBox.MessageBox.Show("$1001", "是否高新技术企业")
+            Me.cbxHightec.Focus()
+            Return False
+        End If
+
+        '业务来源不能为空
+        If Me.cbxReferencia.Text = "" Then
+            SWDialogBox.MessageBox.Show("$1001", "业务来源")
+            Me.cbxReferencia.Focus()
+            Return False
+        End If
+
+        '产业类型
+        If Me.cbxIndus.Text = "" Then
+            SWDialogBox.MessageBox.Show("$1001", "产业类型")
+            Me.cbxIndus.Focus()
+            Return False
+        End If
 
         Return True
     End Function
@@ -1953,7 +2130,7 @@ Public Class frmRegisterCorporationInfo
                     Dim ds As DataSet = gWs.GetCommonQueryInfo(strSql)
                     If ds.Tables(0).Rows.Count > 0 Then
                         If Not ds.Tables(0).Rows(0).Item("corporation_name") = Me.txtCorporation_name.Text Then
-                            MsgBox("保存数据时出现冲突,请退出登记对这条咨询信息修改!", MsgBoxStyle.OKOnly)
+                            MsgBox("保存数据时出现冲突,请退出登记对这条咨询信息修改!", MsgBoxStyle.OkOnly)
                             Return False
                         Else
                             Me.strCorporationCode = ds.Tables(0).Rows(0).Item("corporation_code")
@@ -2155,7 +2332,7 @@ Public Class frmRegisterCorporationInfo
                     Me.Save()
                     frm.queryCorporation()
                 Case MsgBoxResult.Cancel
-                        e.Cancel = True
+                    e.Cancel = True
             End Select
         End If
         frm.dgCorpInfo_Click(Nothing, Nothing)
@@ -2750,6 +2927,13 @@ Public Class frmRegisterCorporationInfo
             .Item("web_site") = Me.txtWebSite.Text
             .Item("credit_grade") = Me.txtcorpcreditlevel.Text
             .Item("found_date") = Me.dtpFound_date.Value
+            .Item("if_import") = Me.cbxImport.SelectedItem              'yansm add 2013/11/29
+            .Item("if_technology") = Me.cbxHightec.SelectedItem         'yansm add 2013/11/29
+            .Item("indus_type") = Me.cbxIndus.SelectedItem()            'yansm add 2013/11/29
+            
+
+
+
             '
             '推荐信息
             '
@@ -2767,6 +2951,7 @@ Public Class frmRegisterCorporationInfo
             .Item("apply_term") = Me.nuTerm.Text
             .Item("apply_bank_code") = Me.cbxBankCode.SelectedValue
             .Item("apply_service_type") = Me.cbxServiceType.SelectedValue
+            .Item("referencia_type") = Me.cbxReferencia.SelectedValue     'yansm add 2013/11/29
 
             '资金信息
 
@@ -2865,6 +3050,11 @@ Public Class frmRegisterCorporationInfo
 
     Private Sub clbCorporationTypeEx_ItemCheck(ByVal sender As Object, ByVal e As System.Windows.Forms.ItemCheckEventArgs)
         bChanged = True
+    End Sub
+
+
+    Private Sub ComboBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbxHightec.SelectedIndexChanged
+
     End Sub
 End Class
 

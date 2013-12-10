@@ -199,6 +199,20 @@ Module RemoteModule
     End Property
 
     '
+    '业务来源     add   yansm   2013/11/29
+    '
+    Private ds_Referencia As DataSet = Nothing
+    Public ReadOnly Property ReferenciaDS() As DataSet
+        Get
+            'If ds_Referencia Is Nothing Then
+            ds_Referencia = VouchService.GetReferencia("%")
+            'End If
+            Return ds_Referencia.Copy()
+        End Get
+    End Property
+
+
+    '
     '所有制类型
     '
     Private ds_ProprietorShip As DataSet = Nothing
@@ -288,6 +302,7 @@ Module RemoteModule
             Return ds_Staff.Copy()
         End Get
     End Property
+
     '
     '通过项目(itemtype)名称获取项目类型
     '

@@ -122,18 +122,18 @@ namespace SWDialogBox
 		/// </summary>
 		public LoginBox()
 		{
-			_title		= null;
-			_timeout	= 30;
-			_maxCount	= 3;
-			_useSecurity = false;
-			_backColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.Control);
-			_foreColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.ControlText);
-			_backgroundImage = null;
-
-			System.Resources.ResourceManager rm = new System.Resources.ResourceManager("SWDialogBox.SWDialogBox", this.GetType().Assembly);
-			System.Drawing.Image image = rm.GetObject("BITMAP-Title") as System.Drawing.Image;
-
-			_titleImage = image;
+//			_title		= null;
+//			_timeout	= 30;
+//			_maxCount	= 3;
+//			_useSecurity = false;
+//			_backColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.Control);
+//			_foreColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.ControlText);
+//			_backgroundImage = null;
+//
+//			System.Resources.ResourceManager rm = new System.Resources.ResourceManager("SWDialogBox.SWDialogBox", this.GetType().Assembly);
+//			System.Drawing.Image image = rm.GetObject("BITMAP-Title") as System.Drawing.Image;
+//
+//			_titleImage = image;
 
 			moLoginedEventArgs = new SWDialogBox.LoginedEventArgs(SWDialogBox.LoginResult.Success);
 		}
@@ -398,16 +398,16 @@ namespace SWDialogBox
 
 				loginForm = new FLoginBox();
 				loginForm.SetLogin(_userName, _password, _server, _database, _timeout, moLoginedEventArgs.Result);
-				loginForm.UseSecurity = _useSecurity;
+//				loginForm.UseSecurity = _useSecurity;
 //				loginForm.picTitle.Image = _titleImage;
 //				loginForm.picTitle.Visible = (_titleImage != null);
 //				loginForm.BackgroundImage = _backgroundImage;
 
-				if(title != null)
-					_title = title;
-
-				if(_title != null)
-					loginForm.Text = _title;
+//				if(title != null)
+//					_title = title;
+//
+//				if(_title != null)
+//					loginForm.Text = _title;
 
 				for(int i=0; i<_maxCount || _maxCount==0; i++)
 				{
@@ -417,7 +417,7 @@ namespace SWDialogBox
 					{
 						loginForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 						result = loginForm.ShowDialog();
-					}
+					}	
 					else
 					{
 						loginForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

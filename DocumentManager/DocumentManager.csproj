@@ -129,6 +129,12 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SWDialogBox\SWDialogBox.csproj">
+      <Project>{A8468205-139D-4D49-A293-527C3B0FAE40}</Project>
+      <Name>SWDialogBox</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

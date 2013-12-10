@@ -7,12 +7,13 @@ Public Class FOppImportData
     Private strProjectCode, strCorporationName, ProjectCode As String
     Private strDir As String = "\Document\Image\" '图片保存的目录
 
-    Private totalOriginal, totalEvaluate, totalGuarantee As String
-    Private dOriginal, dEvaluate, dGuarantee As Double
+    Private totalOriginal, totalEvaluate, totalEvaluatenet, totalGuarantee As String
+    Private dOriginal, dEvaluate, dEvaluatenet, dGuarantee As Double
 
     Dim SourceProjectCode, SourceSerialNum, CreatePerson As String
     Dim CreateDate As Date
     Dim frmOppEva As frmOppGuaranteeEvaluate
+    Friend WithEvents DataGridTextBoxColumn16 As System.Windows.Forms.DataGridTextBoxColumn
     Dim frmOppReg As frmOppGuaranteeRegister
 
 #Region " Windows 窗体设计器生成的代码 "
@@ -92,48 +93,49 @@ Public Class FOppImportData
     Friend WithEvents txtCode As System.Windows.Forms.ComboBox
     Friend WithEvents btnImport As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(FOppImportData))
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtCode = New System.Windows.Forms.ComboBox()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.cmbOppStatus = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmbOppForm = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.cmbOppType = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.chbDate = New System.Windows.Forms.CheckBox()
-        Me.btnQuery = New System.Windows.Forms.Button()
-        Me.dateEvaluate = New System.Windows.Forms.DateTimePicker()
-        Me.txtAddress = New System.Windows.Forms.TextBox()
-        Me.txtName = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dgOppGuarantee = New System.Windows.Forms.DataGrid()
-        Me.DataGridTableStyle2 = New System.Windows.Forms.DataGridTableStyle()
-        Me.DataGridTextBoxColumn3 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn8 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn9 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn10 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn15 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn6 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn7 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn14 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn4 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn11 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn12 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn13 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn5 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.dgDetail = New System.Windows.Forms.DataGrid()
-        Me.DataGridTableStyle1 = New System.Windows.Forms.DataGridTableStyle()
-        Me.DataGridTextBoxColumn1 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn2 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.btnView = New System.Windows.Forms.Button()
-        Me.btnImport = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FOppImportData))
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.txtCode = New System.Windows.Forms.ComboBox
+        Me.btnClear = New System.Windows.Forms.Button
+        Me.cmbOppStatus = New System.Windows.Forms.ComboBox
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.cmbOppForm = New System.Windows.Forms.ComboBox
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.cmbOppType = New System.Windows.Forms.ComboBox
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.chbDate = New System.Windows.Forms.CheckBox
+        Me.btnQuery = New System.Windows.Forms.Button
+        Me.dateEvaluate = New System.Windows.Forms.DateTimePicker
+        Me.txtAddress = New System.Windows.Forms.TextBox
+        Me.txtName = New System.Windows.Forms.TextBox
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.dgOppGuarantee = New System.Windows.Forms.DataGrid
+        Me.DataGridTableStyle2 = New System.Windows.Forms.DataGridTableStyle
+        Me.DataGridTextBoxColumn3 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn8 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn9 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn10 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn15 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn6 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn7 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn14 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn4 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn11 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn12 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn13 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn5 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.dgDetail = New System.Windows.Forms.DataGrid
+        Me.DataGridTableStyle1 = New System.Windows.Forms.DataGridTableStyle
+        Me.DataGridTextBoxColumn1 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn2 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.btnView = New System.Windows.Forms.Button
+        Me.btnImport = New System.Windows.Forms.Button
+        Me.DataGridTextBoxColumn16 = New System.Windows.Forms.DataGridTextBoxColumn
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,25 +143,65 @@ Public Class FOppImportData
         CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ImageListBasic
-        '
-        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        '
         'btnExit
         '
-        Me.btnExit.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right)
-        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Bitmap)
+        Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Image)
         Me.btnExit.ImageIndex = -1
         Me.btnExit.ImageList = Nothing
         Me.btnExit.Location = New System.Drawing.Point(487, 442)
         Me.btnExit.TabIndex = 5
-        Me.btnExit.Visible = True
+        '
+        'ImageListBasic
+        '
+        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox1.Controls.AddRange(New System.Windows.Forms.Control() {Me.txtCode, Me.btnClear, Me.cmbOppStatus, Me.Label7, Me.cmbOppForm, Me.Label6, Me.cmbOppType, Me.Label5, Me.chbDate, Me.btnQuery, Me.dateEvaluate, Me.txtAddress, Me.txtName, Me.Label4, Me.Label3, Me.Label2, Me.Label1})
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.txtCode)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
+        Me.GroupBox1.Controls.Add(Me.cmbOppStatus)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.cmbOppForm)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.cmbOppType)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.chbDate)
+        Me.GroupBox1.Controls.Add(Me.btnQuery)
+        Me.GroupBox1.Controls.Add(Me.dateEvaluate)
+        Me.GroupBox1.Controls.Add(Me.txtAddress)
+        Me.GroupBox1.Controls.Add(Me.txtName)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 8)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(808, 128)
@@ -178,8 +220,7 @@ Public Class FOppImportData
         '
         'btnClear
         '
-        Me.btnClear.Anchor = (System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right)
-        Me.btnClear.Image = CType(resources.GetObject("btnClear.Image"), System.Drawing.Bitmap)
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnClear.ImageIndex = 12
         Me.btnClear.ImageList = Me.ImageListBasic
@@ -192,8 +233,8 @@ Public Class FOppImportData
         '
         'cmbOppStatus
         '
-        Me.cmbOppStatus.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.cmbOppStatus.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbOppStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOppStatus.Location = New System.Drawing.Point(584, 65)
         Me.cmbOppStatus.Name = "cmbOppStatus"
@@ -205,7 +246,7 @@ Public Class FOppImportData
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(496, 68)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(79, 14)
+        Me.Label7.Size = New System.Drawing.Size(77, 12)
         Me.Label7.TabIndex = 10
         Me.Label7.Text = "反担保物状态"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -253,8 +294,7 @@ Public Class FOppImportData
         '
         'btnQuery
         '
-        Me.btnQuery.Anchor = (System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right)
-        Me.btnQuery.Image = CType(resources.GetObject("btnQuery.Image"), System.Drawing.Bitmap)
+        Me.btnQuery.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnQuery.ImageIndex = 3
         Me.btnQuery.ImageList = Me.ImageListBasic
@@ -274,26 +314,24 @@ Public Class FOppImportData
         '
         'txtAddress
         '
-        Me.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.txtAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtAddress.Location = New System.Drawing.Point(352, 97)
         Me.txtAddress.MaxLength = 100
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(352, 21)
         Me.txtAddress.TabIndex = 6
-        Me.txtAddress.Text = ""
         '
         'txtName
         '
-        Me.txtName.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.txtName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtName.Location = New System.Drawing.Point(352, 33)
         Me.txtName.MaxLength = 100
         Me.txtName.Name = "txtName"
         Me.txtName.ReadOnly = True
         Me.txtName.Size = New System.Drawing.Size(352, 21)
         Me.txtName.TabIndex = 1
-        Me.txtName.Text = ""
         Me.txtName.Visible = False
         '
         'Label4
@@ -335,10 +373,10 @@ Public Class FOppImportData
         '
         'GroupBox2
         '
-        Me.GroupBox2.Anchor = (((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox2.Controls.AddRange(New System.Windows.Forms.Control() {Me.dgOppGuarantee})
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.dgOppGuarantee)
         Me.GroupBox2.Location = New System.Drawing.Point(8, 144)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(536, 280)
@@ -362,7 +400,7 @@ Public Class FOppImportData
         'DataGridTableStyle2
         '
         Me.DataGridTableStyle2.DataGrid = Me.dgOppGuarantee
-        Me.DataGridTableStyle2.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.DataGridTextBoxColumn3, Me.DataGridTextBoxColumn8, Me.DataGridTextBoxColumn9, Me.DataGridTextBoxColumn10, Me.DataGridTextBoxColumn15, Me.DataGridTextBoxColumn6, Me.DataGridTextBoxColumn7, Me.DataGridTextBoxColumn14, Me.DataGridTextBoxColumn4, Me.DataGridTextBoxColumn11, Me.DataGridTextBoxColumn12, Me.DataGridTextBoxColumn13, Me.DataGridTextBoxColumn5})
+        Me.DataGridTableStyle2.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.DataGridTextBoxColumn3, Me.DataGridTextBoxColumn8, Me.DataGridTextBoxColumn9, Me.DataGridTextBoxColumn10, Me.DataGridTextBoxColumn15, Me.DataGridTextBoxColumn6, Me.DataGridTextBoxColumn7, Me.DataGridTextBoxColumn14, Me.DataGridTextBoxColumn4, Me.DataGridTextBoxColumn11, Me.DataGridTextBoxColumn12, Me.DataGridTextBoxColumn16, Me.DataGridTextBoxColumn13, Me.DataGridTextBoxColumn5})
         Me.DataGridTableStyle2.HeaderForeColor = System.Drawing.SystemColors.ControlText
         Me.DataGridTableStyle2.MappingName = "opposite_guarantee"
         '
@@ -457,7 +495,7 @@ Public Class FOppImportData
         '
         Me.DataGridTextBoxColumn12.Format = ""
         Me.DataGridTextBoxColumn12.FormatInfo = Nothing
-        Me.DataGridTextBoxColumn12.HeaderText = "评估值(元)"
+        Me.DataGridTextBoxColumn12.HeaderText = "评估总值(元)"
         Me.DataGridTextBoxColumn12.MappingName = "evaluate_value"
         Me.DataGridTextBoxColumn12.NullText = "0"
         Me.DataGridTextBoxColumn12.Width = 75
@@ -482,9 +520,9 @@ Public Class FOppImportData
         '
         'GroupBox3
         '
-        Me.GroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox3.Controls.AddRange(New System.Windows.Forms.Control() {Me.dgDetail})
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.dgDetail)
         Me.GroupBox3.Location = New System.Drawing.Point(552, 144)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(264, 280)
@@ -532,8 +570,7 @@ Public Class FOppImportData
         '
         'btnView
         '
-        Me.btnView.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right)
-        Me.btnView.Image = CType(resources.GetObject("btnView.Image"), System.Drawing.Bitmap)
+        Me.btnView.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnView.ImageIndex = 17
         Me.btnView.ImageList = Me.ImageListBasic
@@ -546,8 +583,7 @@ Public Class FOppImportData
         '
         'btnImport
         '
-        Me.btnImport.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right)
-        Me.btnImport.Image = CType(resources.GetObject("btnImport.Image"), System.Drawing.Bitmap)
+        Me.btnImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnImport.ImageIndex = 16
         Me.btnImport.ImageList = Me.ImageListBasic
@@ -558,15 +594,35 @@ Public Class FOppImportData
         Me.btnImport.Text = "导入数据(&I)"
         Me.btnImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'DataGridTextBoxColumn16
+        '
+        Me.DataGridTextBoxColumn16.Format = ""
+        Me.DataGridTextBoxColumn16.FormatInfo = Nothing
+        Me.DataGridTextBoxColumn16.HeaderText = "评估净值(元)"
+        Me.DataGridTextBoxColumn16.MappingName = "evaluate_net_value"
+        Me.DataGridTextBoxColumn16.NullText = "0"
+        Me.DataGridTextBoxColumn16.Width = 75
+        '
         'FOppImportData
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(826, 487)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.btnExit, Me.btnImport, Me.btnView, Me.GroupBox3, Me.GroupBox2, Me.GroupBox1})
+        Me.Controls.Add(Me.btnImport)
+        Me.Controls.Add(Me.btnView)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FOppImportData"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "导入历史的反担保物记录"
+        Me.Controls.SetChildIndex(Me.GroupBox1, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox2, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox3, 0)
+        Me.Controls.SetChildIndex(Me.btnView, 0)
+        Me.Controls.SetChildIndex(Me.btnImport, 0)
+        Me.Controls.SetChildIndex(Me.btnExit, 0)
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
@@ -616,6 +672,7 @@ Public Class FOppImportData
     Private Function queryOppGuarantee(ByVal strCondition As String)
         dOriginal = 0.0
         dEvaluate = 0.0
+        dEvaluatenet = 0.0
         dGuarantee = 0.0
         totalOriginal = 0.0
         totalEvaluate = 0.0
@@ -651,6 +708,11 @@ Public Class FOppImportData
                     If Not .Item("evaluate_value") Is System.DBNull.Value Then
                         totalEvaluate = .Item("evaluate_value")
                         dEvaluate = totalEvaluate + dEvaluate
+                    End If
+                    'add yansm 2013/12/7
+                    If Not .Item("evaluate_net_value") Is System.DBNull.Value Then
+                        totalEvaluate = .Item("evaluate_net_value")
+                        dEvaluatenet = totalEvaluatenet + dEvaluatenet
                     End If
                     If Not .Item("guarantee_value") Is System.DBNull.Value Then
                         totalGuarantee = .Item("guarantee_value")

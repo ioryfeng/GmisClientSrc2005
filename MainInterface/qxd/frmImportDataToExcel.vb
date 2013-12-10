@@ -2247,7 +2247,8 @@ Public Class frmImportDataToExcel
             rg.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
 
             rang.Item(count, maxLen + 1) = "原值"
-            rang.Item(count, maxLen + 2) = "评估值"
+            rang.Item(count, maxLen + 2) = "评估总值"
+
             rang.Item(count, maxLen + 3) = "担保额"
 
             For j = 0 To j - 1
@@ -2255,7 +2256,6 @@ Public Class frmImportDataToExcel
                 dr = ds.Tables("opposite_guarantee_detail").Rows(j)
                 Dim itemName As String = dr.Item("item_name").ToString()
                 Dim itemValue As String = dr.Item("item_value").ToString()
-
                 rang.Item(count, j + 1) = itemName
 
                 'Try

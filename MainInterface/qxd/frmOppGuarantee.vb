@@ -14,6 +14,8 @@ Public Class frmOppGuarantee
 
     Private totalOriginal, totalEvaluate, totalGuarantee As String
     Private dOriginal, dEvaluate, dGuarantee As Double
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Public WithEvents txtEvaluateNet As System.Windows.Forms.TextBox
 
 #Region " Windows 窗体设计器生成的代码 "
 
@@ -76,39 +78,41 @@ Public Class frmOppGuarantee
     Friend WithEvents Label1 As System.Windows.Forms.Label
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmOppGuarantee))
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dgOppGuarantee = New System.Windows.Forms.DataGrid()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.dgDetail = New System.Windows.Forms.DataGrid()
-        Me.DataGridTableStyle1 = New System.Windows.Forms.DataGridTableStyle()
-        Me.DataGridTextBoxColumn1 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn2 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn33 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn34 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.txtContract = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtGuarantee = New System.Windows.Forms.TextBox()
-        Me.txtRemark = New System.Windows.Forms.TextBox()
-        Me.dateEvaluate = New System.Windows.Forms.DateTimePicker()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmbMeasure = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtEvaluate = New System.Windows.Forms.TextBox()
-        Me.txtOriginal = New System.Windows.Forms.TextBox()
-        Me.cmbType = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.components = New System.ComponentModel.Container
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOppGuarantee))
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.dgOppGuarantee = New System.Windows.Forms.DataGrid
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.dgDetail = New System.Windows.Forms.DataGrid
+        Me.DataGridTableStyle1 = New System.Windows.Forms.DataGridTableStyle
+        Me.DataGridTextBoxColumn1 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn2 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn33 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn34 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.txtEvaluateNet = New System.Windows.Forms.TextBox
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.txtContract = New System.Windows.Forms.TextBox
+        Me.Label11 = New System.Windows.Forms.Label
+        Me.txtGuarantee = New System.Windows.Forms.TextBox
+        Me.txtRemark = New System.Windows.Forms.TextBox
+        Me.dateEvaluate = New System.Windows.Forms.DateTimePicker
+        Me.Label10 = New System.Windows.Forms.Label
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.cmbMeasure = New System.Windows.Forms.ComboBox
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.txtEvaluate = New System.Windows.Forms.TextBox
+        Me.txtOriginal = New System.Windows.Forms.TextBox
+        Me.cmbType = New System.Windows.Forms.ComboBox
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Label3 = New System.Windows.Forms.Label
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.txtName = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtCode = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtName = New System.Windows.Forms.TextBox
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.txtCode = New System.Windows.Forms.TextBox
+        Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -119,20 +123,48 @@ Public Class frmOppGuarantee
         'btnExit
         '
         Me.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Bitmap)
+        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Image)
+        Me.btnExit.ImageIndex = -1
+        Me.btnExit.ImageList = Nothing
         Me.btnExit.Location = New System.Drawing.Point(317, 408)
         Me.btnExit.Size = New System.Drawing.Size(80, 24)
-        Me.btnExit.Visible = True
         '
         'ImageListBasic
         '
         Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
+        Me.ImageListBasic.Images.SetKeyName(25, "")
+        Me.ImageListBasic.Images.SetKeyName(26, "")
         '
         'GroupBox2
         '
-        Me.GroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left)
-        Me.GroupBox2.Controls.AddRange(New System.Windows.Forms.Control() {Me.dgOppGuarantee})
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.dgOppGuarantee)
         Me.GroupBox2.Location = New System.Drawing.Point(8, 40)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(376, 240)
@@ -154,10 +186,10 @@ Public Class frmOppGuarantee
         '
         'GroupBox3
         '
-        Me.GroupBox3.Anchor = (((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.GroupBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox3.Controls.AddRange(New System.Windows.Forms.Control() {Me.dgDetail})
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.dgDetail)
         Me.GroupBox3.Location = New System.Drawing.Point(384, 40)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(320, 240)
@@ -220,9 +252,26 @@ Public Class frmOppGuarantee
         '
         'GroupBox4
         '
-        Me.GroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox4.Controls.AddRange(New System.Windows.Forms.Control() {Me.txtContract, Me.Label11, Me.txtGuarantee, Me.txtRemark, Me.dateEvaluate, Me.Label10, Me.Label9, Me.Label7, Me.cmbMeasure, Me.Label6, Me.txtEvaluate, Me.txtOriginal, Me.cmbType, Me.Label5, Me.Label4, Me.Label3})
+        Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Controls.Add(Me.txtEvaluateNet)
+        Me.GroupBox4.Controls.Add(Me.Label8)
+        Me.GroupBox4.Controls.Add(Me.txtContract)
+        Me.GroupBox4.Controls.Add(Me.Label11)
+        Me.GroupBox4.Controls.Add(Me.txtGuarantee)
+        Me.GroupBox4.Controls.Add(Me.txtRemark)
+        Me.GroupBox4.Controls.Add(Me.dateEvaluate)
+        Me.GroupBox4.Controls.Add(Me.Label10)
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.Label7)
+        Me.GroupBox4.Controls.Add(Me.cmbMeasure)
+        Me.GroupBox4.Controls.Add(Me.Label6)
+        Me.GroupBox4.Controls.Add(Me.txtEvaluate)
+        Me.GroupBox4.Controls.Add(Me.txtOriginal)
+        Me.GroupBox4.Controls.Add(Me.cmbType)
+        Me.GroupBox4.Controls.Add(Me.Label5)
+        Me.GroupBox4.Controls.Add(Me.Label4)
+        Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Location = New System.Drawing.Point(8, 288)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(696, 112)
@@ -230,15 +279,32 @@ Public Class frmOppGuarantee
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "反担保物信息"
         '
+        'txtEvaluateNet
+        '
+        Me.txtEvaluateNet.ImeMode = System.Windows.Forms.ImeMode.Disable
+        Me.txtEvaluateNet.Location = New System.Drawing.Point(433, 80)
+        Me.txtEvaluateNet.Name = "txtEvaluateNet"
+        Me.txtEvaluateNet.Size = New System.Drawing.Size(90, 21)
+        Me.txtEvaluateNet.TabIndex = 19
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(350, 85)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(77, 12)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "评估净值(元)"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'txtContract
         '
-        Me.txtContract.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.txtContract.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtContract.Location = New System.Drawing.Point(496, 25)
         Me.txtContract.Name = "txtContract"
         Me.txtContract.Size = New System.Drawing.Size(192, 21)
         Me.txtContract.TabIndex = 17
-        Me.txtContract.Text = ""
         '
         'Label11
         '
@@ -251,14 +317,13 @@ Public Class frmOppGuarantee
         '
         'txtGuarantee
         '
-        Me.txtGuarantee.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.txtGuarantee.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtGuarantee.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.txtGuarantee.Location = New System.Drawing.Point(496, 80)
+        Me.txtGuarantee.Location = New System.Drawing.Point(598, 80)
         Me.txtGuarantee.Name = "txtGuarantee"
-        Me.txtGuarantee.Size = New System.Drawing.Size(192, 21)
+        Me.txtGuarantee.Size = New System.Drawing.Size(90, 21)
         Me.txtGuarantee.TabIndex = 14
-        Me.txtGuarantee.Text = ""
         '
         'txtRemark
         '
@@ -266,12 +331,11 @@ Public Class frmOppGuarantee
         Me.txtRemark.Name = "txtRemark"
         Me.txtRemark.Size = New System.Drawing.Size(312, 21)
         Me.txtRemark.TabIndex = 13
-        Me.txtRemark.Text = ""
         '
         'dateEvaluate
         '
-        Me.dateEvaluate.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.dateEvaluate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dateEvaluate.Location = New System.Drawing.Point(496, 53)
         Me.dateEvaluate.Name = "dateEvaluate"
         Me.dateEvaluate.Size = New System.Drawing.Size(192, 21)
@@ -298,9 +362,9 @@ Public Class frmOppGuarantee
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(432, 84)
+        Me.Label7.Location = New System.Drawing.Point(527, 84)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(66, 14)
+        Me.Label7.Size = New System.Drawing.Size(65, 12)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "担保额(元)"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -324,19 +388,18 @@ Public Class frmOppGuarantee
         'txtEvaluate
         '
         Me.txtEvaluate.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.txtEvaluate.Location = New System.Drawing.Point(284, 81)
+        Me.txtEvaluate.Location = New System.Drawing.Point(254, 80)
         Me.txtEvaluate.Name = "txtEvaluate"
+        Me.txtEvaluate.Size = New System.Drawing.Size(90, 21)
         Me.txtEvaluate.TabIndex = 5
-        Me.txtEvaluate.Text = ""
         '
         'txtOriginal
         '
         Me.txtOriginal.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.txtOriginal.Location = New System.Drawing.Point(72, 81)
+        Me.txtOriginal.Location = New System.Drawing.Point(75, 79)
         Me.txtOriginal.Name = "txtOriginal"
-        Me.txtOriginal.Size = New System.Drawing.Size(120, 21)
+        Me.txtOriginal.Size = New System.Drawing.Size(90, 21)
         Me.txtOriginal.TabIndex = 4
-        Me.txtOriginal.Text = ""
         '
         'cmbType
         '
@@ -348,11 +411,11 @@ Public Class frmOppGuarantee
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(216, 84)
+        Me.Label5.Location = New System.Drawing.Point(171, 83)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(66, 14)
+        Me.Label5.Size = New System.Drawing.Size(77, 12)
         Me.Label5.TabIndex = 2
-        Me.Label5.Text = "评估值(元)"
+        Me.Label5.Text = "评估总值(元)"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label4
@@ -360,7 +423,7 @@ Public Class frmOppGuarantee
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(16, 84)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(54, 14)
+        Me.Label4.Size = New System.Drawing.Size(53, 12)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "原值(元)"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -382,14 +445,13 @@ Public Class frmOppGuarantee
         '
         'txtName
         '
-        Me.txtName.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.txtName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtName.Location = New System.Drawing.Point(320, 8)
         Me.txtName.Name = "txtName"
         Me.txtName.ReadOnly = True
         Me.txtName.Size = New System.Drawing.Size(384, 21)
         Me.txtName.TabIndex = 8
-        Me.txtName.Text = ""
         '
         'Label2
         '
@@ -407,7 +469,6 @@ Public Class frmOppGuarantee
         Me.txtCode.ReadOnly = True
         Me.txtCode.Size = New System.Drawing.Size(128, 21)
         Me.txtCode.TabIndex = 6
-        Me.txtCode.Text = ""
         '
         'Label1
         '
@@ -422,16 +483,32 @@ Public Class frmOppGuarantee
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(714, 435)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.txtName, Me.Label2, Me.txtCode, Me.Label1, Me.btnExit, Me.GroupBox4, Me.GroupBox3, Me.GroupBox2})
+        Me.Controls.Add(Me.txtName)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtCode)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.GroupBox4)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Name = "frmOppGuarantee"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "反担保物"
+        Me.Controls.SetChildIndex(Me.GroupBox2, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox3, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox4, 0)
+        Me.Controls.SetChildIndex(Me.btnExit, 0)
+        Me.Controls.SetChildIndex(Me.Label1, 0)
+        Me.Controls.SetChildIndex(Me.txtCode, 0)
+        Me.Controls.SetChildIndex(Me.Label2, 0)
+        Me.Controls.SetChildIndex(Me.txtName, 0)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -766,14 +843,14 @@ Public Class frmOppGuarantee
 
     End Function
     'KeyPress事件
-    Private Sub txt_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtOriginal.KeyPress, txtEvaluate.KeyPress, txtGuarantee.KeyPress
+    Private Sub txt_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtOriginal.KeyPress, txtEvaluate.KeyPress, txtGuarantee.KeyPress, txtEvaluateNet.KeyPress
         Try
             Money_KeyPress(sender, e)
         Catch ex As Exception
         End Try
     End Sub
     '离开TextBox触发的事件
-    Private Sub txt_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtOriginal.Leave, txtEvaluate.Leave, txtGuarantee.Leave
+    Private Sub txt_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtOriginal.Leave, txtEvaluate.Leave, txtGuarantee.Leave, txtEvaluateNet.Leave
         Try
             Money_Leave(sender, e)
         Catch ex As Exception
@@ -795,7 +872,7 @@ Public Class frmOppGuarantee
         Return count
     End Function
     '进入TextBox触发的事件
-    Private Sub txt_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtOriginal.Enter, txtEvaluate.Enter, txtGuarantee.Enter
+    Private Sub txt_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtOriginal.Enter, txtEvaluate.Enter, txtGuarantee.Enter, txtEvaluateNet.Enter
         Try
             Money_Enter(sender, e)
         Catch ex As Exception
@@ -818,18 +895,22 @@ Public Class frmOppGuarantee
                     If Not .Item("additional_remark") Is System.DBNull.Value Then
                         If .Item("additional_remark") = "1" Then
                             Me.txtEvaluate.Enabled = True
+                            Me.txtEvaluateNet.Enabled = True
                             Me.txtGuarantee.ReadOnly = False
                         Else
                             Me.txtEvaluate.Enabled = False
+                            Me.txtEvaluateNet.Enabled = False
                             Me.txtGuarantee.ReadOnly = False
                         End If
                     Else
                         Me.txtEvaluate.Enabled = False
+                        Me.txtEvaluateNet.Enabled = False
                         Me.txtGuarantee.ReadOnly = False
                     End If
                 End With
             Else
                 Me.txtEvaluate.Enabled = False
+                Me.txtEvaluateNet.Enabled = False
                 Me.txtGuarantee.ReadOnly = False
             End If
         Catch ex As Exception
@@ -919,6 +1000,7 @@ Public Class frmOppGuarantee
         setItemValue(dt, "21", "010", Format(dOriginal / dArea, ".##"))
         setOppValue(dtOpp, index, "evaluate_value", Format(dArea * dSquareMeter, ".##"))
         Me.txtEvaluate.Text = Format(dArea * dSquareMeter, ".##")
+       
         setOppValue(dtOpp, index, "guarantee_value", Format(dArea * dSquareMeter * dDiscountRate / 100.0, ".##"))
         Me.txtGuarantee.Text = Format(dArea * dSquareMeter * dDiscountRate / 100.0, ".##")
         setItemValue(dt, "21", "012", Format(dSquareMeter * dDiscountRate / 100.0, ".##"))
@@ -956,8 +1038,11 @@ Public Class frmOppGuarantee
 
         setOppValue(dtOpp, index, "evaluate_value", Format(dOriginal * dDepreciate / 100.0, ".##"))
         Me.txtEvaluate.Text = Format(dOriginal * dDepreciate / 100.0, ".##")
+        'add   yansm   
+        Me.txtEvaluate.Text = Format(dOriginal * dDepreciate * 0.9 / 100.0, ".##")
         setOppValue(dtOpp, index, "guarantee_value", Format(dOriginal * dDepreciate / 100.0 * dDiscountRate / 100.0, ".##"))
         Me.txtGuarantee.Text = Format(dOriginal * dDepreciate / 100.0 * dDiscountRate / 100.0, ".##")
+
     End Sub
     '汽车
     Public Sub setAutocar(ByVal dt As DataTable, ByVal dtOpp As DataTable, ByVal index As Integer)
@@ -991,6 +1076,7 @@ Public Class frmOppGuarantee
         End Try
         setOppValue(dtOpp, index, "evaluate_value", Format(dOriginal * dDepreciate / 100.0, ".##"))
         Me.txtEvaluate.Text = Format(dOriginal * dDepreciate / 100.0, ".##")
+      
         setOppValue(dtOpp, index, "guarantee_value", Format(dOriginal * dDepreciate / 100.0 * dDiscountRate / 100.0, ".##"))
         Me.txtGuarantee.Text = Format(dOriginal * dDepreciate / 100.0 * dDiscountRate / 100.0, ".##")
     End Sub

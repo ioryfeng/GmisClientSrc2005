@@ -1293,24 +1293,37 @@ Public Class frmMeetRecordQuery
         col3.Width = 75
         col3.ReadOnly = True
         Dim col4 As DataGridTextBoxColumn = New DataGridTextBoxColumn()
-        col4.HeaderText = "评估值(元)"
+        col4.HeaderText = "评估总值(元)"
         col4.MappingName = "evaluate_value"
         col4.NullText = "0"
         col4.Width = 75
         col4.ReadOnly = True
-        Dim col5 As DataGridTextBoxColumn = New DataGridTextBoxColumn()
-        col5.HeaderText = "担保额(元)"
-        col5.MappingName = "guarantee_value"
+
+        'add   yansm   2013-12-3
+        '担保额原来为5，评估时间原来为6
+        Dim col5 As DataGridTextBoxColumn = New DataGridTextBoxColumn
+        col5.HeaderText = "评估净值(元)"
+        col5.MappingName = "evaluate_net_value"
         col5.NullText = "0"
         col5.Width = 75
         col5.ReadOnly = True
-        Dim col6 As DataGridTextBoxColumn = New DataGridTextBoxColumn()
-        col6.HeaderText = "评估日期"
-        col6.MappingName = "evaluate_date"
-        col6.NullText = ""
-        col6.Format = "yyyy-MM-dd"
-        col6.Width = 70
+
+
+        Dim col6 As DataGridTextBoxColumn = New DataGridTextBoxColumn
+        col6.HeaderText = "担保额(元)"
+        col6.MappingName = "guarantee_value"
+        col6.NullText = "0"
+        col6.Width = 75
         col6.ReadOnly = True
+
+        Dim col11 As DataGridTextBoxColumn = New DataGridTextBoxColumn
+        col11.HeaderText = "评估日期"
+        col11.MappingName = "evaluate_date"
+        col11.NullText = ""
+        col11.Format = "yyyy-MM-dd"
+        col11.Width = 70
+        col11.ReadOnly = True
+
         Dim col7 As DataGridTextBoxColumn = New DataGridTextBoxColumn()
         col7.HeaderText = "评估师"
         col7.MappingName = "evaluate_person"

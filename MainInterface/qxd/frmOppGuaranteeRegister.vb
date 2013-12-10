@@ -30,7 +30,9 @@ Public Class frmOppGuaranteeRegister
 
     Private dsProjectCorporation, dsCorporation As DataSet '项目企业表,获取"企业联系人"和"联系电话";对应的字段:corp_contact_person,corp_contact_phone
     Private hasProCorpChanged As Boolean = False '判断是否改变了"企业联系人"和"联系电话"
-    Private isExitSave As Boolean = False ' 在"退出"事件中不提示保存成功
+    Private isExitSave As Boolean = False
+    Friend WithEvents DataGridTextBoxColumn15 As System.Windows.Forms.DataGridTextBoxColumn
+    ' 在"退出"事件中不提示保存成功
     Private strPhase As String = "评审"
 
 #Region " Windows 窗体设计器生成的代码 "
@@ -88,122 +90,72 @@ Public Class frmOppGuaranteeRegister
     Friend WithEvents Label13 As System.Windows.Forms.Label
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmOppGuaranteeRegister))
-        Me.btnCommit = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnUpload = New System.Windows.Forms.Button()
-        Me.btnView = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.uploadFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.DataGridTextBoxColumn4 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn5 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTableStyle2 = New System.Windows.Forms.DataGridTableStyle()
-        Me.DataGridTextBoxColumn6 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn7 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn8 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn3 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn10 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn11 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn9 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.DataGridTextBoxColumn14 = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.btnModify = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.btnImport = New System.Windows.Forms.Button()
-        Me.corp_contact_phone = New System.Windows.Forms.TextBox()
-        Me.corp_contact_person = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox4.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOppGuaranteeRegister))
+        Me.btnCommit = New System.Windows.Forms.Button
+        Me.btnSave = New System.Windows.Forms.Button
+        Me.btnNew = New System.Windows.Forms.Button
+        Me.btnUpload = New System.Windows.Forms.Button
+        Me.btnView = New System.Windows.Forms.Button
+        Me.btnDelete = New System.Windows.Forms.Button
+        Me.uploadFileDialog = New System.Windows.Forms.OpenFileDialog
+        Me.DataGridTextBoxColumn4 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn5 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTableStyle2 = New System.Windows.Forms.DataGridTableStyle
+        Me.DataGridTextBoxColumn6 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn7 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn8 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn3 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn10 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn11 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn9 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn14 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.DataGridTextBoxColumn15 = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.btnModify = New System.Windows.Forms.Button
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.btnImport = New System.Windows.Forms.Button
+        Me.corp_contact_phone = New System.Windows.Forms.TextBox
+        Me.corp_contact_person = New System.Windows.Forms.TextBox
+        Me.Label12 = New System.Windows.Forms.Label
+        Me.Label13 = New System.Windows.Forms.Label
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Label5
+        'txtEvaluateNet
         '
-        Me.Label5.Location = New System.Drawing.Point(240, 77)
-        Me.Label5.Size = New System.Drawing.Size(72, 23)
-        Me.Label5.Text = "评估值(元)"
-        Me.Label5.Visible = True
+        Me.txtEvaluateNet.Location = New System.Drawing.Point(450, 80)
+        Me.txtEvaluateNet.MaxLength = 12
         '
-        'Label9
+        'GroupBox2
         '
-        Me.Label9.Location = New System.Drawing.Point(480, 19)
-        Me.Label9.Size = New System.Drawing.Size(80, 23)
-        Me.Label9.Text = "预约评估日期"
-        Me.Label9.Visible = True
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Size = New System.Drawing.Size(440, 264)
+        Me.GroupBox2.TabIndex = 1
         '
-        'txtName
+        'GroupBox3
         '
-        Me.txtName.Size = New System.Drawing.Size(424, 21)
-        Me.txtName.Visible = True
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Location = New System.Drawing.Point(456, 40)
+        Me.GroupBox3.Size = New System.Drawing.Size(288, 264)
+        Me.GroupBox3.TabIndex = 2
         '
-        'Label4
+        'cmbType
         '
-        Me.Label4.Location = New System.Drawing.Point(16, 77)
-        Me.Label4.Text = "原值(元)"
-        Me.Label4.Visible = True
-        '
-        'Label3
-        '
-        Me.Label3.Location = New System.Drawing.Point(16, 19)
-        Me.Label3.Visible = True
-        '
-        'txtRemark
-        '
-        Me.txtRemark.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.txtRemark.Location = New System.Drawing.Point(72, 48)
-        Me.txtRemark.MaxLength = 50
-        Me.txtRemark.Size = New System.Drawing.Size(656, 21)
-        Me.txtRemark.TabIndex = 3
-        Me.txtRemark.Visible = True
-        '
-        'Label7
-        '
-        Me.Label7.Location = New System.Drawing.Point(488, 77)
-        Me.Label7.Size = New System.Drawing.Size(72, 23)
-        Me.Label7.Text = "担保额(元)"
-        Me.Label7.Visible = True
-        '
-        'DataGridTableStyle1
-        '
-        Me.DataGridTableStyle1.AllowSorting = False
-        '
-        'DataGridTextBoxColumn1
-        '
-        Me.DataGridTextBoxColumn1.Width = 85
-        '
-        'DataGridTextBoxColumn2
-        '
-        Me.DataGridTextBoxColumn2.Width = 170
-        '
-        'dgDetail
-        '
-        Me.dgDetail.AccessibleName = "DataGrid"
-        Me.dgDetail.AccessibleRole = System.Windows.Forms.AccessibleRole.Table
-        Me.dgDetail.Size = New System.Drawing.Size(282, 244)
-        Me.dgDetail.Visible = True
+        Me.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbType.ItemHeight = 12
+        Me.cmbType.Location = New System.Drawing.Point(72, 19)
+        Me.cmbType.TabIndex = 0
         '
         'txtOriginal
         '
-        Me.txtOriginal.Location = New System.Drawing.Point(72, 77)
+        Me.txtOriginal.Location = New System.Drawing.Point(75, 80)
         Me.txtOriginal.MaxLength = 12
-        Me.txtOriginal.Visible = True
-        '
-        'txtEvaluate
-        '
-        Me.txtEvaluate.Location = New System.Drawing.Point(312, 77)
-        Me.txtEvaluate.MaxLength = 12
-        Me.txtEvaluate.Size = New System.Drawing.Size(120, 21)
-        Me.txtEvaluate.Visible = True
-        '
-        'Label6
-        '
-        Me.Label6.Location = New System.Drawing.Point(240, 19)
-        Me.Label6.Visible = True
         '
         'cmbMeasure
         '
@@ -213,23 +165,6 @@ Public Class frmOppGuaranteeRegister
         Me.cmbMeasure.Location = New System.Drawing.Point(312, 19)
         Me.cmbMeasure.Size = New System.Drawing.Size(120, 20)
         Me.cmbMeasure.TabIndex = 1
-        Me.cmbMeasure.Visible = True
-        '
-        'txtGuarantee
-        '
-        Me.txtGuarantee.Location = New System.Drawing.Point(560, 77)
-        Me.txtGuarantee.MaxLength = 12
-        Me.txtGuarantee.Size = New System.Drawing.Size(168, 21)
-        Me.txtGuarantee.TabIndex = 6
-        Me.txtGuarantee.Visible = True
-        '
-        'dgOppGuarantee
-        '
-        Me.dgOppGuarantee.AccessibleName = "DataGrid"
-        Me.dgOppGuarantee.AccessibleRole = System.Windows.Forms.AccessibleRole.Table
-        Me.dgOppGuarantee.Size = New System.Drawing.Size(434, 244)
-        Me.dgOppGuarantee.TableStyles.AddRange(New System.Windows.Forms.DataGridTableStyle() {Me.DataGridTableStyle2})
-        Me.dgOppGuarantee.Visible = True
         '
         'dateEvaluate
         '
@@ -237,77 +172,145 @@ Public Class frmOppGuaranteeRegister
         Me.dateEvaluate.Size = New System.Drawing.Size(168, 21)
         Me.dateEvaluate.TabIndex = 2
         Me.dateEvaluate.Value = New Date(2003, 4, 3, 11, 27, 30, 687)
-        Me.dateEvaluate.Visible = True
         '
-        'cmbType
+        'txtRemark
         '
-        Me.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbType.ItemHeight = 12
-        Me.cmbType.Location = New System.Drawing.Point(72, 19)
-        Me.cmbType.TabIndex = 0
-        Me.cmbType.Visible = True
+        Me.txtRemark.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtRemark.Location = New System.Drawing.Point(72, 48)
+        Me.txtRemark.MaxLength = 50
+        Me.txtRemark.Size = New System.Drawing.Size(656, 21)
+        Me.txtRemark.TabIndex = 3
+        '
+        'txtGuarantee
+        '
+        Me.txtGuarantee.Location = New System.Drawing.Point(629, 80)
+        Me.txtGuarantee.MaxLength = 12
+        Me.txtGuarantee.Size = New System.Drawing.Size(98, 21)
+        Me.txtGuarantee.TabIndex = 6
+        '
+        'dgOppGuarantee
+        '
+        Me.dgOppGuarantee.AccessibleName = "DataGrid"
+        Me.dgOppGuarantee.AccessibleRole = System.Windows.Forms.AccessibleRole.Table
+        Me.dgOppGuarantee.Size = New System.Drawing.Size(434, 244)
+        Me.dgOppGuarantee.TableStyles.AddRange(New System.Windows.Forms.DataGridTableStyle() {Me.DataGridTableStyle2})
+        '
+        'dgDetail
+        '
+        Me.dgDetail.AccessibleName = "DataGrid"
+        Me.dgDetail.AccessibleRole = System.Windows.Forms.AccessibleRole.Table
+        Me.dgDetail.Size = New System.Drawing.Size(282, 244)
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Label8)
+        Me.GroupBox4.Location = New System.Drawing.Point(8, 344)
+        Me.GroupBox4.Size = New System.Drawing.Size(736, 112)
+        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.Controls.SetChildIndex(Me.txtEvaluateNet, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label7, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label4, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.txtOriginal, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label5, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.txtEvaluate, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.txtGuarantee, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label8, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label3, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.cmbType, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label6, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.cmbMeasure, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label9, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label10, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.dateEvaluate, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.txtRemark, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.Label11, 0)
+        Me.GroupBox4.Controls.SetChildIndex(Me.txtContract, 0)
+        '
+        'Label3
+        '
+        Me.Label3.Location = New System.Drawing.Point(16, 19)
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(16, 86)
+        '
+        'Label5
+        '
+        Me.Label5.Location = New System.Drawing.Point(175, 86)
+        '
+        'Label6
+        '
+        Me.Label6.Location = New System.Drawing.Point(240, 19)
+        '
+        'Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(558, 83)
+        '
+        'Label9
+        '
+        Me.Label9.Location = New System.Drawing.Point(480, 19)
+        Me.Label9.Size = New System.Drawing.Size(80, 23)
+        Me.Label9.Text = "预约评估日期"
+        '
+        'Label10
+        '
+        Me.Label10.Location = New System.Drawing.Point(16, 48)
         '
         'Label11
         '
         Me.Label11.Location = New System.Drawing.Point(376, -64)
         Me.Label11.Size = New System.Drawing.Size(56, 61)
-        Me.Label11.Visible = True
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.AddRange(New System.Windows.Forms.Control() {Me.Label8})
-        Me.GroupBox4.Location = New System.Drawing.Point(8, 344)
-        Me.GroupBox4.Size = New System.Drawing.Size(736, 112)
-        Me.GroupBox4.TabIndex = 3
-        Me.GroupBox4.Visible = True
-        '
-        'Label10
-        '
-        Me.Label10.Location = New System.Drawing.Point(16, 48)
-        Me.Label10.Visible = True
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox3.Location = New System.Drawing.Point(456, 40)
-        Me.GroupBox3.Size = New System.Drawing.Size(288, 264)
-        Me.GroupBox3.TabIndex = 2
-        Me.GroupBox3.Visible = True
         '
         'txtContract
         '
         Me.txtContract.Location = New System.Drawing.Point(440, -64)
         Me.txtContract.Size = New System.Drawing.Size(208, 21)
-        Me.txtContract.Visible = True
         '
-        'GroupBox2
+        'txtName
         '
-        Me.GroupBox2.Anchor = (((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox2.Size = New System.Drawing.Size(440, 264)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.Visible = True
+        Me.txtName.Size = New System.Drawing.Size(424, 21)
+        '
+        'btnExit
+        '
+        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Image)
+        Me.btnExit.Location = New System.Drawing.Point(645, 464)
+        Me.btnExit.Size = New System.Drawing.Size(77, 24)
+        Me.btnExit.TabIndex = 11
         '
         'ImageListBasic
         '
         Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        '
-        'btnExit
-        '
-        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Bitmap)
-        Me.btnExit.ImageIndex = -1
-        Me.btnExit.ImageList = Nothing
-        Me.btnExit.Location = New System.Drawing.Point(645, 464)
-        Me.btnExit.Size = New System.Drawing.Size(77, 24)
-        Me.btnExit.TabIndex = 11
-        Me.btnExit.Visible = True
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
+        Me.ImageListBasic.Images.SetKeyName(25, "")
         '
         'btnCommit
         '
         Me.btnCommit.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnCommit.Image = CType(resources.GetObject("btnCommit.Image"), System.Drawing.Bitmap)
         Me.btnCommit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCommit.ImageIndex = 11
         Me.btnCommit.ImageList = Me.ImageListBasic
@@ -321,7 +324,6 @@ Public Class frmOppGuaranteeRegister
         'btnSave
         '
         Me.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Bitmap)
         Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSave.ImageIndex = 10
         Me.btnSave.ImageList = Me.ImageListBasic
@@ -335,7 +337,6 @@ Public Class frmOppGuaranteeRegister
         'btnNew
         '
         Me.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Bitmap)
         Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnNew.ImageIndex = 13
         Me.btnNew.ImageList = Me.ImageListBasic
@@ -350,7 +351,6 @@ Public Class frmOppGuaranteeRegister
         '
         Me.btnUpload.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnUpload.Enabled = False
-        Me.btnUpload.Image = CType(resources.GetObject("btnUpload.Image"), System.Drawing.Bitmap)
         Me.btnUpload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnUpload.ImageIndex = 25
         Me.btnUpload.ImageList = Me.ImageListBasic
@@ -364,7 +364,6 @@ Public Class frmOppGuaranteeRegister
         'btnView
         '
         Me.btnView.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnView.Image = CType(resources.GetObject("btnView.Image"), System.Drawing.Bitmap)
         Me.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnView.ImageIndex = 17
         Me.btnView.ImageList = Me.ImageListBasic
@@ -378,7 +377,6 @@ Public Class frmOppGuaranteeRegister
         'btnDelete
         '
         Me.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Bitmap)
         Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnDelete.ImageIndex = 12
         Me.btnDelete.ImageList = Me.ImageListBasic
@@ -413,7 +411,7 @@ Public Class frmOppGuaranteeRegister
         '
         Me.DataGridTableStyle2.AllowSorting = False
         Me.DataGridTableStyle2.DataGrid = Me.dgOppGuarantee
-        Me.DataGridTableStyle2.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.DataGridTextBoxColumn6, Me.DataGridTextBoxColumn7, Me.DataGridTextBoxColumn8, Me.DataGridTextBoxColumn3, Me.DataGridTextBoxColumn10, Me.DataGridTextBoxColumn11, Me.DataGridTextBoxColumn9, Me.DataGridTextBoxColumn14})
+        Me.DataGridTableStyle2.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.DataGridTextBoxColumn6, Me.DataGridTextBoxColumn7, Me.DataGridTextBoxColumn8, Me.DataGridTextBoxColumn3, Me.DataGridTextBoxColumn10, Me.DataGridTextBoxColumn15, Me.DataGridTextBoxColumn11, Me.DataGridTextBoxColumn9, Me.DataGridTextBoxColumn14})
         Me.DataGridTableStyle2.HeaderForeColor = System.Drawing.SystemColors.ControlText
         Me.DataGridTableStyle2.MappingName = "opposite_guarantee"
         '
@@ -461,7 +459,7 @@ Public Class frmOppGuaranteeRegister
         '
         Me.DataGridTextBoxColumn10.Format = ""
         Me.DataGridTextBoxColumn10.FormatInfo = Nothing
-        Me.DataGridTextBoxColumn10.HeaderText = "评估值(元)"
+        Me.DataGridTextBoxColumn10.HeaderText = "评估总值(元)"
         Me.DataGridTextBoxColumn10.MappingName = "evaluate_value"
         Me.DataGridTextBoxColumn10.NullText = "0"
         Me.DataGridTextBoxColumn10.ReadOnly = True
@@ -496,10 +494,19 @@ Public Class frmOppGuaranteeRegister
         Me.DataGridTextBoxColumn14.NullText = ""
         Me.DataGridTextBoxColumn14.Width = 75
         '
+        'DataGridTextBoxColumn15
+        '
+        Me.DataGridTextBoxColumn15.Format = ""
+        Me.DataGridTextBoxColumn15.FormatInfo = Nothing
+        Me.DataGridTextBoxColumn15.HeaderText = "评估净值(元)"
+        Me.DataGridTextBoxColumn15.MappingName = "evaluate_net_value"
+        Me.DataGridTextBoxColumn15.NullText = "0"
+        Me.DataGridTextBoxColumn15.ReadOnly = True
+        Me.DataGridTextBoxColumn15.Width = 75
+        '
         'btnModify
         '
         Me.btnModify.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnModify.Image = CType(resources.GetObject("btnModify.Image"), System.Drawing.Bitmap)
         Me.btnModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnModify.ImageIndex = 14
         Me.btnModify.ImageList = Me.ImageListBasic
@@ -514,14 +521,14 @@ Public Class frmOppGuaranteeRegister
         '
         Me.Label8.Location = New System.Drawing.Point(248, 208)
         Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(100, 23)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "Label8"
         '
         'btnImport
         '
-        Me.btnImport.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right)
+        Me.btnImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnImport.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnImport.Image = CType(resources.GetObject("btnImport.Image"), System.Drawing.Bitmap)
         Me.btnImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnImport.ImageIndex = 16
         Me.btnImport.ImageList = Me.ImageListBasic
@@ -534,41 +541,39 @@ Public Class frmOppGuaranteeRegister
         '
         'corp_contact_phone
         '
-        Me.corp_contact_phone.Anchor = ((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.corp_contact_phone.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.corp_contact_phone.Location = New System.Drawing.Point(304, 314)
         Me.corp_contact_phone.Name = "corp_contact_phone"
         Me.corp_contact_phone.Size = New System.Drawing.Size(144, 21)
         Me.corp_contact_phone.TabIndex = 22
-        Me.corp_contact_phone.Text = ""
         '
         'corp_contact_person
         '
-        Me.corp_contact_person.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left)
+        Me.corp_contact_person.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.corp_contact_person.Location = New System.Drawing.Point(88, 314)
         Me.corp_contact_person.Name = "corp_contact_person"
         Me.corp_contact_person.Size = New System.Drawing.Size(128, 21)
         Me.corp_contact_person.TabIndex = 21
-        Me.corp_contact_person.Text = ""
         '
         'Label12
         '
-        Me.Label12.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left)
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(232, 317)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(54, 14)
+        Me.Label12.Size = New System.Drawing.Size(53, 12)
         Me.Label12.TabIndex = 20
         Me.Label12.Text = "联系电话"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label13
         '
-        Me.Label13.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left)
+        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(16, 317)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(66, 14)
+        Me.Label13.Size = New System.Drawing.Size(65, 12)
         Me.Label13.TabIndex = 19
         Me.Label13.Text = "企业联系人"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -577,15 +582,45 @@ Public Class frmOppGuaranteeRegister
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(754, 495)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.Label12, Me.Label13, Me.txtName, Me.GroupBox4, Me.btnExit, Me.GroupBox3, Me.GroupBox2, Me.corp_contact_phone, Me.corp_contact_person, Me.btnImport, Me.btnModify, Me.btnDelete, Me.btnView, Me.btnUpload, Me.btnNew, Me.btnSave, Me.btnCommit})
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.corp_contact_phone)
+        Me.Controls.Add(Me.corp_contact_person)
+        Me.Controls.Add(Me.btnImport)
+        Me.Controls.Add(Me.btnModify)
+        Me.Controls.Add(Me.btnDelete)
+        Me.Controls.Add(Me.btnView)
+        Me.Controls.Add(Me.btnUpload)
+        Me.Controls.Add(Me.btnNew)
+        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnCommit)
         Me.Name = "frmOppGuaranteeRegister"
         Me.Text = "登记反担保措施"
-        CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox3.ResumeLayout(False)
+        Me.Controls.SetChildIndex(Me.btnCommit, 0)
+        Me.Controls.SetChildIndex(Me.btnSave, 0)
+        Me.Controls.SetChildIndex(Me.btnNew, 0)
+        Me.Controls.SetChildIndex(Me.btnUpload, 0)
+        Me.Controls.SetChildIndex(Me.btnView, 0)
+        Me.Controls.SetChildIndex(Me.btnDelete, 0)
+        Me.Controls.SetChildIndex(Me.btnModify, 0)
+        Me.Controls.SetChildIndex(Me.btnImport, 0)
+        Me.Controls.SetChildIndex(Me.corp_contact_person, 0)
+        Me.Controls.SetChildIndex(Me.corp_contact_phone, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox2, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox3, 0)
+        Me.Controls.SetChildIndex(Me.btnExit, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox4, 0)
+        Me.Controls.SetChildIndex(Me.txtName, 0)
+        Me.Controls.SetChildIndex(Me.Label13, 0)
+        Me.Controls.SetChildIndex(Me.Label12, 0)
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        CType(Me.dgOppGuarantee, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -643,6 +678,7 @@ Public Class frmOppGuaranteeRegister
         Me.txtOriginal.Enabled = False
         Me.txtGuarantee.Enabled = False
         Me.txtEvaluate.Enabled = False
+        Me.txtEvaluateNet.Enabled = False
         Me.txtContract.Enabled = False
         setTextBox(False)
         If Not dsOppGuaranteeView Is Nothing Then
@@ -888,6 +924,11 @@ Public Class frmOppGuaranteeRegister
                 Else
                     Me.txtEvaluate.Text = ""
                 End If
+                If Not .Item("evaluate_net_value") Is System.DBNull.Value Then
+                    Me.txtEvaluateNet.Text = .Item("evaluate_net_value")
+                Else
+                    Me.txtEvaluateNet.Text = ""
+                End If
                 If Not .Item("guarantee_value") Is System.DBNull.Value Then
                     Me.txtGuarantee.Text = .Item("guarantee_value")
                 Else
@@ -1048,6 +1089,7 @@ Public Class frmOppGuaranteeRegister
         Finally
             Me.Cursor = System.Windows.Forms.Cursors.Default
             Me.txtEvaluate.Enabled = False
+            Me.txtEvaluateNet.Enabled = False
         End Try
     End Sub
     '
@@ -1057,6 +1099,7 @@ Public Class frmOppGuaranteeRegister
         If Not dsOppGuaranteeView Is Nothing Then
             Me.txtOriginal.DataBindings.Add("Text", Me.dsOppGuaranteeView.Tables("opposite_guarantee"), "original_value")
             Me.txtEvaluate.DataBindings.Add("Text", Me.dsOppGuaranteeView.Tables("opposite_guarantee"), "evaluate_value")
+            Me.txtEvaluateNet.DataBindings.Add("Text", Me.dsOppGuaranteeView.Tables("opposite_guarantee"), "evaluate_net_value")
             Me.txtGuarantee.DataBindings.Add("Text", Me.dsOppGuaranteeView.Tables("opposite_guarantee"), "guarantee_value")
 
             Me.dateEvaluate.DataBindings.Add("Value", Me.dsOppGuaranteeView.Tables("opposite_guarantee"), "evaluate_date")
@@ -1070,6 +1113,7 @@ Public Class frmOppGuaranteeRegister
     Private Sub delBinding()
         Me.txtOriginal.DataBindings.Clear()
         Me.txtEvaluate.DataBindings.Clear()
+        Me.txtEvaluateNet.DataBindings.Clear()
         Me.txtGuarantee.DataBindings.Clear()
 
         Me.dateEvaluate.DataBindings.Clear()
@@ -1242,6 +1286,7 @@ Public Class frmOppGuaranteeRegister
                 addDetail(serialNum, strItemType)
                 setEvaTextEnabled(Me.dsOppGuaranteeView)
                 Me.txtEvaluate.Enabled = False
+                Me.txtEvaluateNet.Enabled = False
             End If
         End If
     End Sub
@@ -1263,7 +1308,7 @@ Public Class frmOppGuaranteeRegister
             Next
         End If
 
-        saveProjectCorporation(Me.strProjectCode, strPhase)
+        SaveProjectCorporation(Me.strProjectCode, strPhase)
 
         If Not dsOppGuaranteeView Is Nothing Then
             isSaved = False
@@ -1491,6 +1536,7 @@ Public Class frmOppGuaranteeRegister
                 Me.dgDetail.TableStyles(0).GridColumnStyles(1).ReadOnly = True
             End If
             Me.txtEvaluate.Enabled = False
+            Me.txtEvaluateNet.Enabled = False
         End If
     End Sub
     '列表中鼠标按下事件
@@ -1684,4 +1730,7 @@ Public Class frmOppGuaranteeRegister
         End If
     End Sub
 
+    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
+
+    End Sub
 End Class

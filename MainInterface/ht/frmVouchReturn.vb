@@ -39,22 +39,30 @@ Public Class frmVouchReturn
     Public WithEvents dtpVouchReturnStartDate As System.Windows.Forms.DateTimePicker
     Public WithEvents dtpVouchReturnSignDate As System.Windows.Forms.DateTimePicker
     Public WithEvents txtVouchReturnPerson As System.Windows.Forms.TextBox
+    Friend WithEvents txtLoanofficertelphone As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents txtLoanofficer As System.Windows.Forms.TextBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label120 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmVouchReturn))
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.dtpVouchReturnEndDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.dtpVouchReturnStartDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label120 = New System.Windows.Forms.Label()
-        Me.dtpVouchReturnSignDate = New System.Windows.Forms.DateTimePicker()
-        Me.txtVouchReturnPerson = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVouchReturn))
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.txtLoanofficertelphone = New System.Windows.Forms.TextBox
+        Me.Label12 = New System.Windows.Forms.Label
+        Me.txtLoanofficer = New System.Windows.Forms.TextBox
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.dtpVouchReturnEndDate = New System.Windows.Forms.DateTimePicker
+        Me.Label15 = New System.Windows.Forms.Label
+        Me.dtpVouchReturnStartDate = New System.Windows.Forms.DateTimePicker
+        Me.Label120 = New System.Windows.Forms.Label
+        Me.dtpVouchReturnSignDate = New System.Windows.Forms.DateTimePicker
+        Me.txtVouchReturnPerson = New System.Windows.Forms.TextBox
+        Me.Label13 = New System.Windows.Forms.Label
+        Me.Label14 = New System.Windows.Forms.Label
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.grpLoanNotice.SuspendLayout()
         CType(Me.dgLoanNotice, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpLoanNotice.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgDatum, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -64,181 +72,139 @@ Public Class frmVouchReturn
         '
         Me.GroupBox3.Location = New System.Drawing.Point(8, 296)
         Me.GroupBox3.Size = New System.Drawing.Size(624, 72)
-        Me.GroupBox3.Visible = True
-        '
-        'Label110
-        '
-        Me.Label110.Visible = True
-        '
-        'Label11
-        '
-        Me.Label11.Visible = True
         '
         'cmbSignVouchOpinion
         '
         Me.cmbSignVouchOpinion.DropDownWidth = 144
         Me.cmbSignVouchOpinion.ItemHeight = 12
-        Me.cmbSignVouchOpinion.Visible = True
         '
-        'dtpSignVouchDate
+        'GroupBox2
         '
-        Me.dtpSignVouchDate.Visible = True
-        '
-        'Label10
-        '
-        Me.Label10.Visible = True
-        '
-        'txtSignVouchPeople
-        '
-        Me.txtSignVouchPeople.Visible = True
+        Me.GroupBox2.Location = New System.Drawing.Point(8, 200)
+        Me.GroupBox2.Size = New System.Drawing.Size(624, 96)
         '
         'Label3
         '
         Me.Label3.Location = New System.Drawing.Point(368, 72)
         Me.Label3.Size = New System.Drawing.Size(8, 16)
         '
-        'btnViewAffirmContent
+        'dtpVouchDate
         '
-        Me.btnViewAffirmContent.Location = New System.Drawing.Point(73, 496)
-        Me.btnViewAffirmContent.Visible = True
+        Me.dtpVouchDate.Location = New System.Drawing.Point(360, 72)
         '
-        'Label6
+        'cmbVouchBank
         '
-        Me.Label6.Visible = True
+        Me.cmbVouchBank.DropDownWidth = 144
         '
-        'GroupBox2
+        'cmbRefundType
         '
-        Me.GroupBox2.Location = New System.Drawing.Point(8, 200)
-        Me.GroupBox2.Size = New System.Drawing.Size(624, 96)
-        Me.GroupBox2.Visible = True
+        Me.cmbRefundType.DropDownWidth = 144
+        '
+        'dgLoanNotice
+        '
+        Me.dgLoanNotice.Size = New System.Drawing.Size(618, 148)
         '
         'grpLoanNotice
         '
         Me.grpLoanNotice.Location = New System.Drawing.Point(8, 32)
         Me.grpLoanNotice.Size = New System.Drawing.Size(624, 168)
-        Me.grpLoanNotice.Visible = True
-        '
-        'Label7
-        '
-        Me.Label7.Visible = True
-        '
-        'dgLoanNotice
-        '
-        Me.dgLoanNotice.Size = New System.Drawing.Size(618, 148)
-        Me.dgLoanNotice.Visible = True
         '
         'btnSave
         '
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Bitmap)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.ImageIndex = 10
-        Me.btnSave.ImageList = Me.ImageListBasic
         Me.btnSave.Location = New System.Drawing.Point(248, 448)
         Me.btnSave.Size = New System.Drawing.Size(77, 23)
         Me.btnSave.TabIndex = 3
         Me.btnSave.TabStop = True
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.Visible = True
         '
-        'Label8
+        'btnViewAffirmContent
         '
-        Me.Label8.Visible = True
+        Me.btnViewAffirmContent.ImageIndex = 26
+        Me.btnViewAffirmContent.Location = New System.Drawing.Point(73, 496)
         '
-        'cmbVouchTerms
+        'btnAdd
         '
-        Me.cmbVouchTerms.Visible = True
-        '
-        'cmbVouchAccount
-        '
-        Me.cmbVouchAccount.Visible = True
-        '
-        'cmbRefundType
-        '
-        Me.cmbRefundType.DropDownWidth = 144
-        Me.cmbRefundType.Visible = True
-        '
-        'cmbVouchBranchBank
-        '
-        Me.cmbVouchBranchBank.Visible = True
-        '
-        'cmbVouchBank
-        '
-        Me.cmbVouchBank.DropDownWidth = 144
-        Me.cmbVouchBank.Visible = True
-        '
-        'dtpVouchDate
-        '
-        Me.dtpVouchDate.Location = New System.Drawing.Point(360, 72)
-        '
-        'Label5
-        '
-        Me.Label5.Visible = True
-        '
-        'Label4
-        '
-        Me.Label4.Visible = True
+        Me.btnAdd.ImageIndex = 26
         '
         'GroupBox1
         '
         Me.GroupBox1.Location = New System.Drawing.Point(56, 56)
         Me.GroupBox1.Size = New System.Drawing.Size(416, 32)
-        Me.GroupBox1.Visible = True
         '
-        'btnUploadReport
+        'btnCommit
         '
-        Me.btnUploadReport.Image = CType(resources.GetObject("btnUploadReport.Image"), System.Drawing.Bitmap)
-        Me.btnUploadReport.Location = New System.Drawing.Point(161, 496)
-        Me.btnUploadReport.Visible = True
+        Me.btnCommit.Image = CType(resources.GetObject("btnCommit.Image"), System.Drawing.Image)
+        Me.btnCommit.Location = New System.Drawing.Point(336, 448)
+        Me.btnCommit.TabIndex = 2
         '
         'dgDatum
         '
         Me.dgDatum.Size = New System.Drawing.Size(410, 12)
-        Me.dgDatum.Visible = True
+        '
+        'btnUploadReport
+        '
+        Me.btnUploadReport.Image = CType(resources.GetObject("btnUploadReport.Image"), System.Drawing.Image)
+        Me.btnUploadReport.Location = New System.Drawing.Point(161, 496)
         '
         'btnConferenceTrial
         '
-        Me.btnConferenceTrial.Image = CType(resources.GetObject("btnConferenceTrial.Image"), System.Drawing.Bitmap)
+        Me.btnConferenceTrial.Image = CType(resources.GetObject("btnConferenceTrial.Image"), System.Drawing.Image)
         Me.btnConferenceTrial.Location = New System.Drawing.Point(128, 448)
-        Me.btnConferenceTrial.Visible = True
-        '
-        'btnCommit
-        '
-        Me.btnCommit.Image = CType(resources.GetObject("btnCommit.Image"), System.Drawing.Bitmap)
-        Me.btnCommit.Location = New System.Drawing.Point(336, 448)
-        Me.btnCommit.TabIndex = 2
-        Me.btnCommit.Visible = True
         '
         'txtEnterpriseName
         '
         Me.txtEnterpriseName.Location = New System.Drawing.Point(272, 8)
         Me.txtEnterpriseName.Size = New System.Drawing.Size(360, 21)
-        Me.txtEnterpriseName.Visible = True
-        '
-        'Label1
-        '
-        Me.Label1.Visible = True
-        '
-        'txtProjectCode
-        '
-        Me.txtProjectCode.Visible = True
-        '
-        'Label2
-        '
-        Me.Label2.Visible = True
-        '
-        'ImageListBasic
-        '
-        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
         '
         'btnExit
         '
         Me.btnExit.Location = New System.Drawing.Point(424, 448)
-        Me.btnExit.Visible = True
+        '
+        'ImageListBasic
+        '
+        Me.ImageListBasic.ImageStream = CType(resources.GetObject("ImageListBasic.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageListBasic.Images.SetKeyName(0, "")
+        Me.ImageListBasic.Images.SetKeyName(1, "")
+        Me.ImageListBasic.Images.SetKeyName(2, "")
+        Me.ImageListBasic.Images.SetKeyName(3, "")
+        Me.ImageListBasic.Images.SetKeyName(4, "")
+        Me.ImageListBasic.Images.SetKeyName(5, "")
+        Me.ImageListBasic.Images.SetKeyName(6, "")
+        Me.ImageListBasic.Images.SetKeyName(7, "")
+        Me.ImageListBasic.Images.SetKeyName(8, "")
+        Me.ImageListBasic.Images.SetKeyName(9, "")
+        Me.ImageListBasic.Images.SetKeyName(10, "")
+        Me.ImageListBasic.Images.SetKeyName(11, "")
+        Me.ImageListBasic.Images.SetKeyName(12, "")
+        Me.ImageListBasic.Images.SetKeyName(13, "")
+        Me.ImageListBasic.Images.SetKeyName(14, "")
+        Me.ImageListBasic.Images.SetKeyName(15, "")
+        Me.ImageListBasic.Images.SetKeyName(16, "")
+        Me.ImageListBasic.Images.SetKeyName(17, "")
+        Me.ImageListBasic.Images.SetKeyName(18, "")
+        Me.ImageListBasic.Images.SetKeyName(19, "")
+        Me.ImageListBasic.Images.SetKeyName(20, "")
+        Me.ImageListBasic.Images.SetKeyName(21, "")
+        Me.ImageListBasic.Images.SetKeyName(22, "")
+        Me.ImageListBasic.Images.SetKeyName(23, "")
+        Me.ImageListBasic.Images.SetKeyName(24, "")
+        Me.ImageListBasic.Images.SetKeyName(25, "")
+        Me.ImageListBasic.Images.SetKeyName(26, "")
         '
         'GroupBox4
         '
-        Me.GroupBox4.Anchor = (System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right)
-        Me.GroupBox4.Controls.AddRange(New System.Windows.Forms.Control() {Me.dtpVouchReturnEndDate, Me.Label15, Me.dtpVouchReturnStartDate, Me.Label120, Me.dtpVouchReturnSignDate, Me.txtVouchReturnPerson, Me.Label13, Me.Label14})
+        Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Controls.Add(Me.txtLoanofficertelphone)
+        Me.GroupBox4.Controls.Add(Me.Label12)
+        Me.GroupBox4.Controls.Add(Me.txtLoanofficer)
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.dtpVouchReturnEndDate)
+        Me.GroupBox4.Controls.Add(Me.Label15)
+        Me.GroupBox4.Controls.Add(Me.dtpVouchReturnStartDate)
+        Me.GroupBox4.Controls.Add(Me.Label120)
+        Me.GroupBox4.Controls.Add(Me.dtpVouchReturnSignDate)
+        Me.GroupBox4.Controls.Add(Me.txtVouchReturnPerson)
+        Me.GroupBox4.Controls.Add(Me.Label13)
+        Me.GroupBox4.Controls.Add(Me.Label14)
         Me.GroupBox4.Location = New System.Drawing.Point(8, 368)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(624, 72)
@@ -246,16 +212,48 @@ Public Class frmVouchReturn
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "登记放款回执"
         '
+        'txtLoanofficertelphone
+        '
+        Me.txtLoanofficertelphone.Location = New System.Drawing.Point(306, 48)
+        Me.txtLoanofficertelphone.Name = "txtLoanofficertelphone"
+        Me.txtLoanofficertelphone.Size = New System.Drawing.Size(120, 21)
+        Me.txtLoanofficertelphone.TabIndex = 22
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(247, 54)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(53, 12)
+        Me.Label12.TabIndex = 21
+        Me.Label12.Text = "联系电话"
+        '
+        'txtLoanofficer
+        '
+        Me.txtLoanofficer.Location = New System.Drawing.Point(112, 45)
+        Me.txtLoanofficer.Name = "txtLoanofficer"
+        Me.txtLoanofficer.Size = New System.Drawing.Size(113, 21)
+        Me.txtLoanofficer.TabIndex = 20
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(24, 50)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(41, 12)
+        Me.Label9.TabIndex = 19
+        Me.Label9.Text = "信贷员"
+        '
         'dtpVouchReturnEndDate
         '
-        Me.dtpVouchReturnEndDate.Location = New System.Drawing.Point(424, 22)
+        Me.dtpVouchReturnEndDate.Location = New System.Drawing.Point(307, 17)
         Me.dtpVouchReturnEndDate.Name = "dtpVouchReturnEndDate"
-        Me.dtpVouchReturnEndDate.Size = New System.Drawing.Size(176, 21)
+        Me.dtpVouchReturnEndDate.Size = New System.Drawing.Size(119, 21)
         Me.dtpVouchReturnEndDate.TabIndex = 18
         '
         'Label15
         '
-        Me.Label15.Location = New System.Drawing.Point(320, 24)
+        Me.Label15.Location = New System.Drawing.Point(247, 22)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(54, 16)
         Me.Label15.TabIndex = 17
@@ -263,14 +261,14 @@ Public Class frmVouchReturn
         '
         'dtpVouchReturnStartDate
         '
-        Me.dtpVouchReturnStartDate.Location = New System.Drawing.Point(112, 22)
+        Me.dtpVouchReturnStartDate.Location = New System.Drawing.Point(112, 16)
         Me.dtpVouchReturnStartDate.Name = "dtpVouchReturnStartDate"
-        Me.dtpVouchReturnStartDate.Size = New System.Drawing.Size(176, 21)
+        Me.dtpVouchReturnStartDate.Size = New System.Drawing.Size(113, 21)
         Me.dtpVouchReturnStartDate.TabIndex = 16
         '
         'Label120
         '
-        Me.Label120.Location = New System.Drawing.Point(24, 24)
+        Me.Label120.Location = New System.Drawing.Point(24, 21)
         Me.Label120.Name = "Label120"
         Me.Label120.Size = New System.Drawing.Size(54, 16)
         Me.Label120.TabIndex = 15
@@ -279,7 +277,7 @@ Public Class frmVouchReturn
         'dtpVouchReturnSignDate
         '
         Me.dtpVouchReturnSignDate.Enabled = False
-        Me.dtpVouchReturnSignDate.Location = New System.Drawing.Point(424, 40)
+        Me.dtpVouchReturnSignDate.Location = New System.Drawing.Point(592, 48)
         Me.dtpVouchReturnSignDate.Name = "dtpVouchReturnSignDate"
         Me.dtpVouchReturnSignDate.Size = New System.Drawing.Size(8, 21)
         Me.dtpVouchReturnSignDate.TabIndex = 14
@@ -288,16 +286,15 @@ Public Class frmVouchReturn
         'txtVouchReturnPerson
         '
         Me.txtVouchReturnPerson.BackColor = System.Drawing.Color.Gainsboro
-        Me.txtVouchReturnPerson.Location = New System.Drawing.Point(112, 46)
+        Me.txtVouchReturnPerson.Location = New System.Drawing.Point(480, 45)
         Me.txtVouchReturnPerson.Name = "txtVouchReturnPerson"
         Me.txtVouchReturnPerson.ReadOnly = True
-        Me.txtVouchReturnPerson.Size = New System.Drawing.Size(176, 21)
+        Me.txtVouchReturnPerson.Size = New System.Drawing.Size(120, 21)
         Me.txtVouchReturnPerson.TabIndex = 13
-        Me.txtVouchReturnPerson.Text = ""
         '
         'Label13
         '
-        Me.Label13.Location = New System.Drawing.Point(24, 48)
+        Me.Label13.Location = New System.Drawing.Point(432, 50)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(42, 16)
         Me.Label13.TabIndex = 7
@@ -306,7 +303,7 @@ Public Class frmVouchReturn
         'Label14
         '
         Me.Label14.Enabled = False
-        Me.Label14.Location = New System.Drawing.Point(400, 48)
+        Me.Label14.Location = New System.Drawing.Point(578, 51)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(8, 16)
         Me.Label14.TabIndex = 5
@@ -317,17 +314,38 @@ Public Class frmVouchReturn
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
         Me.ClientSize = New System.Drawing.Size(642, 479)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.btnAdd, Me.btnViewAffirmContent, Me.btnSave, Me.grpLoanNotice, Me.btnConferenceTrial, Me.btnUploadReport, Me.GroupBox2, Me.btnCommit, Me.btnExit, Me.txtEnterpriseName, Me.txtProjectCode, Me.Label2, Me.Label1, Me.GroupBox1, Me.GroupBox3, Me.GroupBox4})
+        Me.Controls.Add(Me.GroupBox4)
+        Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Name = "frmVouchReturn"
         Me.Text = "登记放款回执"
+        Me.Controls.SetChildIndex(Me.GroupBox4, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox3, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox1, 0)
+        Me.Controls.SetChildIndex(Me.Label1, 0)
+        Me.Controls.SetChildIndex(Me.Label2, 0)
+        Me.Controls.SetChildIndex(Me.txtProjectCode, 0)
+        Me.Controls.SetChildIndex(Me.txtEnterpriseName, 0)
+        Me.Controls.SetChildIndex(Me.btnExit, 0)
+        Me.Controls.SetChildIndex(Me.btnCommit, 0)
+        Me.Controls.SetChildIndex(Me.GroupBox2, 0)
+        Me.Controls.SetChildIndex(Me.btnUploadReport, 0)
+        Me.Controls.SetChildIndex(Me.btnConferenceTrial, 0)
+        Me.Controls.SetChildIndex(Me.grpLoanNotice, 0)
+        Me.Controls.SetChildIndex(Me.btnSave, 0)
+        Me.Controls.SetChildIndex(Me.btnViewAffirmContent, 0)
+        Me.Controls.SetChildIndex(Me.btnAdd, 0)
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        Me.grpLoanNotice.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         CType(Me.dgLoanNotice, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpLoanNotice.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.dgDatum, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -377,6 +395,15 @@ Public Class frmVouchReturn
                 Else
                     Me.dtpVouchReturnSignDate.Value = gWs.GetSysTime()
                 End If
+                If Not .Item("loan_officer") Is System.DBNull.Value Then
+                    Me.txtLoanofficer.Text = .Item("loan_officer")                
+                End If
+                
+                If Not .Item("loan_officer_telephone") Is System.DBNull.Value Then
+                    Me.txtLoanofficertelphone.Text = .Item("loan_officer_telephone")
+                End If
+
+
             End With
         End If
     End Sub
@@ -395,6 +422,7 @@ Public Class frmVouchReturn
             If strTemp Is Nothing Then
                 Return
             End If
+           
             If strTemp <> "1" Then
                 'MessageBox.Show("数据保存失败：" + strTemp, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 SWDialogBox.MessageBox.Show("*999", "frmVouchReturn.btnCommit_Click", strTemp, "Me.SaveData")
@@ -411,8 +439,10 @@ Public Class frmVouchReturn
     End Sub
 
     Protected Overrides Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
         Dim strTemp As String
         strTemp = Me.SaveData()
+
         If strTemp Is Nothing Then
             Return
         End If
@@ -436,6 +466,15 @@ Public Class frmVouchReturn
         End If
         Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
         Try
+            If txtLoanofficer.Text = "" Or txtLoanofficertelphone.Text = "" Then
+                '    MsgBox("信贷员项不能为空", MsgBoxStyle.OkOnly, "错误信息")
+                '    Return "文本框不能空白！"
+                'Else
+                'End If
+                'If txtLoanofficertelphone.Text = "" Then
+                MsgBox("信贷员信息不能为空", MsgBoxStyle.OkOnly, "错误信息")
+                Return "文本框不能空白！"
+            End If
             ds = gWs.GetLoanNoticeInfo("{project_code='" & Me.strProjectCode & "' order by create_date desc}")
             If Not ds.Tables(0).Rows.Count = 0 Then
                 With ds.Tables(0).Rows(0)
@@ -443,6 +482,10 @@ Public Class frmVouchReturn
                     .Item("register_date") = Me.dtpVouchReturnSignDate.Value
                     .Item("start_date") = Me.dtpVouchReturnStartDate.Value
                     .Item("end_date") = Me.dtpVouchReturnEndDate.Value
+                    .Item("loan_officer") = Me.txtLoanofficer.Text
+                    .Item("loan_officer_telephone") = Me.txtLoanofficertelphone.Text
+
+
                 End With
                 Return gWs.UpdateLoanNotice(ds)
             End If
@@ -520,5 +563,6 @@ Public Class frmVouchReturn
         End If
     End Sub
 
+    
     
 End Class

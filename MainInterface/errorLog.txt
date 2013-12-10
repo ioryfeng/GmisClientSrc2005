@@ -18,3 +18,19 @@
 
 test
 ----------------------
+2013/11/29 8:50:36
+系统错误
+发生无法预知的错误！
+
+错误来源：MainInterface
+错误消息：未将对象引用设置到对象的实例。
+项目任务信息：   在 MainInterface.frmWardAffirm.getFormInfo() 位置 D:\项目代码\GMIS\GMISclient\GmisClientSrc2005\MainInterface\qxd\frmWardAffirm.vb:行号 359
+----------------------
+2013/11/29 8:50:38
+系统错误
+发生无法预知的错误！
+
+错误来源：MainInterface
+错误消息：未将对象引用设置到对象的实例。
+项目任务信息：   在 MainInterface.frmWardAffirm.setButton() 位置 D:\项目代码\GMIS\GMISclient\GmisClientSrc2005\MainInterface\qxd\frmWardAffirm.vb:行号 778
+----------------------

@@ -285,6 +285,7 @@ Public Class FUpdateMeetRecord
                " WHERE  (isliving = 1) and (manager_A='" & UserName & "'" & _
                " or (select top 1 attend_person from project_task_attendee where project_task_attendee.project_code=queryProjectInfo.ProjectCode and role_id='24')='" & UserName & "') "
 
+
         'strSql = " SELECT ProjectCode, EnterpriseName, phase, Status,ServiceType" & _
         '     " FROM dbo.queryProjectInfo" & _
         '     " WHERE  (manager_A='" & UserName & "'" & _
@@ -318,6 +319,14 @@ Public Class FUpdateMeetRecord
         '获取列表当前行的项目ID
         tmpProjectID = dgQueryResult.Item(iIndex, 0)
         strCorpName = dgQueryResult.Item(iIndex, 1)
+
+
+        'add   yansm   2013/12/5
+        '判断是否记录过评审会结论
+        If gWs.GetCommonQueryInfo("select task_id from work_log where project_code='" & Me.tmpProjectID & "'and task_id='RecordReviewConclusion'").Tables(0).Rows.Count = 0 Then
+            MsgBox("该项目未记录过评审会结论，不能修改！", MsgBoxStyle.OkOnly, "修改评审意见表")
+            Return
+        End If
 
         Dim updateMeetApply As FUpdateMeetRecordApply = New FUpdateMeetRecordApply()
         updateMeetApply.OpenApplyTool(tmpProjectID, strCorpName, getWorkFlowID(), getTaskID(), Me, UserName)

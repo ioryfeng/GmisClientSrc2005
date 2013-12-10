@@ -575,7 +575,7 @@ Public Class FViewAffirmContent
         Me.DataGridTextBoxColumn15.Alignment = System.Windows.Forms.HorizontalAlignment.Right
         Me.DataGridTextBoxColumn15.Format = "c"
         Me.DataGridTextBoxColumn15.FormatInfo = CType(resources.GetObject("DataGridTextBoxColumn15.FormatInfo"), System.Globalization.NumberFormatInfo)
-        Me.DataGridTextBoxColumn15.HeaderText = "评估值(元)"
+        Me.DataGridTextBoxColumn15.HeaderText = "评估总值(元)"
         Me.DataGridTextBoxColumn15.MappingName = "evaluate_value"
         Me.DataGridTextBoxColumn15.NullText = ""
         Me.DataGridTextBoxColumn15.Width = 75

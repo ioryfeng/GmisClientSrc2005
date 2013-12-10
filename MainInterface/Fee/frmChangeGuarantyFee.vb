@@ -1314,7 +1314,13 @@ Public Class frmChangeGuarantyFee
         '    Return GuaranSum * CDbl(txtStandard.Text) * month / 1200
         'End If
 
-        Return GuaranSum * CDbl(txtStandard.Text) / 100
+        'add   yansm  2013/12/9
+
+        If "06,08" Then                                              '如果是保函，則與日期無關
+            Return GuaranSum * CDbl(txtStandard.Text) / 100
+        Else
+            Return GuaranSum * CDbl(txtStandard.Text) * month / 12 / 100
+        End If
     End Function
     Private Function IsInfoEffective() As Boolean
         Try
@@ -1341,10 +1347,12 @@ Public Class frmChangeGuarantyFee
                 Return
             End If
         End If
-
+        'add yansm   2013 12 9
         Dim result As String
         If dsAccount.Tables(0).Rows.Count > 0 Then
             dsAccount.Tables(0).Rows(0)("payout") = IIf(txtGuaFee.Text <> String.Empty, txtGuaFee.Text, DBNull.Value)
+            dsAccount.Tables(0).Rows(0)("create_person") = UserName
+            dsAccount.Tables(0).Rows(0)("create_date") = Now
         ElseIf CDbl(txtGuaFee.Text) > 0 Then
             Dim now As DateTime = gWs.GetSysTime
             Dim dr As DataRow = dsAccount.Tables(0).NewRow
